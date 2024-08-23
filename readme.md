@@ -43,9 +43,9 @@
 
 # Free Movie Streaming Websites
 
-1. **[FMovies24](https://fmovies24.to/)**
+1. **[Fmovies](https://fmovies.ps/)**
 
-   - **Overview**: FMovies24 offers a vast collection of movies and TV shows across various genres, catering to a global audience seeking free streaming content.
+   - **Overview**: Fmovies offers a vast collection of movies and TV shows across various genres, catering to a global audience seeking free streaming content.
 
 2. **[Zoechip](https://zoechip.cc/)**
 
@@ -152,7 +152,7 @@ This list provides a variety of options for users looking to watch movies and TV
 
 | Number | Website                                    | Mirror                                            | Rating |
 | ------ | ------------------------------------------ | ------------------------------------------------- | ------ |
-| 1      | [FMovies24](https://fmovies24.to/)         | [FMovies24 Mirror](https://fmovies24.to/)         | 8/10   |
+| 1      | [FMovies](https://fmovies.ps/)             | [FMovies Mirror](https://fmovies.ps/)             | 8/10   |
 | 2      | [Zoechip](https://zoechip.cc/)             | [Zoechip Mirror](https://zoechip.cc/)             | 6/10   |
 | 3      | [Putlocker](https://putlocker.pe/)         | [Putlocker Mirror](https://putlocker.pe/)         | 7/10   |
 | 4      | [Soap2Day](https://www.soap2day.tf/)       | [Soap2Day Mirror](https://www.soap2day.tf/)       | 7/10   |
