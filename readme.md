@@ -43,34 +43,34 @@
 
 # Free Movie Streaming Websites List
 
-| Number | Website                                                               | Mirror                                                                       | Rating |
-| ------ | --------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------ |
-| 1      | <a href="https://fmovies.ps/" target="_blank">FMovies</a>             | <a href="https://fmovies.ps/" target="_blank">FMovies Mirror</a>             | N/A    |
-| 2      | <a href="https://zoechip.cc/" target="_blank">Zoechip</a>             | <a href="https://zoechip.cc/" target="_blank">Zoechip Mirror</a>             | N/A    |
-| 3      | <a href="https://putlocker.pe/" target="_blank">Putlocker</a>         | <a href="https://putlocker.pe/" target="_blank">Putlocker Mirror</a>         | N/A    |
-| 4      | <a href="https://www.soap2day.tf/" target="_blank">Soap2Day</a>       | <a href="https://www.soap2day.tf/" target="_blank">Soap2Day Mirror</a>       | N/A    |
-| 5      | <a href="https://1hd.to/" target="_blank">1HD</a>                     | <a href="https://1hd.to/" target="_blank">1HD Mirror</a>                     | N/A    |
-| 6      | <a href="https://gomoviestv.to/" target="_blank">GoMoviesTV</a>       | <a href="https://gomoviestv.to/" target="_blank">GoMoviesTV Mirror</a>       | N/A    |
-| 7      | <a href="https://popcornflix.com" target="_blank">Popcornflix</a>     | <a href="https://popcornflix.com" target="_blank">Popcornflix Mirror</a>     | N/A    |
-| 8      | <a href="https://www.crackle.com/" target="_blank">Crackle</a>        | <a href="https://www.crackle.com/" target="_blank">Crackle Mirror</a>        | N/A    |
-| 9      | <a href="https://pluto.tv/" target="_blank">Pluto TV</a>              | <a href="https://pluto.tv/" target="_blank">Pluto TV Mirror</a>              | N/A    |
-| 10     | <a href="https://tubitv.com/" target="_blank">Tubi TV</a>             | <a href="https://tubitv.com/" target="_blank">Tubi TV Mirror</a>             | N/A    |
-| 11     | <a href="https://flixrave.to/" target="_blank">Flixrave</a>           | <a href="https://flixrave.to/" target="_blank">Flixrave Mirror</a>           | N/A    |
-| 12     | <a href="https://cinezone.to/" target="_blank">Cinezone</a>           | <a href="https://cinezone.to/" target="_blank">Cinezone Mirror</a>           | N/A    |
-| 13     | <a href="https://upmovies.net/" target="_blank">Upmovies</a>          | <a href="https://upmovies.net/" target="_blank">Upmovies Mirror</a>          | N/A    |
-| 14     | <a href="https://vumoox.to/" target="_blank">Vumoox</a>               | <a href="https://vumoox.to/" target="_blank">Vumoox Mirror</a>               | N/A    |
-| 15     | <a href="https://gomovies-online.link/" target="_blank">GoMovies</a>  | <a href="https://gomovies-online.link/" target="_blank">GoMovies Mirror</a>  | N/A    |
-| 16     | <a href="https://bmovies.vip/" target="_blank">BMovies</a>            | <a href="https://bmovies.vip/" target="_blank">BMovies Mirror</a>            | N/A    |
-| 17     | <a href="https://moviesjoy.plus/" target="_blank">MoviesJoy</a>       | <a href="https://moviesjoy.plus/" target="_blank">MoviesJoy Mirror</a>       | N/A    |
-| 18     | <a href="https://ww.yesmovies.ag/" target="_blank">YesMovies</a>      | <a href="https://ww.yesmovies.ag/" target="_blank">YesMovies Mirror</a>      | N/A    |
-| 19     | <a href="https://afdah2.cyou/" target="_blank">Afdah</a>              | <a href="https://afdah2.cyou/" target="_blank">Afdah Mirror</a>              | N/A    |
-| 20     | <a href="https://ww2.m4ufree.tv/" target="_blank">M4ufree</a>         | <a href="https://ww2.m4ufree.tv/" target="_blank">M4ufree Mirror</a>         | N/A    |
-| 21     | <a href="https://ww.putlocker.vip/" target="_blank">Putlocker VIP</a> | <a href="https://ww.putlocker.vip/" target="_blank">Putlocker VIP Mirror</a> | N/A    |
-| 22     | <a href="https://www.primewire.li/" target="_blank">PrimeWire</a>     | <a href="https://www.primewire.li/" target="_blank">PrimeWire Mirror</a>     | N/A    |
-| 23     | <a href="https://123movies.ai/" target="_blank">123Movies</a>         | <a href="https://123movies.ai/" target="_blank">123Movies Mirror</a>         | N/A    |
-| 24     | <a href="https://solarmovie.vip/" target="_blank">SolarMovie</a>      | <a href="https://solarmovie.vip/" target="_blank">SolarMovie Mirror</a>      | N/A    |
-| 25     | <a href="https://zmoviess.co/" target="_blank">Zmovies</a>            | <a href="https://zmoviess.co/" target="_blank">Zmovies Mirror</a>            | N/A    |
-| 26     | <a href="https://zilla-xr.xyz/" target="_blank">Zilla XR</a>          | <a href="https://zilla-xr.xyz/" target="_blank">Zilla XR Mirror</a>          | N/A    |
+| Number | Website                                                                                                                              | Rating | Availability |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------ | ------------ |
+| 1      | <a href="https://fmovies.ps/" target="_blank">FMovies</a> / <a href="https://fmovies.ps/" target="_blank">FMovies Mirror</a>         | N/A    | ✔️           |
+| 2      | <a href="https://zoechip.cc/" target="_blank">Zoechip</a> / <a href="https://zoechip.cc/" target="_blank">Zoechip Mirror</a>         | N/A    | ✔️           |
+| 3      | <a href="https://putlocker.pe/" target="_blank">Putlocker</a> / <a href="https://putlocker.pe/" target="_blank">Putlocker Mirror</a> | N/A    | ✔️           |
+| 4      | <a href="https://www.soap2day.tf/" target="_blank">Soap2Day</a>                                                                      | N/A    | ✔️           |
+| 5      | <a href="https://1hd.to/" target="_blank">1HD</a>                                                                                    | N/A    | ✔️           |
+| 6      | <a href="https://gomoviestv.to/" target="_blank">GoMoviesTV</a>                                                                      | N/A    | ✔️           |
+| 7      | <a href="https://popcornflix.com" target="_blank">Popcornflix</a>                                                                    | N/A    | ✔️           |
+| 8      | <a href="https://www.crackle.com/" target="_blank">Crackle</a>                                                                       | N/A    | ✔️           |
+| 9      | <a href="https://pluto.tv/" target="_blank">Pluto TV</a>                                                                             | N/A    | ✔️           |
+| 10     | <a href="https://tubitv.com/" target="_blank">Tubi TV</a>                                                                            | N/A    | ✔️           |
+| 11     | <a href="https://flixrave.to/" target="_blank">Flixrave</a>                                                                          | N/A    | ✔️           |
+| 12     | <a href="https://cinezone.to/" target="_blank">Cinezone</a>                                                                          | N/A    | ✔️           |
+| 13     | <a href="https://upmovies.net/" target="_blank">Upmovies</a>                                                                         | N/A    | ✔️           |
+| 14     | <a href="https://vumoox.to/" target="_blank">Vumoox</a>                                                                              | N/A    | ✔️           |
+| 15     | <a href="https://gomovies-online.link/" target="_blank">GoMovies</a>                                                                 | N/A    | ✔️           |
+| 16     | <a href="https://bmovies.vip/" target="_blank">BMovies</a>                                                                           | N/A    | ✔️           |
+| 17     | <a href="https://moviesjoy.plus/" target="_blank">MoviesJoy</a>                                                                      | N/A    | ✔️           |
+| 18     | <a href="https://ww.yesmovies.ag/" target="_blank">YesMovies</a>                                                                     | N/A    | ✔️           |
+| 19     | <a href="https://afdah2.cyou/" target="_blank">Afdah</a>                                                                             | N/A    | ✔️           |
+| 20     | <a href="https://ww2.m4ufree.tv/" target="_blank">M4ufree</a>                                                                        | N/A    | ✔️           |
+| 21     | <a href="https://ww.putlocker.vip/" target="_blank">Putlocker VIP</a>                                                                | N/A    | ✔️           |
+| 22     | <a href="https://www.primewire.li/" target="_blank">PrimeWire</a>                                                                    | N/A    | ✔️           |
+| 23     | <a href="https://123movies.ai/" target="_blank">123Movies</a>                                                                        | N/A    | ✔️           |
+| 24     | <a href="https://solarmovie.vip/" target="_blank">SolarMovie</a>                                                                     | N/A    | ✔️           |
+| 25     | <a href="https://zmoviess.co/" target="_blank">Zmovies</a>                                                                           | N/A    | ✔️           |
+| 26     | <a href="https://zilla-xr.xyz/" target="_blank">Zilla XR</a> / <a href="https://zilla-xr.xyz/" target="_blank">Zilla XR Mirror</a>   | N/A    | ✔️           |
 
 **Disclaimer**: While these websites offer free streaming of movies and TV shows, users should be aware of the legal implications and copyright laws in their respective jurisdictions. It's advisable to use these platforms responsibly and ensure compliance with local regulations.
 
