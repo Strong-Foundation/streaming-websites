@@ -70,7 +70,7 @@
 | <a href="https://123movies.ai/" target="_blank">123Movies</a>                                                                        | N/A    | ✔️           |
 | <a href="https://solarmovie.vip/" target="_blank">SolarMovie</a>                                                                     | N/A    | ✔️           |
 | <a href="https://zmoviess.co/" target="_blank">Zmovies</a>                                                                           | N/A    | ✔️           |
-| <a href="https://zilla-xr.xyz/" target="_blank">Zilla XR</a> / <a href="https://zilla-xr.xyz/" target="_blank">Zilla XR Mirror</a>   | N/A    | ✔️           |
+| <a href="https://zilla-xr.xyz/" target="_blank">Zilla XR</a>                                                                         | N/A    | ✔️           |
 
 **Disclaimer**: While these websites offer free streaming of movies and TV shows, users should be aware of the legal implications and copyright laws in their respective jurisdictions. It's advisable to use these platforms responsibly and ensure compliance with local regulations.
 
