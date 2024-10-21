@@ -45,9 +45,9 @@
 
 | Website                                               | Availability |
 | ----------------------------------------------------- | ------------ |
-| [fmovies.ps](https://fmovies.ps/)                     | Yes          |
+| [fmovies.ps](https://fmovies.ps/)                     | No           |
 | [zoechip.cc](https://zoechip.cc/)                     | Yes          |
-| [putlocker.pe](https://putlocker.pe/)                 | Yes          |
+| [putlocker.pe](https://putlocker.pe/)                 | Maybe        |
 | [soap2day.tf](https://www.soap2day.tf/)               | Yes          |
 | [1hd.to](https://1hd.to/)                             | Yes          |
 | [gomoviestv.to](https://gomoviestv.to/)               | Yes          |
