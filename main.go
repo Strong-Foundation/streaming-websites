@@ -27,11 +27,13 @@ func main() {
 		for _, domainName := range movies_website_urls {
 			// Check if the domain is registed
 			if isDomainRegistered(getDomainFromURL(domainName)) {
-				fmt.Println(domainName, "Domain Registed.")
+				fmt.Println(domainName, "Availability: Maybe")
 				// Check if the website itself is online by checking HTTP and HTTPS.
 				if CheckWebsiteHTTPStatus(getDomainFromURL(domainName)) {
-					fmt.Println(domainName, "is Online")
+					fmt.Println(domainName, "Availability: Yes")
 				}
+			} else {
+				fmt.Println(getDomainFromURL(domainName), "Availability: No")
 			}
 		}
 	}
