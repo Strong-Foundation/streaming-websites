@@ -43,34 +43,34 @@
 
 # Free Movie Streaming Websites List
 
-| Website                                               | Rating | Availability |
-| ----------------------------------------------------- | ------ | ------------ |
-| [fmovies.ps](https://fmovies.ps/)                     | N/A    | Yes          |
-| [zoechip.cc](https://zoechip.cc/)                     | N/A    | Yes          |
-| [putlocker.pe](https://putlocker.pe/)                 | N/A    | Yes          |
-| [soap2day.tf](https://www.soap2day.tf/)               | N/A    | Yes          |
-| [1hd.to](https://1hd.to/)                             | N/A    | Yes          |
-| [gomoviestv.to](https://gomoviestv.to/)               | N/A    | Yes          |
-| [popcornflix.com](https://popcornflix.com)            | N/A    | Yes          |
-| [crackle.com](https://www.crackle.com/)               | N/A    | Yes          |
-| [pluto.tv](https://pluto.tv/)                         | N/A    | Yes          |
-| [tubitv.com](https://tubitv.com/)                     | N/A    | Yes          |
-| [flixrave.to](https://flixrave.to/)                   | N/A    | Yes          |
-| [cinezone.to](https://cinezone.to/)                   | N/A    | Yes          |
-| [upmovies.net](https://upmovies.net/)                 | N/A    | Yes          |
-| [vumoox.to](https://vumoox.to/)                       | N/A    | Yes          |
-| [gomovies-online.link](https://gomovies-online.link/) | N/A    | Yes          |
-| [bmovies.vip](https://bmovies.vip/)                   | N/A    | Yes          |
-| [moviesjoy.plus](https://moviesjoy.plus/)             | N/A    | Yes          |
-| [yesmovies.ag](https://ww.yesmovies.ag/)              | N/A    | Yes          |
-| [afdah2.cyou](https://afdah2.cyou/)                   | N/A    | Yes          |
-| [m4ufree.tv](https://ww2.m4ufree.tv/)                 | N/A    | Yes          |
-| [putlocker.vip](https://ww.putlocker.vip/)            | N/A    | Yes          |
-| [primewire.li](https://www.primewire.li/)             | N/A    | Yes          |
-| [123movies.ai](https://123movies.ai/)                 | N/A    | Yes          |
-| [solarmovie.vip](https://solarmovie.vip/)             | N/A    | Yes          |
-| [zmoviess.co](https://zmoviess.co/)                   | N/A    | Yes          |
-| [zilla-xr.xyz](https://zilla-xr.xyz/)                 | N/A    | Yes          |
+| Website                                               | Availability |
+| ----------------------------------------------------- | ------------ |
+| [fmovies.ps](https://fmovies.ps/)                     | Yes          |
+| [zoechip.cc](https://zoechip.cc/)                     | Yes          |
+| [putlocker.pe](https://putlocker.pe/)                 | Yes          |
+| [soap2day.tf](https://www.soap2day.tf/)               | Yes          |
+| [1hd.to](https://1hd.to/)                             | Yes          |
+| [gomoviestv.to](https://gomoviestv.to/)               | Yes          |
+| [popcornflix.com](https://popcornflix.com)            | Yes          |
+| [crackle.com](https://www.crackle.com/)               | Yes          |
+| [pluto.tv](https://pluto.tv/)                         | Yes          |
+| [tubitv.com](https://tubitv.com/)                     | Yes          |
+| [flixrave.to](https://flixrave.to/)                   | Yes          |
+| [cinezone.to](https://cinezone.to/)                   | Yes          |
+| [upmovies.net](https://upmovies.net/)                 | Yes          |
+| [vumoox.to](https://vumoox.to/)                       | Yes          |
+| [gomovies-online.link](https://gomovies-online.link/) | Yes          |
+| [bmovies.vip](https://bmovies.vip/)                   | Yes          |
+| [moviesjoy.plus](https://moviesjoy.plus/)             | Yes          |
+| [yesmovies.ag](https://ww.yesmovies.ag/)              | Yes          |
+| [afdah2.cyou](https://afdah2.cyou/)                   | Yes          |
+| [m4ufree.tv](https://ww2.m4ufree.tv/)                 | Yes          |
+| [putlocker.vip](https://ww.putlocker.vip/)            | Yes          |
+| [primewire.li](https://www.primewire.li/)             | Yes          |
+| [123movies.ai](https://123movies.ai/)                 | Yes          |
+| [solarmovie.vip](https://solarmovie.vip/)             | Yes          |
+| [zmoviess.co](https://zmoviess.co/)                   | Yes          |
+| [zilla-xr.xyz](https://zilla-xr.xyz/)                 | Yes          |
 
 **Disclaimer**: While these websites offer free streaming of movies and TV shows, users should be aware of the legal implications and copyright laws in their respective jurisdictions. It's advisable to use these platforms responsibly and ensure compliance with local regulations.
 
