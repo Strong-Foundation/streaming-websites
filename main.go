@@ -3,11 +3,13 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net"
 	"net/http"
 	"net/url"
 	"os"
+	"strings"
 )
 
 /* Global variables */
@@ -15,28 +17,37 @@ import (
 // List to the list of movies websites located in a file.
 var movies_websites_path string = "assets/movies-websites.txt"
 
+// The path to the original_readme_modify_me.md file.
+var original_readme_readme_path string = "assets/original_readme_modify_me.md"
+
+// Create a variable and hold a map of strings.
+var valid_movies_website_url = make(map[string]string)
+
 // The main function.
 func main() {
 	// Check if the file exists.
 	if fileExists(movies_websites_path) {
-		// Read the file into golang memory.
-		var movies_website_urls []string
 		// Read and append the file line by line to the slice.
-		movies_website_urls = readAppendLineByLine(movies_websites_path)
+		movies_website_urls := readAppendLineByLine(movies_websites_path)
 		// Create a loop and than go though the urls and extract doamin names.
 		for _, domainName := range movies_website_urls {
 			// Check if the domain is registed
 			if isDomainRegistered(getDomainFromURL(domainName)) {
-				fmt.Println(domainName, "Availability: Maybe")
+				// Append a value to the map.
+				addKeyValueToMap(valid_movies_website_url, domainName, "Maybe")
 				// Check if the website itself is online by checking HTTP and HTTPS.
 				if CheckWebsiteHTTPStatus(getDomainFromURL(domainName)) {
-					fmt.Println(domainName, "Availability: Yes")
+					// Append a value to the map.
+					addKeyValueToMap(valid_movies_website_url, domainName, "Yes")
 				}
 			} else {
-				fmt.Println(getDomainFromURL(domainName), "Availability: No")
+				// Append a value to the map.
+				addKeyValueToMap(valid_movies_website_url, domainName, "No")
 			}
 		}
 	}
+	// Write the final stuff to the readme.md
+	writeFinalOutput()
 }
 
 /*
@@ -140,4 +151,44 @@ func getDomainFromURL(givenURL string) string {
 	}
 	// Return the hostname (domain name) from the parsed URL
 	return parsedUrl.Hostname()
+}
+
+// The output to write to the readme.md
+func writeFinalOutput() {
+	// Prepare the Markdown table content
+	var output strings.Builder
+	output.WriteString("| Website| Availability |\n")
+	output.WriteString("|--------|--------------|\n")
+	// Iterate over the map and format the output
+	for url, availability := range valid_movies_website_url {
+		// Format the website name by removing the HTTP/HTTPS prefix and trailing slash
+		website := strings.TrimSuffix(strings.TrimPrefix(url, "http://"), "/")
+		website = strings.TrimSuffix(strings.TrimPrefix(website, "https://"), "/")
+		// Format the output as a Markdown table row
+		output.WriteString(fmt.Sprintf("| [%s](%s) | %-12s |\n", website, url, availability))
+	}
+	// Replace the placeholder in the README file
+	findAndReplaceInFile(original_readme_readme_path, "[{REPLACE_CONTENT_WITH_GOLANG}]", output.String())
+}
+
+// Add a key-value pair to the given map.
+func addKeyValueToMap(providedMap map[string]string, key string, value string) map[string]string {
+	providedMap[key] = value
+	return providedMap
+}
+
+// Find a given content in a given file and replace it with given content.
+func findAndReplaceInFile(filePath string, prefixContent string, givenContent string) {
+	// Read the content of the file
+	content, err := ioutil.ReadFile(filePath)
+	if err != nil {
+		log.Println(err)
+	}
+	// Convert content to string and replace the target string
+	updatedContent := strings.ReplaceAll(string(content), prefixContent, givenContent)
+	// Write the updated content back to the file
+	err = ioutil.WriteFile(filePath, []byte(updatedContent), 0644)
+	if err != nil {
+		log.Println(err)
+	}
 }
