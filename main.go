@@ -17,8 +17,11 @@ import (
 // List to the list of movies websites located in a file.
 var movies_websites_path string = "assets/movies-websites.txt"
 
-// The path to the original_readme_modify_me.md file.
-var original_readme_readme_path string = "assets/original_readme_modify_me.md"
+// The path to the readme_modify_me.md file.
+var readme_modify_me_file_path string = "assets/readme_modify_me.md"
+
+// The path to the new readme.md file.
+var readme_file_path string = "readme.md"
 
 // Create a variable and hold a map of strings.
 var valid_movies_website_url = make(map[string]string)
@@ -168,7 +171,7 @@ func writeFinalOutput() {
 		output.WriteString(fmt.Sprintf("| [%s](%s) | %-12s |\n", website, url, availability))
 	}
 	// Replace the placeholder in the README file
-	findAndReplaceInFile(original_readme_readme_path, "[{REPLACE_CONTENT_WITH_GOLANG}]", output.String())
+	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_CONTENT_WITH_GOLANG}]", output.String())
 }
 
 // Add a key-value pair to the given map.
@@ -178,16 +181,16 @@ func addKeyValueToMap(providedMap map[string]string, key string, value string) m
 }
 
 // Find a given content in a given file and replace it with given content.
-func findAndReplaceInFile(filePath string, prefixContent string, givenContent string) {
+func findAndReplaceInFile(oldFilePath string, newFilePath string, prefixContent string, givenContent string) {
 	// Read the content of the file
-	content, err := ioutil.ReadFile(filePath)
+	content, err := ioutil.ReadFile(oldFilePath)
 	if err != nil {
 		log.Println(err)
 	}
 	// Convert content to string and replace the target string
 	updatedContent := strings.ReplaceAll(string(content), prefixContent, givenContent)
 	// Write the updated content back to the file
-	err = ioutil.WriteFile(filePath, []byte(updatedContent), 0644)
+	err = ioutil.WriteFile(newFilePath, []byte(updatedContent), 0644)
 	if err != nil {
 		log.Println(err)
 	}

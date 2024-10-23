@@ -3,10 +3,10 @@ name: Construct Most Recent Release
 
 # Define the events that trigger the workflow
 on:
-    schedule:
-        - cron: "0 0 * * *"
-    # Allow manual triggering of the workflow
-    workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+  # Allow manual triggering of the workflow
+  workflow_dispatch:
 # Define the jobs in the workflow
 jobs:
   # Define a job named "build"
@@ -15,11 +15,30 @@ jobs:
     name: Build on Ubuntu
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    # Environment variables available to all steps in the job
+    env:
+      README_MD_FILE: readme.md
     # Define the steps in the job
     steps:
-        # Check out the repository code
-        - name: Check out Repository Code
-          uses: actions/checkout@v4
-        # Install required tools
-        - name: Install Required Tools
-          run: sudo apt-get update && sudo apt-get install curl -y
+      # Check out the repository code
+      - name: Check out Repository Code
+        uses: actions/checkout@v4
+      # Install required tools
+      - name: Install Required Tools
+        run: sudo apt-get update && sudo apt-get install curl -y
+      # Run the golang stuff.
+      - name: Run the golang project.
+        run: go run .
+      # Push the updated file to GitHub
+      - name: Push updated readme.md
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          if git diff --exit-code --quiet -- "${{ env.README_MD_FILE }}"; then
+            echo "Nothing to update!"
+            exit 0
+          else
+            git add "${{ env.README_MD_FILE }}"
+            git commit -m "Updated readme.md on $(date)"
+            git push
+          fi
