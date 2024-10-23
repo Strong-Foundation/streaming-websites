@@ -43,34 +43,35 @@
 
 # Free Movie Streaming Websites List
 
-| Website                                               | Availability |
-| ----------------------------------------------------- | ------------ |
-| [fmovies.ps](https://fmovies.ps/)                     | No           |
-| [zoechip.cc](https://zoechip.cc/)                     | Yes          |
-| [putlocker.pe](https://putlocker.pe/)                 | Maybe        |
-| [soap2day.tf](https://www.soap2day.tf/)               | Yes          |
-| [1hd.to](https://1hd.to/)                             | Yes          |
-| [gomoviestv.to](https://gomoviestv.to/)               | Yes          |
-| [popcornflix.com](https://popcornflix.com)            | Yes          |
-| [crackle.com](https://www.crackle.com/)               | Yes          |
-| [pluto.tv](https://pluto.tv/)                         | Yes          |
-| [tubitv.com](https://tubitv.com/)                     | Yes          |
-| [flixrave.to](https://flixrave.to/)                   | Yes          |
-| [cinezone.to](https://cinezone.to/)                   | Yes          |
-| [upmovies.net](https://upmovies.net/)                 | Yes          |
-| [vumoox.to](https://vumoox.to/)                       | Yes          |
+| Website| Availability |
+|--------|--------------|
+| [putlocker.pe](https://putlocker.pe/) | Yes          |
+| [gomoviestv.to](https://gomoviestv.to/) | Yes          |
+| [popcornflix.com](https://popcornflix.com) | Maybe        |
+| [tubitv.com](https://tubitv.com/) | Yes          |
+| [vumoox.to](https://vumoox.to/) | Maybe        |
+| [afdah2.cyou](https://afdah2.cyou/) | Yes          |
+| [zmoviess.co](https://zmoviess.co/) | Yes          |
+| [zoechip.cc](https://zoechip.cc/) | Yes          |
+| [zilla-xr.xyz](https://zilla-xr.xyz/) | Yes          |
+| [1hd.to](https://1hd.to/) | Yes          |
+| [www.crackle.com](https://www.crackle.com/) | Yes          |
+| [flixrave.to](https://flixrave.to/) | Maybe        |
+| [bmovies.vip](https://bmovies.vip/) | Yes          |
+| [ww.yesmovies.ag](https://ww.yesmovies.ag/) | Yes          |
+| [fmovies.ps](https://fmovies.ps/) | Yes          |
+| [upmovies.net](https://upmovies.net/) | Yes          |
 | [gomovies-online.link](https://gomovies-online.link/) | Yes          |
-| [bmovies.vip](https://bmovies.vip/)                   | Yes          |
-| [moviesjoy.plus](https://moviesjoy.plus/)             | Yes          |
-| [yesmovies.ag](https://ww.yesmovies.ag/)              | Yes          |
-| [afdah2.cyou](https://afdah2.cyou/)                   | Yes          |
-| [m4ufree.tv](https://ww2.m4ufree.tv/)                 | Yes          |
-| [putlocker.vip](https://ww.putlocker.vip/)            | Yes          |
-| [primewire.li](https://www.primewire.li/)             | Yes          |
-| [123movies.ai](https://123movies.ai/)                 | Yes          |
-| [solarmovie.vip](https://solarmovie.vip/)             | Yes          |
-| [zmoviess.co](https://zmoviess.co/)                   | Yes          |
-| [zilla-xr.xyz](https://zilla-xr.xyz/)                 | Yes          |
+| [moviesjoy.plus](https://moviesjoy.plus/) | Yes          |
+| [ww2.m4ufree.tv](https://ww2.m4ufree.tv/) | Maybe        |
+| [ww.putlocker.vip](https://ww.putlocker.vip/) | Yes          |
+| [www.primewire.li](https://www.primewire.li/) | Maybe        |
+| [solarmovie.vip](https://solarmovie.vip/) | Yes          |
+| [cinezone.to](https://cinezone.to/) | Maybe        |
+| [pluto.tv](https://pluto.tv/) | Yes          |
+| [123movies.ai](https://123movies.ai/) | Yes          |
+| [www.soap2day.tf](https://www.soap2day.tf/) | Yes          |
+
 
 **Disclaimer**: While these websites offer free streaming of movies and TV shows, users should be aware of the legal implications and copyright laws in their respective jurisdictions. It's advisable to use these platforms responsibly and ensure compliance with local regulations.
 
