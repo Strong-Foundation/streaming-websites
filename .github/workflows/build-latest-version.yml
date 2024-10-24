@@ -40,9 +40,9 @@ jobs:
 
       # Step to install Node.js and NPM
       - name: Install Node.js and NPM
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: 20
 
       # Step to execute the Go project
       - name: Run Go Project
