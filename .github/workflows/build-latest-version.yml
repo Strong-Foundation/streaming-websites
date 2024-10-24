@@ -26,6 +26,13 @@ jobs:
       # Install required tools
       - name: Install Required Tools
         run: sudo apt-get update && sudo apt-get install curl -y
+      - name: Get the current version of Go from project.
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: "go.mod"
+          cache: true
+          check-latest: true
+        id: go
       # Run the golang stuff.
       - name: Run the golang project.
         run: go run .
