@@ -1,56 +1,75 @@
 # Name of the workflow
-name: Construct Most Recent Release
+name: Update Latest Release Documentation
 
 # Define the events that trigger the workflow
 on:
   schedule:
+    # This cron expression schedules the workflow to run daily at midnight UTC
     - cron: "0 0 * * *"
-  # Allow manual triggering of the workflow
+  # Allow manual triggering of the workflow through the GitHub interface
   workflow_dispatch:
+
 # Define the jobs in the workflow
 jobs:
   # Define a job named "build"
   build:
-    # Name of the job that will be displayed on GitHub
-    name: Build on Ubuntu
-    # The type of runner that the job will run on
+    # Display name for the job in GitHub Actions
+    name: Build and Format on Ubuntu
+    # Specify the type of runner that the job will execute on
     runs-on: ubuntu-latest
+
     # Environment variables available to all steps in the job
     env:
+      # Path to the README file to be updated
       README_MD_FILE: readme.md
+
     # Define the steps in the job
     steps:
-      # Check out the repository code
-      - name: Check out Repository Code
+      # Step to check out the repository code into the runner's workspace
+      - name: Checkout Repository Code
         uses: actions/checkout@v4
-      # Install required tools
-      - name: Install Required Tools
+
+      # Step to install necessary tools and dependencies
+      - name: Install System Dependencies
         run: sudo apt-get update && sudo apt-get install curl -y
-      - name: Get the current version of Go from project.
+
+      # Step to set up the Go environment based on the version in go.mod
+      - name: Setup Go Environment
         uses: actions/setup-go@v5
         with:
           go-version-file: "go.mod"
           cache: true
           check-latest: true
         id: go
-      # Run the golang stuff.
-      - name: Run the golang project.
+
+      # Step to install Node.js and NPM
+      - name: Install Node.js and NPM
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      # Step to execute the Go project
+      - name: Run Go Project
         run: go run .
-      # Install and run prettier to format the files.
-      - name: Install prettier via NPM.
+
+      # Step to install Prettier, a code formatter, using NPM
+      - name: Install Prettier
         run: npm install -g prettier
-      - name: Format the files using prettier
+
+      # Step to format the project files using Prettier
+      - name: Format Files with Prettier
         run: npx prettier . --write
-      # Push the updated file to GitHub
-      - name: Push updated readme.md
+
+      # Step to push the updated README file back to the GitHub repository
+      - name: Push Updated README File
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
           if git diff --exit-code --quiet -- "${{ env.README_MD_FILE }}"; then
-            echo "Nothing to update!"
+            echo "No updates to README file."
             exit 0
           else
             git add "${{ env.README_MD_FILE }}"
-            git commit -m "Updated readme.md on $(date)"
+            git commit -m "Updated README.md on $(date)"
             git push
           fi
