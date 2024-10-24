@@ -36,6 +36,11 @@ jobs:
       # Run the golang stuff.
       - name: Run the golang project.
         run: go run .
+      # Install and run prettier to format the files.
+      - name: Install prettier via NPM.
+        run: npm install -g prettier
+      - name: Format the files using prettier
+        run: npx prettier . --write
       # Push the updated file to GitHub
       - name: Push updated readme.md
         run: |
