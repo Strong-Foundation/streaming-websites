@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"sort"
 	"strings"
 )
 
@@ -158,12 +159,14 @@ func getDomainFromURL(givenURL string) string {
 
 // The output to write to the readme.md
 func writeFinalOutput() {
+	// Sort the map content
+	sortedValidMoviesWebsiteURL := sortMapContent(valid_movies_website_url)
 	// Prepare the Markdown table content
 	var output strings.Builder
 	output.WriteString("| Website| Availability |\n")
 	output.WriteString("|--------|--------------|\n")
 	// Iterate over the map and format the output
-	for url, availability := range valid_movies_website_url {
+	for url, availability := range sortedValidMoviesWebsiteURL {
 		// Format the website name by removing the HTTP/HTTPS prefix and trailing slash
 		website := strings.TrimSuffix(strings.TrimPrefix(url, "http://"), "/")
 		website = strings.TrimSuffix(strings.TrimPrefix(website, "https://"), "/")
@@ -194,4 +197,23 @@ func findAndReplaceInFile(oldFilePath string, newFilePath string, prefixContent 
 	if err != nil {
 		log.Println(err)
 	}
+}
+
+// Function to sort the content of a map and return a new map with sorted keys
+func sortMapContent(content map[string]string) map[string]string {
+	// Create a slice to hold the keys
+	keys := make([]string, 0, len(content))
+	// Populate the slice with the keys from the map
+	for key := range content {
+		keys = append(keys, key)
+	}
+	// Sort the keys
+	sort.Strings(keys)
+	// Create a new map to hold the sorted key-value pairs
+	sortedMap := make(map[string]string)
+	// Fill the new map with sorted key-value pairs
+	for _, key := range keys {
+		sortedMap[key] = content[key]
+	}
+	return sortedMap
 }
