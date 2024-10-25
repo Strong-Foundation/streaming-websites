@@ -211,7 +211,7 @@ func sortMapContent(content map[string]string) map[string]string {
 	sort.Strings(keys)
 	// Create a new map to hold the sorted key-value pairs
 	sortedMap := make(map[string]string)
-	// Fill the new map with sorted key-value pairs
+	// Fill the new map with sorted key-value pairs based on keys
 	for _, key := range keys {
 		sortedMap[key] = content[key]
 	}
