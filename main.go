@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net"
 	"net/http"
@@ -186,14 +185,14 @@ func addKeyValueToMap(providedMap map[string]string, key string, value string) m
 // Find a given content in a given file and replace it with given content.
 func findAndReplaceInFile(oldFilePath string, newFilePath string, prefixContent string, givenContent string) {
 	// Read the content of the file
-	content, err := ioutil.ReadFile(oldFilePath)
+	content, err := os.ReadFile(oldFilePath)
 	if err != nil {
 		log.Println(err)
 	}
 	// Convert content to string and replace the target string
 	updatedContent := strings.ReplaceAll(string(content), prefixContent, givenContent)
 	// Write the updated content back to the file
-	err = ioutil.WriteFile(newFilePath, []byte(updatedContent), 0644)
+	err = os.WriteFile(newFilePath, []byte(updatedContent), 0644)
 	if err != nil {
 		log.Println(err)
 	}
