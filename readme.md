@@ -45,32 +45,32 @@
 
 | Website                                               | Availability |
 | ----------------------------------------------------- | ------------ |
-| [zmoviess.co](https://zmoviess.co/)                   | Yes          |
-| [123movies.ai](https://123movies.ai/)                 | Yes          |
-| [gomovies-online.link](https://gomovies-online.link/) | Yes          |
-| [gomoviestv.to](https://gomoviestv.to/)               | Yes          |
-| [putlocker.pe](https://putlocker.pe/)                 | Yes          |
-| [solarmovie.vip](https://solarmovie.vip/)             | Yes          |
-| [www.primewire.li](https://www.primewire.li/)         | No           |
-| [1hd.to](https://1hd.to/)                             | Yes          |
-| [fmovies.ps](https://fmovies.ps/)                     | Yes          |
-| [tubitv.com](https://tubitv.com/)                     | Yes          |
-| [ww.putlocker.vip](https://ww.putlocker.vip/)         | Yes          |
 | [ww.yesmovies.ag](https://ww.yesmovies.ag/)           | Yes          |
-| [www.soap2day.tf](https://www.soap2day.tf/)           | Yes          |
-| [afdah2.cyou](https://afdah2.cyou/)                   | Yes          |
-| [cinezone.to](https://cinezone.to/)                   | Maybe        |
-| [flixrave.to](https://flixrave.to/)                   | Maybe        |
-| [ww2.m4ufree.tv](https://ww2.m4ufree.tv/)             | Maybe        |
-| [zoechip.cc](https://zoechip.cc/)                     | Yes          |
 | [www.crackle.com](https://www.crackle.com/)           | Yes          |
-| [zilla-xr.xyz](https://zilla-xr.xyz/)                 | Yes          |
-| [bmovies.vip](https://bmovies.vip/)                   | Yes          |
-| [moviesjoy.plus](https://moviesjoy.plus/)             | Yes          |
-| [pluto.tv](https://pluto.tv/)                         | Yes          |
+| [www.primewire.li](https://www.primewire.li/)         | No           |
+| [flixrave.to](https://flixrave.to/)                   | Maybe        |
+| [fmovies.ps](https://fmovies.ps/)                     | Yes          |
 | [popcornflix.com](https://popcornflix.com)            | Maybe        |
-| [upmovies.net](https://upmovies.net/)                 | Yes          |
+| [solarmovie.vip](https://solarmovie.vip/)             | Yes          |
 | [vumoox.to](https://vumoox.to/)                       | Maybe        |
+| [zilla-xr.xyz](https://zilla-xr.xyz/)                 | Yes          |
+| [zmoviess.co](https://zmoviess.co/)                   | Yes          |
+| [zoechip.cc](https://zoechip.cc/)                     | Yes          |
+| [123movies.ai](https://123movies.ai/)                 | Yes          |
+| [bmovies.vip](https://bmovies.vip/)                   | Yes          |
+| [cinezone.to](https://cinezone.to/)                   | Maybe        |
+| [pluto.tv](https://pluto.tv/)                         | Yes          |
+| [upmovies.net](https://upmovies.net/)                 | Yes          |
+| [gomovies-online.link](https://gomovies-online.link/) | Yes          |
+| [putlocker.pe](https://putlocker.pe/)                 | Yes          |
+| [www.soap2day.tf](https://www.soap2day.tf/)           | Yes          |
+| [ww.putlocker.vip](https://ww.putlocker.vip/)         | Yes          |
+| [ww2.m4ufree.tv](https://ww2.m4ufree.tv/)             | Maybe        |
+| [1hd.to](https://1hd.to/)                             | Yes          |
+| [afdah2.cyou](https://afdah2.cyou/)                   | Yes          |
+| [gomoviestv.to](https://gomoviestv.to/)               | Yes          |
+| [moviesjoy.plus](https://moviesjoy.plus/)             | Yes          |
+| [tubitv.com](https://tubitv.com/)                     | Yes          |
 
 **Disclaimer**: While these websites offer free streaming of movies and TV shows, users should be aware of the legal implications and copyright laws in their respective jurisdictions. It's advisable to use these platforms responsibly and ensure compliance with local regulations.
 
