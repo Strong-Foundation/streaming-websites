@@ -73,7 +73,7 @@
 | [ww4.fmovies.co](https://ww4.fmovies.co/)                     | Yes          |
 | [www.crackle.com](https://www.crackle.com/)                   | Yes          |
 | [www.lookmovie2.to](https://www.lookmovie2.to/)               | Yes          |
-| [www.primewire.li](https://www.primewire.li/)                 | No           |
+| [www.primewire.li](https://www.primewire.li/)                 | Maybe        |
 | [www.soap2day.tf](https://www.soap2day.tf/)                   | Yes          |
 | [zilla-xr.xyz](https://zilla-xr.xyz/)                         | Yes          |
 | [zmoviess.co](https://zmoviess.co/)                           | Yes          |
