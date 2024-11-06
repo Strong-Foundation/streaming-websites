@@ -33,7 +33,7 @@ func main() {
 		// Read and append the file line by line to the slice.
 		movies_website_urls := readAppendLineByLine(movies_websites_path)
 		// Sort the slice (modifies the slice in place).
-		sortSlice(&movies_website_urls)
+		sortSlice(movies_website_urls)
 		// Remove duplicates from slice (modifies the slice in place).
 		removeDuplicatesFromSlice(movies_website_urls)
 		// Remove the old file & write the new file.
