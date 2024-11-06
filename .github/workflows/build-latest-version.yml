@@ -22,6 +22,8 @@ jobs:
     env:
       # Path to the README file to be updated
       README_MD_FILE: readme.md
+      # Path to the movies website file path
+      MOVIES_WEBSITE_FILE: assets/movies-websites.txt
 
     # Define the steps in the job
     steps:
@@ -76,6 +78,7 @@ jobs:
             exit 0
           else
             git add "${{ env.README_MD_FILE }}"
-            git commit -m "Updated "${{ env.README_MD_FILE }}" on $(date)"
+            git add "${{ env.MOVIES_WEBSITE_FILE }}"
+            git commit -m "Updated "${{ env.README_MD_FILE }}" && "${{ env.MOVIES_WEBSITE_FILE }}" on $(date)"
             git push
           fi
