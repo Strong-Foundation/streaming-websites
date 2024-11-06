@@ -32,17 +32,17 @@ func main() {
 	if fileExists(movies_websites_path) {
 		// Read and append the file line by line to the slice.
 		movies_website_urls := readAppendLineByLine(movies_websites_path)
-		// Sort the slice.
-		movies_website_urls = sortSlice(movies_website_urls)
-		// Remove duplicates from slice.
-		movies_website_urls = removeDuplicatesFromSlice(movies_website_urls)
+		// Sort the slice (modifies the slice in place).
+		sortSlice(&movies_website_urls)
+		// Remove duplicates from slice (modifies the slice in place).
+		removeDuplicatesFromSlice(movies_website_urls)
 		// Remove the old file & write the new file.
 		removeFile(movies_websites_path)
 		// Write the new content to the movies website file, (sorted) & (remove duplicates)
 		writeByteSliceToFile(movies_websites_path, movies_website_urls)
-		// Create a loop and than go though the urls and extract doamin names.
+		// Create a loop and go through the URLs and extract domain names.
 		for _, domainName := range movies_website_urls {
-			// Check if the domain is registed
+			// Check if the domain is registered
 			if isDomainRegistered(getDomainFromURL(domainName)) {
 				// Append a value to the map.
 				addKeyValueToMap(valid_movies_website_url, domainName, "Maybe")
@@ -56,9 +56,9 @@ func main() {
 				addKeyValueToMap(valid_movies_website_url, domainName, "No")
 			}
 		}
+		// Write the final output to the readme.md.
+		writeFinalOutput()
 	}
-	// Write the final stuff to the readme.md
-	writeFinalOutput()
 }
 
 /*
