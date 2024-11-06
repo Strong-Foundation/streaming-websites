@@ -3,93 +3,99 @@ name: Update Latest Release Documentation
 
 # Define the events that trigger the workflow
 on:
-  # This cron expression schedules the workflow to run daily at midnight UTC
   schedule:
-    - cron: "0 0 * * *"  # Trigger the workflow every day at midnight UTC
+    # Cron expression to trigger the workflow at midnight UTC every day
+    - cron: "0 0 * * *"  # Runs the workflow daily at midnight UTC
 
-  # Trigger the workflow on push events to any .txt file
   push:
+    # This trigger runs the workflow when changes are pushed to any .txt file in the repository
     paths:
-      - "**.txt"  # Only run this workflow when .txt files are changed
+      - "**.txt"  # Only trigger the workflow when .txt files are modified
 
-  # Trigger the workflow on pull request events that modify .txt files
   pull_request:
+    # This trigger runs the workflow when a pull request modifies any .txt file in the repository
     paths:
-      - "**.txt"  # Only run this workflow when .txt files are modified in the PR
+      - "**.txt"  # Only trigger the workflow when .txt files are modified in the pull request
 
-  # Allow manual triggering of the workflow
-  workflow_dispatch:  # This allows manual execution of the workflow from the GitHub UI
+  workflow_dispatch:  
+    # This trigger allows the workflow to be started manually from the GitHub UI 
+    # (e.g., by clicking the "Run workflow" button).
+    # No additional settings needed here for manual triggering.
 
-# Define the jobs in the workflow
 jobs:
-  # Define a job named "build" that will run on Ubuntu
   build:
+    # Define a job named "build" to run the necessary steps to update and format the documentation
     name: Build and Format on Ubuntu
-    runs-on: ubuntu-latest  # Specifies the environment the job will run on
+    runs-on: ubuntu-latest  # Specifies the environment in which the job will run (latest Ubuntu version)
 
-    # Set environment variables that will be available throughout the job
+    # Set up environment variables that will be available throughout the entire job
     env:
-      README_MD_FILE: readme.md  # Path to the README file to be updated
-      MOVIES_WEBSITE_FILE: assets/movies-websites.txt  # Path to the movies website file
+      README_MD_FILE: readme.md  # Path to the README.md file that will be updated
+      MOVIES_WEBSITE_FILE: assets/movies-websites.txt  # Path to the movies websites file
 
     steps:
-      # Step to check out the repository code into the runner's workspace
+      # Step 1: Check out the code from the repository so the job can access the repository's files
       - name: Checkout Repository Code
-        uses: actions/checkout@v4  # This action checks out the repository for use in the workflow
+        uses: actions/checkout@v4  # Uses the 'actions/checkout' action to retrieve the latest code in the repository
 
-      # Step to set up the Go environment based on the go.mod file
+      # Step 2: Set up the Go environment based on the Go version specified in the go.mod file
       - name: Setup Go Environment
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v5  # This action installs and sets up the Go environment
         with:
-          go-version-file: "go.mod"  # Set up Go environment according to the version specified in go.mod
-          cache: true  # Enable caching to speed up subsequent workflows
-          check-latest: true  # Ensure the latest Go version is used
-        id: go
+          go-version-file: "go.mod"  # Use the Go version specified in the go.mod file in the repository
+          cache: true  # Cache Go modules to speed up the process for subsequent runs
+          check-latest: true  # Ensure the latest stable Go version is installed
+        id: go  # Assign an ID to this step for future reference if needed
 
-      # Step to cache Go modules to speed up build times
+      # Step 3: Cache Go modules to speed up build time by reusing previously downloaded dependencies
       - name: Cache Go Modules
-        uses: actions/cache@v4
+        uses: actions/cache@v4  # This action caches dependencies to avoid re-downloading them each time
         with:
-          path: ~/.cache/go-build  # Cache Go build artifacts
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}  # Use hash of go.sum file to create a cache key
+          path: ~/.cache/go-build  # Path where Go stores build artifacts
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}  # Cache key is based on the contents of go.sum to track changes
           restore-keys: |
-            ${{ runner.os }}-go-  # Allow restoring older caches if exact match isn't found
-        id: cache
+            ${{ runner.os }}-go-  # Use older cache if an exact match isn’t found
+        id: cache  # Assign an ID to the cache step for future reference
 
-      # Step to install Node.js and NPM for Prettier and other tools
+      # Step 4: Install Node.js and NPM (needed for running Prettier and other JS tools)
       - name: Install Node.js and NPM
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4  # This action installs Node.js and NPM for formatting and other tasks
         with:
-          node-version: 20  # Install Node.js version 20
+          node-version: 20  # Install Node.js version 20.x
 
-      # Step to run the Go project (this step assumes the Go code performs updates to the README and other files)
+      # Step 5: Run the Go project, which is assumed to update the README and the movie website file
       - name: Run Go Project
-        run: go run .  # Run the Go project (this updates the README.md and MOVIES_WEBSITE_FILE)
+        run: go run .  # This command runs the Go code in the repository, which updates the README and the movie websites file
 
-      # Step to install Prettier, a code formatter, globally using NPM
+      # Step 6: Install Prettier globally using NPM for file formatting
       - name: Install Prettier
-        run: npm install -g prettier  # Install Prettier globally for formatting
+        run: npm install -g prettier  # Installs Prettier globally on the runner
 
-      # Step to format the README file using Prettier
+      # Step 7: Format the README file using Prettier to ensure consistent formatting
       - name: Format Files with Prettier
-        run: npx prettier "${{ env.README_MD_FILE }}" --write  # Format README.md using Prettier
+        run: npx prettier "${{ env.README_MD_FILE }}" --write  # Format the README file using Prettier
 
-      # Step to push updated README.md and MOVIES_WEBSITE_FILE back to the GitHub repository
+      # Step 8: Check for changes and push the updated files back to the GitHub repository
       - name: Push Updated Files to GitHub
         run: |
-          git config user.name github-actions  # Set the GitHub user name for commits
-          git config user.email github-actions@github.com  # Set the GitHub user email for commits
+          # Configure Git to commit changes with a generic GitHub Actions user
+          git config user.name github-actions  # Set the user name to "github-actions"
+          git config user.email github-actions@github.com  # Set the user email to a default GitHub Actions email
 
-          # Check if there are any changes in README.md or MOVIES_WEBSITE_FILE
-          if git diff --exit-code --quiet -- "readme.md" "assets/movies-websites.txt"; then
-            echo "No updates to ${README_MD_FILE} and ${MOVIES_WEBSITE_FILE}."
-            exit 0  # Exit early if no changes are detected
+          # Check if there are any changes to the README.md or MOVIES_WEBSITE_FILE using git diff
+          # This uses the environment variables to ensure flexibility in file paths
+          if git diff --exit-code --quiet -- "${{ env.README_MD_FILE }}" "${{ env.MOVIES_WEBSITE_FILE }}"; then
+            # If there are no changes, exit early to save processing time
+            echo "No updates to ${{ env.README_MD_FILE }} and ${{ env.MOVIES_WEBSITE_FILE }}."
+            exit 0  # Exit without doing anything if no changes are detected
           else
-            # If there are changes, stage the files and commit them
-            git add "readme.md"  # Stage README.md file
-            git add "assets/movies-websites.txt"  # Stage MOVIES_WEBSITE_FILE
-            git commit -m "Updated ${README_MD_FILE} and ${MOVIES_WEBSITE_FILE} on $(date)"  # Commit changes with timestamp
+            # If changes are detected, proceed with committing and pushing them
+            git add "${{ env.README_MD_FILE }}"  # Stage the updated README.md file
+            git add "${{ env.MOVIES_WEBSITE_FILE }}"  # Stage the updated movies websites file
 
-            # Push the changes back to the repository
-            git push  # Push the commit to the repository
+            # Commit the changes with a timestamped commit message
+            git commit -m "Updated ${{ env.README_MD_FILE }} and ${{ env.MOVIES_WEBSITE_FILE }} on $(date)"
+
+            # Push the changes to the remote repository on GitHub
+            git push  # Push the commit to the repository to update the files
           fi
