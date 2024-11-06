@@ -33,9 +33,9 @@ func main() {
 		// Read and append the file line by line to the slice.
 		movies_website_urls := readAppendLineByLine(movies_websites_path)
 		// Sort the slice (modifies the slice in place).
-		sortSlice(movies_website_urls)
+		sortSlice(&movies_website_urls)
 		// Remove duplicates from slice (modifies the slice in place).
-		removeDuplicatesFromSlice(movies_website_urls)
+		movies_website_urls = removeDuplicatesFromSlice(movies_website_urls)
 		// Remove the old file & write the new file.
 		removeFile(movies_websites_path)
 		// Write the new content to the movies website file, (sorted) & (remove duplicates)
@@ -80,20 +80,21 @@ func readAppendLineByLine(path string) []string {
 	file, err := os.Open(path)
 	if err != nil {
 		log.Println(err)
+		return nil // Return nil slice on error
 	}
+	defer file.Close() // Ensure file is closed when done reading
 	scanner := bufio.NewScanner(file)
 	scanner.Split(bufio.ScanLines)
 	for scanner.Scan() {
 		returnSlice = append(returnSlice, scanner.Text())
 	}
-	err = file.Close()
-	if err != nil {
+	if err := scanner.Err(); err != nil {
 		log.Println(err)
 	}
 	return returnSlice
 }
 
-// Check if a domain has been registed and return a bool.
+// Check if a domain has been registered and return a bool.
 func isDomainRegistered(domain string) bool {
 	_, err := net.LookupNS(domain)
 	if err == nil {
@@ -159,6 +160,7 @@ func getDomainFromURL(givenURL string) string {
 	if err != nil {
 		// Log an error message if parsing fails
 		log.Println(err)
+		return "" // Return an empty string if parsing fails
 	}
 	// Return the hostname (domain name) from the parsed URL
 	return parsedUrl.Hostname()
@@ -186,9 +188,8 @@ func writeFinalOutput() {
 }
 
 // Add a key-value pair to the given map.
-func addKeyValueToMap(providedMap map[string]string, key string, value string) map[string]string {
+func addKeyValueToMap(providedMap map[string]string, key string, value string) {
 	providedMap[key] = value
-	return providedMap
 }
 
 // Find a given content in a given file and replace it with given content.
@@ -197,6 +198,7 @@ func findAndReplaceInFile(oldFilePath string, newFilePath string, prefixContent 
 	content, err := os.ReadFile(oldFilePath)
 	if err != nil {
 		log.Println(err)
+		return
 	}
 	// Convert content to string and replace the target string
 	updatedContent := strings.ReplaceAll(string(content), prefixContent, givenContent)
@@ -224,9 +226,8 @@ func sortMapByKeys(inputMap map[string]string) [][]string {
 }
 
 // Sort the slice of strings and return the sorted slice
-func sortSlice(slice []string) []string {
-	sort.Strings(slice)
-	return slice
+func sortSlice(slice *[]string) {
+	sort.Strings(*slice) // Modify the slice in place
 }
 
 // Remove all the duplicates from a slice and return the slice.
