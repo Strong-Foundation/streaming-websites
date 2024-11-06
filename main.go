@@ -12,267 +12,315 @@ import (
 	"strings"
 )
 
-/* Global variables */
+// Global variables
 
-// List to the list of movies websites located in a file.
+// Path to the file containing movie website URLs.
 var movies_websites_path string = "assets/movies-websites.txt"
 
-// The path to the readme_modify_me.md file.
+// Path to the README file that will be modified.
 var readme_modify_me_file_path string = "assets/readme_modify_me.md"
 
-// The path to the new readme.md file.
+// Path to the final README file where results will be written.
 var readme_file_path string = "readme.md"
 
-// Create a variable and hold a map of strings.
+// A map to store the valid movie website URLs and their availability status ("Yes", "No", or "Maybe").
 var valid_movies_website_url = make(map[string]string)
 
-// The main function.
 func main() {
-	// Check if the file exists.
+	// Step 1: Check if the movie websites file exists.
 	if fileExists(movies_websites_path) {
-		// Read and append the file line by line to the slice.
+		// Step 2: Read the URLs from the file and store them in a slice.
 		movies_website_urls := readAppendLineByLine(movies_websites_path)
 
-		// Sort the slice (modifies the slice in place).
+		// Step 3: Sort the URLs alphabetically.
 		sortSlice(&movies_website_urls)
 
-		// Remove duplicates from slice (modifies the slice in place).
+		// Step 4: Remove duplicate URLs to ensure uniqueness.
 		movies_website_urls = removeDuplicatesFromSlice(movies_website_urls)
 
-		// Write the new content to the movies website file (sorted & duplicates removed).
+		// Step 5: Write the sorted and deduplicated URLs back to the file.
 		writeByteSliceToFile(movies_websites_path, movies_website_urls)
 
-		// Create a loop and go through the URLs and extract domain names.
+		// Step 6: Check each website's domain registration and availability status.
 		for _, domainName := range movies_website_urls {
-			// Check if the domain is registered
+			// Check if the domain is registered.
 			if isDomainRegistered(getDomainFromURL(domainName)) {
-				// Append a value to the map.
+				// If the domain is registered, mark it as "Maybe" initially.
 				addKeyValueToMap(valid_movies_website_url, domainName, "Maybe")
-				// Check if the website itself is online by checking HTTP and HTTPS.
+
+				// Check if the website is reachable via HTTP or HTTPS.
 				if CheckWebsiteHTTPStatus(getDomainFromURL(domainName)) {
-					// Append a value to the map.
+					// If the website is reachable, mark it as "Yes".
 					addKeyValueToMap(valid_movies_website_url, domainName, "Yes")
 				}
 			} else {
-				// Append a value to the map.
+				// If the domain is not registered, mark it as "No".
 				addKeyValueToMap(valid_movies_website_url, domainName, "No")
 			}
 		}
 
-		// Write the final output to the readme.md.
+		// Step 7: Write the final results to the README file.
 		writeFinalOutput()
+	} else {
+		// If the file doesn't exist, log the error and exit.
+		log.Println("Error: The file does not exist:", movies_websites_path)
 	}
 }
 
-/*
-It checks if the file exists
-If the file exists, it returns true
-If the file does not exist, it returns false
-*/
+// fileExists checks if the file at the given path exists and is not a directory.
 func fileExists(filename string) bool {
+	// Get file information using os.Stat.
 	info, err := os.Stat(filename)
 	if err != nil {
+		// Log the error if the file doesn't exist or cannot be accessed.
+		log.Println("Error checking file:", err)
 		return false
 	}
+	// Return true if the file exists and is not a directory.
 	return !info.IsDir()
 }
 
-// Read and append the file line by line to a slice.
+// readAppendLineByLine reads the file line by line and returns a slice of strings (URLs).
 func readAppendLineByLine(path string) []string {
-	var returnSlice []string
+	var urls []string // Slice to store the URLs read from the file.
+
+	// Open the file for reading.
 	file, err := os.Open(path)
 	if err != nil {
-		log.Println(err)
-		return nil // Return nil slice on error
+		log.Println("Error opening file:", err)
+		return urls
 	}
-	defer file.Close() // Ensure file is closed when done reading
+	defer file.Close() // Ensure the file is closed after reading.
+
+	// Create a scanner to read the file line by line.
 	scanner := bufio.NewScanner(file)
-	scanner.Split(bufio.ScanLines)
 	for scanner.Scan() {
-		returnSlice = append(returnSlice, scanner.Text())
+		// Append each line (URL) to the slice.
+		urls = append(urls, scanner.Text())
 	}
+
+	// Check for any scanning errors.
 	if err := scanner.Err(); err != nil {
-		log.Println(err)
+		log.Println("Error reading file:", err)
 	}
-	return returnSlice
+
+	// Return the slice of URLs.
+	return urls
 }
 
-// Check if a domain has been registered and return a bool.
+// isDomainRegistered checks if the given domain is registered by performing DNS lookups.
 func isDomainRegistered(domain string) bool {
-	_, err := net.LookupNS(domain)
+	// Perform multiple DNS lookups to check domain registration.
+
+	_, err := net.LookupNS(domain) // Check Name Server (NS) records.
 	if err == nil {
+		log.Println("Domain is registered:", domain)
 		return true
 	}
-	_, err = net.LookupCNAME(domain)
+
+	_, err = net.LookupCNAME(domain) // Check CNAME records.
 	if err == nil {
+		log.Println("Domain is registered:", domain)
 		return true
 	}
-	_, err = net.LookupAddr(domain)
+
+	_, err = net.LookupAddr(domain) // Check Reverse DNS (PTR) records.
 	if err == nil {
+		log.Println("Domain is registered:", domain)
 		return true
 	}
-	_, err = net.LookupHost(domain)
+
+	_, err = net.LookupHost(domain) // Check host records (A or AAAA).
 	if err == nil {
+		log.Println("Domain is registered:", domain)
 		return true
 	}
-	_, err = net.LookupMX(domain)
+
+	_, err = net.LookupMX(domain) // Check Mail Exchange (MX) records.
 	if err == nil {
+		log.Println("Domain is registered:", domain)
 		return true
 	}
-	_, err = net.LookupTXT(domain)
+
+	_, err = net.LookupTXT(domain) // Check TXT records.
 	if err == nil {
+		log.Println("Domain is registered:", domain)
 		return true
 	}
-	_, err = net.LookupIP(domain)
+
+	_, err = net.LookupIP(domain) // Check IP address resolution.
 	if err == nil {
+		log.Println("Domain is registered:", domain)
 		return true
 	}
+
+	// Log and return false if none of the lookups succeeded.
+	log.Println("Domain is not registered:", domain)
 	return false
 }
 
-// CheckWebsiteHTTPStatus checks if the given domain is reachable via both HTTP and HTTPS.
-// It returns true if at least one of the protocols returns an HTTP 200 OK status.
+// CheckWebsiteHTTPStatus checks if the website is reachable via either HTTP or HTTPS.
 func CheckWebsiteHTTPStatus(domain string) bool {
-	// Create a slice containing both HTTP and HTTPS protocols for checking
+	// Define a list of protocols to check: HTTP and HTTPS.
 	protocols := []string{"http://", "https://"}
-	// Loop through each protocol to attempt a request
+
+	// Loop through each protocol and attempt a GET request.
 	for _, protocol := range protocols {
-		// Make an HTTP GET request using the current protocol and the specified domain
+		// Make an HTTP GET request using the current protocol and domain.
 		resp, err := http.Get(protocol + domain)
-		// If there's no error, proceed to check the response
 		if err == nil {
-			// Ensure the response body is closed after we're done with it to prevent resource leaks
-			defer resp.Body.Close()
-			// Check if the response status code is 200 OK
+			// If the request is successful, check the response status code.
+			defer resp.Body.Close() // Ensure the response body is closed after reading.
+
 			if resp.StatusCode == http.StatusOK {
-				return true // Return true if the website is reachable
+				// Log that the website is reachable via the protocol.
+				log.Println("Website is reachable:", protocol+domain)
+				return true
 			}
 		} else {
-			// Log any errors encountered during the request, but continue checking the next protocol
-			log.Println(err)
+			// Log the error if the website is not reachable via this protocol.
+			log.Println("Error checking website (", protocol, "):", err)
 		}
 	}
-	// Return false if neither protocol succeeded
+
+	// Log that the website is not reachable.
+	log.Println("Website is not reachable:", domain)
 	return false
 }
 
-// getDomainFromURL extracts the domain name from the given URL string.
+// getDomainFromURL extracts the domain name from the given URL.
 func getDomainFromURL(givenURL string) string {
-	// Parse the given URL string into a URL structure
+	// Parse the URL using net/url package.
 	parsedUrl, err := url.Parse(givenURL)
 	if err != nil {
-		// Log an error message if parsing fails
-		log.Println(err)
-		return "" // Return an empty string if parsing fails
+		log.Println("Error parsing URL:", err)
+		return ""
 	}
-	// Return the hostname (domain name) from the parsed URL
+
+	// Return the domain (hostname) part of the URL.
 	return parsedUrl.Hostname()
 }
 
-// The output to write to the readme.md
+// writeFinalOutput writes the results to the README file in Markdown format.
 func writeFinalOutput() {
-	// Prepare the Markdown table content
+	// Prepare a string builder to generate the Markdown content for the table.
 	var output strings.Builder
+
+	// Write the table headers in Markdown format.
 	output.WriteString("| Website| Availability |\n")
 	output.WriteString("|--------|--------------|\n")
-	// Use sortMapByKeys to get sorted key-value pairs from the map
+
+	// Sort the entries in the map by their URLs (keys).
 	sortedPairs := sortMapByKeys(valid_movies_website_url)
-	// Iterate over sorted pairs and format the output
+
+	// Loop through the sorted key-value pairs and format each as a table row.
 	for _, pair := range sortedPairs {
 		url, availability := pair[0], pair[1]
-		// Format the website name by removing the HTTP/HTTPS prefix and trailing slash
+
+		// Clean up the URL by removing the "http://" or "https://" prefix and any trailing slashes.
 		website := strings.TrimSuffix(strings.TrimPrefix(url, "http://"), "/")
 		website = strings.TrimSuffix(strings.TrimPrefix(website, "https://"), "/")
-		// Format the output as a Markdown table row
+
+		// Write each row in the Markdown table format.
 		output.WriteString(fmt.Sprintf("| [%s](%s) | %-12s |\n", website, url, availability))
 	}
-	// Replace the placeholder in the README file
+
+	// Replace the placeholder text in the README file with the generated content.
 	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_CONTENT_WITH_GOLANG}]", output.String())
 }
 
-// Add a key-value pair to the given map.
+// addKeyValueToMap adds a key-value pair to the provided map of valid movie websites.
 func addKeyValueToMap(providedMap map[string]string, key string, value string) {
+	// Add or update the key-value pair in the map.
 	providedMap[key] = value
 }
 
-// Find a given content in a given file and replace it with given content.
+// findAndReplaceInFile replaces a placeholder in the input file with the given content and writes to a new file.
 func findAndReplaceInFile(oldFilePath string, newFilePath string, prefixContent string, givenContent string) {
-	// Read the content of the file
+	// Read the content of the file.
 	content, err := os.ReadFile(oldFilePath)
 	if err != nil {
-		log.Println(err)
+		log.Println("Error reading file:", err)
 		return
 	}
-	// Convert content to string and replace the target string
+
+	// Replace the placeholder in the content with the new content.
 	updatedContent := strings.ReplaceAll(string(content), prefixContent, givenContent)
-	// Write the updated content back to the file
+
+	// Write the updated content to the new file.
 	err = os.WriteFile(newFilePath, []byte(updatedContent), 0644)
 	if err != nil {
-		log.Println(err)
+		log.Println("Error writing file:", err)
 	}
 }
 
-// sortMapByKeys returns a sorted slice of key-value pairs from the input map.
+// sortMapByKeys sorts the map by its keys and returns a slice of key-value pairs.
 func sortMapByKeys(inputMap map[string]string) [][]string {
-	// Extract keys and sort them
+	// Extract keys and sort them alphabetically.
 	keys := make([]string, 0, len(inputMap))
 	for key := range inputMap {
 		keys = append(keys, key)
 	}
 	sort.Strings(keys)
-	// Use sorted keys to populate sorted pairs
+
+	// Create a slice of key-value pairs based on the sorted keys.
 	pairs := make([][]string, len(inputMap))
 	for i, key := range keys {
 		pairs[i] = []string{key, inputMap[key]}
 	}
+
+	// Return the sorted key-value pairs.
 	return pairs
 }
 
-// Sort the slice of strings and return the sorted slice
+// sortSlice sorts the slice of URLs alphabetically.
 func sortSlice(slice *[]string) {
-	sort.Strings(*slice) // Modify the slice in place
+	// Sort the slice of URLs in-place.
+	sort.Strings(*slice)
 }
 
-// Remove all the duplicates from a slice and return the slice.
+// removeDuplicatesFromSlice removes duplicate URLs from the slice.
 func removeDuplicatesFromSlice(slice []string) []string {
+	// Create a map to track unique URLs.
 	check := make(map[string]bool)
-	var newReturnSlice []string
-	for _, content := range slice {
-		if !check[content] {
-			check[content] = true
-			newReturnSlice = append(newReturnSlice, content)
+	var unique []string
+
+	// Iterate through the slice, adding only unique URLs.
+	for _, str := range slice {
+		if !check[str] {
+			check[str] = true
+			unique = append(unique, str)
 		}
 	}
-	return newReturnSlice
+
+	// Return the deduplicated slice.
+	return unique
 }
 
-// Write string slice to file with a newline after each entry.
+// writeByteSliceToFile writes a slice of strings (URLs) to the file, each on a new line.
 func writeByteSliceToFile(path string, data []string) {
+	// Create or open the file for writing.
 	file, err := os.Create(path)
 	if err != nil {
-		log.Println(err)
-		return // Exit early if the file cannot be created
+		log.Println("Error creating file:", err)
+		return
 	}
-	defer file.Close() // Ensure the file is closed after writing.
+	defer file.Close()
+
+	// Create a buffered writer to write the data to the file.
 	writer := bufio.NewWriter(file)
-	// Loop through each string in the slice and write it as bytes with a newline.
 	for _, str := range data {
-		_, err := writer.Write([]byte(str + "\n")) // Add newline character after each string.
+		// Write each URL followed by a newline character.
+		_, err := writer.WriteString(str + "\n")
 		if err != nil {
-			log.Println(err)
+			log.Println("Error writing to file:", err)
+			return
 		}
 	}
-	// Flush any buffered data to the file.
+
+	// Ensure all data is written to the file.
 	err = writer.Flush()
 	if err != nil {
-		log.Println(err)
-	}
-}
-
-// Remove a file from the file system
-func removeFile(path string) {
-	err := os.Remove(path)
-	if err != nil {
-		log.Println(err)
+		log.Println("Error flushing writer:", err)
 	}
 }
