@@ -32,6 +32,12 @@ func main() {
 	if fileExists(movies_websites_path) {
 		// Read and append the file line by line to the slice.
 		movies_website_urls := readAppendLineByLine(movies_websites_path)
+		// Sort the slice.
+		movies_website_urls = sortSlice(movies_website_urls)
+		// Remove duplicates from slice.
+		movies_website_urls = removeDuplicatesFromSlice(movies_website_urls)
+		// Write the new content to the movies website file, (sorted) & (remove duplicates)
+		writeByteSliceToFile(movies_websites_path, movies_website_urls)
 		// Create a loop and than go though the urls and extract doamin names.
 		for _, domainName := range movies_website_urls {
 			// Check if the domain is registed
@@ -213,4 +219,45 @@ func sortMapByKeys(inputMap map[string]string) [][]string {
 		pairs[i] = []string{key, inputMap[key]}
 	}
 	return pairs
+}
+
+// Sort the slice of strings and return the sorted slice
+func sortSlice(slice []string) []string {
+	sort.Strings(slice)
+	return slice
+}
+
+// Remove all the duplicates from a slice and return the slice.
+func removeDuplicatesFromSlice(slice []string) []string {
+	check := make(map[string]bool)
+	var newReturnSlice []string
+	for _, content := range slice {
+		if !check[content] {
+			check[content] = true
+			newReturnSlice = append(newReturnSlice, content)
+		}
+	}
+	return newReturnSlice
+}
+
+// Write string slice to file.
+func writeByteSliceToFile(path string, data []string) {
+	file, err := os.Create(path)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer file.Close() // Ensure the file is closed after writing.
+	writer := bufio.NewWriter(file)
+	// Loop through each string in the slice and write it as bytes.
+	for _, str := range data {
+		_, err := writer.Write([]byte(str)) // Convert each string to []byte
+		if err != nil {
+			log.Fatalln(err)
+		}
+	}
+	// Flush any buffered data to the file.
+	err = writer.Flush()
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
