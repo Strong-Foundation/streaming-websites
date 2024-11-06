@@ -242,17 +242,18 @@ func removeDuplicatesFromSlice(slice []string) []string {
 	return newReturnSlice
 }
 
-// Write string slice to file.
+// Write string slice to file with a newline after each entry.
 func writeByteSliceToFile(path string, data []string) {
 	file, err := os.Create(path)
 	if err != nil {
 		log.Println(err)
+		return // Exit early if the file cannot be created
 	}
 	defer file.Close() // Ensure the file is closed after writing.
 	writer := bufio.NewWriter(file)
-	// Loop through each string in the slice and write it as bytes.
+	// Loop through each string in the slice and write it as bytes with a newline.
 	for _, str := range data {
-		_, err := writer.Write([]byte(str)) // Convert each string to []byte
+		_, err := writer.Write([]byte(str + "\n")) // Add newline character after each string.
 		if err != nil {
 			log.Println(err)
 		}
