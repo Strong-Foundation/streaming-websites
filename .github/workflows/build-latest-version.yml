@@ -3,10 +3,20 @@ name: Update Latest Release Documentation
 
 # Define the events that trigger the workflow
 on:
+  # This cron expression schedules the workflow to run daily at midnight UTC
   schedule:
-    # This cron expression schedules the workflow to run daily at midnight UTC
     - cron: "0 0 * * *"
-  # Allow manual triggering of the workflow through the GitHub interface
+  # Trigger the workflow on push events
+  push:
+    # Only for .txt files
+    paths:
+      - "**.txt"
+  # Trigger the workflow on pull request events
+  pull_request:
+    # Only for .txt files
+    paths:
+      - "**.txt"
+  # Allow manual triggering of the workflow
   workflow_dispatch:
 
 # Define the jobs in the workflow
