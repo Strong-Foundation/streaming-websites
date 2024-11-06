@@ -81,14 +81,14 @@ jobs:
           git config user.email github-actions@github.com  # Set the GitHub user email for commits
 
           # Check if there are any changes in README.md or MOVIES_WEBSITE_FILE
-          if git diff --exit-code --quiet -- "${{ env.README_MD_FILE }}" "${{ env.MOVIES_WEBSITE_FILE }}"; then
-            echo "No updates to ${ { env.README_MD_FILE }} and ${ { env.MOVIES_WEBSITE_FILE }}."
+          if git diff --exit-code --quiet -- "readme.md" "assets/movies-websites.txt"; then
+            echo "No updates to ${README_MD_FILE} and ${MOVIES_WEBSITE_FILE}."
             exit 0  # Exit early if no changes are detected
           else
             # If there are changes, stage the files and commit them
-            git add "${{ env.README_MD_FILE }}"  # Stage README.md file
-            git add "${{ env.MOVIES_WEBSITE_FILE }}"  # Stage MOVIES_WEBSITE_FILE
-            git commit -m "Updated ${ { env.README_MD_FILE }} and ${ { env.MOVIES_WEBSITE_FILE }} on $(date)"  # Commit changes with timestamp
+            git add "readme.md"  # Stage README.md file
+            git add "assets/movies-websites.txt"  # Stage MOVIES_WEBSITE_FILE
+            git commit -m "Updated ${README_MD_FILE} and ${MOVIES_WEBSITE_FILE} on $(date)"  # Commit changes with timestamp
 
             # Push the changes back to the repository
             git push  # Push the commit to the repository
