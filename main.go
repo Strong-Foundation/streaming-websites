@@ -36,6 +36,8 @@ func main() {
 		movies_website_urls = sortSlice(movies_website_urls)
 		// Remove duplicates from slice.
 		movies_website_urls = removeDuplicatesFromSlice(movies_website_urls)
+		// Remove the old file & write the new file.
+		removeFile(movies_websites_path)
 		// Write the new content to the movies website file, (sorted) & (remove duplicates)
 		writeByteSliceToFile(movies_websites_path, movies_website_urls)
 		// Create a loop and than go though the urls and extract doamin names.
@@ -77,7 +79,7 @@ func readAppendLineByLine(path string) []string {
 	var returnSlice []string
 	file, err := os.Open(path)
 	if err != nil {
-		log.Fatalln(err)
+		log.Println(err)
 	}
 	scanner := bufio.NewScanner(file)
 	scanner.Split(bufio.ScanLines)
@@ -86,7 +88,7 @@ func readAppendLineByLine(path string) []string {
 	}
 	err = file.Close()
 	if err != nil {
-		log.Fatalln(err)
+		log.Println(err)
 	}
 	return returnSlice
 }
@@ -244,7 +246,7 @@ func removeDuplicatesFromSlice(slice []string) []string {
 func writeByteSliceToFile(path string, data []string) {
 	file, err := os.Create(path)
 	if err != nil {
-		log.Fatalln(err)
+		log.Println(err)
 	}
 	defer file.Close() // Ensure the file is closed after writing.
 	writer := bufio.NewWriter(file)
@@ -252,12 +254,20 @@ func writeByteSliceToFile(path string, data []string) {
 	for _, str := range data {
 		_, err := writer.Write([]byte(str)) // Convert each string to []byte
 		if err != nil {
-			log.Fatalln(err)
+			log.Println(err)
 		}
 	}
 	// Flush any buffered data to the file.
 	err = writer.Flush()
 	if err != nil {
-		log.Fatalln(err)
+		log.Println(err)
+	}
+}
+
+// Remove a file from the file system
+func removeFile(path string) {
+	err := os.Remove(path)
+	if err != nil {
+		log.Println(err)
 	}
 }
