@@ -69,7 +69,7 @@
 | [vumoox.to](https://vumoox.to/)                               | Maybe        |
 | [ww.putlocker.vip](https://ww.putlocker.vip/)                 | Yes          |
 | [ww.yesmovies.ag](https://ww.yesmovies.ag/)                   | Yes          |
-| [ww2.m4ufree.tv](https://ww2.m4ufree.tv/)                     | Maybe        |
+| [ww2.m4ufree.tv](https://ww2.m4ufree.tv/)                     | No           |
 | [ww2.m4uhd.tv](https://ww2.m4uhd.tv/)                         | Maybe        |
 | [ww4.fmovies.co](https://ww4.fmovies.co/)                     | Yes          |
 | [www.crackle.com](https://www.crackle.com/)                   | Yes          |
