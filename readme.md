@@ -62,6 +62,7 @@
 | [popcornflix.com](https://popcornflix.com)                    | Maybe        |
 | [pressplay.top](https://pressplay.top/)                       | Maybe        |
 | [primeflix-web.vercel.app](https://primeflix-web.vercel.app/) | Yes          |
+| [projectfreetv.biz](https://projectfreetv.biz/)               | Yes          |
 | [putlocker.pe](https://putlocker.pe/)                         | Yes          |
 | [solarmovie.vip](https://solarmovie.vip/)                     | Yes          |
 | [tubitv.com](https://tubitv.com/)                             | Yes          |
