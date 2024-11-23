@@ -71,7 +71,7 @@
 | [ee3.me](https://ee3.me/)                                                     | Yes          |
 | [enjoytown.netlify.app](https://enjoytown.netlify.app/)                       | Yes          |
 | [fawesome.tv](https://fawesome.tv/)                                           | Yes          |
-| [film-haven.vercel.app/?p=1](https://film-haven.vercel.app/?p=1/)             | Yes          |
+| [film-haven.vercel.app](https://film-haven.vercel.app/)                       | Yes          |
 | [filmex.to](https://filmex.to/)                                               | Maybe        |
 | [fireflixhd1.netlify.app](https://fireflixhd1.netlify.app/)                   | Yes          |
 | [flix.smashystream.xyz](https://flix.smashystream.xyz/)                       | Yes          |
@@ -93,7 +93,7 @@
 | [hdtodayz.to](https://hdtodayz.to/)                                           | Yes          |
 | [heartive.pages.dev](https://heartive.pages.dev/)                             | Yes          |
 | [hexa.watch](https://hexa.watch/)                                             | Yes          |
-| [hollymoviehd.cc](https://hollymoviehd.cc/)                                   | Maybe        |
+| [hollymoviehd.cc](https://hollymoviehd.cc/)                                   | Yes          |
 | [hydrahd.cc](https://hydrahd.cc/)                                             | Yes          |
 | [kanopy.com](https://kanopy.com/)                                             | Maybe        |
 | [kipflix.xyz](https://kipflix.xyz/)                                           | Yes          |
@@ -120,7 +120,7 @@
 | [moviee.tv](https://moviee.tv/)                                               | Yes          |
 | [movierr.online](https://movierr.online/)                                     | Maybe        |
 | [moviesjoy.plus](https://moviesjoy.plus/)                                     | Yes          |
-| [movietly.com/home](https://movietly.com/home/)                               | Yes          |
+| [movietly.com](https://movietly.com/)                                         | Yes          |
 | [movieuwutv.top](https://movieuwutv.top/)                                     | Yes          |
 | [moviexfilm.com](https://moviexfilm.com/)                                     | Maybe        |
 | [mp4hydra.org](https://mp4hydra.org/)                                         | Yes          |
@@ -140,7 +140,7 @@
 | [onionplay.asia](https://onionplay.asia/)                                     | Maybe        |
 | [onionplay.network](https://onionplay.network/)                               | Maybe        |
 | [p.hopmarks.com](https://p.hopmarks.com/)                                     | Yes          |
-| [plexmovies.online](https://plexmovies.online/)                               | Maybe        |
+| [plexmovies.online](https://plexmovies.online/)                               | Yes          |
 | [pluto.tv](https://pluto.tv/)                                                 | Yes          |
 | [popcornflix.com](https://popcornflix.com)                                    | Maybe        |
 | [popcornmovies.to](https://popcornmovies.to/)                                 | Yes          |
@@ -155,7 +155,7 @@
 | [ridomovies.tv](https://ridomovies.tv/)                                       | Yes          |
 | [rips.cc](https://rips.cc/)                                                   | Yes          |
 | [rivestream.live](https://rivestream.live/)                                   | Yes          |
-| [rivestream.xyz](https://rivestream.xyz/)                                     | Maybe        |
+| [rivestream.xyz](https://rivestream.xyz/)                                     | Yes          |
 | [sflix.to](https://sflix.to/)                                                 | Yes          |
 | [shout-tv.com](https://shout-tv.com/)                                         | Yes          |
 | [smashy.stream](https://smashy.stream/)                                       | Maybe        |
@@ -191,7 +191,7 @@
 | [watch2day.online](https://watch2day.online/)                                 | Yes          |
 | [watchhq.site](https://watchhq.site/)                                         | Yes          |
 | [way2movies.vercel.app](https://way2movies.vercel.app/)                       | Yes          |
-| [web.netmovies.to/home](https://web.netmovies.to/home/)                       | Maybe        |
+| [web.netmovies.to](https://web.netmovies.to/)                                 | Maybe        |
 | [ww.putlocker.vip](https://ww.putlocker.vip/)                                 | Yes          |
 | [ww.yesmovies.ag](https://ww.yesmovies.ag/)                                   | Yes          |
 | [ww12.soap2dayhd.co](https://ww12.soap2dayhd.co/)                             | Yes          |
@@ -207,14 +207,14 @@
 | [www.downloads-anymovies.co](https://www.downloads-anymovies.co/)             | Yes          |
 | [www.goojara.to](https://www.goojara.to/)                                     | Maybe        |
 | [www.hoopladigital.com](https://www.hoopladigital.com/)                       | Yes          |
-| [www.kaitovault.com/watch](https://www.kaitovault.com/watch/)                 | Yes          |
+| [www.kaitovault.com](https://www.kaitovault.com/)                             | Yes          |
 | [www.levidia.ch](https://www.levidia.ch/)                                     | Yes          |
 | [www.lookmovie2.to](https://www.lookmovie2.to/)                               | Yes          |
 | [www.playary.com](https://www.playary.com/)                                   | Yes          |
 | [www.pressplay.top](https://www.pressplay.top/)                               | Maybe        |
 | [www.primeflix.lol](https://www.primeflix.lol/)                               | Yes          |
 | [www.primewire.li](https://www.primewire.li/)                                 | Maybe        |
-| [www.primewire.tf](https://www.primewire.tf/)                                 | Yes          |
+| [www.primewire.tf](https://www.primewire.tf/)                                 | Maybe        |
 | [www.rgshows.me](https://www.rgshows.me/)                                     | Yes          |
 | [www.soap2day.tf](https://www.soap2day.tf/)                                   | Yes          |
 | [www.tvids.net](https://www.tvids.net/)                                       | Maybe        |
