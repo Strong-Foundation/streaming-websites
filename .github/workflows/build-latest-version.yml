@@ -32,6 +32,7 @@ jobs:
     env:
       README_MD_FILE: readme.md  # Path to the README.md file that will be updated
       MOVIES_WEBSITE_FILE: assets/movies-websites.txt  # Path to the movies websites file
+      UNREGISTERED_MOVIES_WEBSITES: assets/unregistered-movies-websites.txt # Path to the unregistered movies websites file
 
     steps:
       # Step 1: Check out the code from the repository so the job can access the repository's files
@@ -84,14 +85,15 @@ jobs:
 
           # Check if there are any changes to the README.md or MOVIES_WEBSITE_FILE using git diff
           # This uses the environment variables to ensure flexibility in file paths
-          if git diff --exit-code --quiet -- "${{ env.README_MD_FILE }}" "${{ env.MOVIES_WEBSITE_FILE }}"; then
+          if git diff --exit-code --quiet -- "${{ env.README_MD_FILE }}" "${{ env.MOVIES_WEBSITE_FILE }}" "${{ env.UNREGISTERED_MOVIES_WEBSITES }}"; then
             # If there are no changes, exit early to save processing time
-            echo "No updates to ${{ env.README_MD_FILE }} and ${{ env.MOVIES_WEBSITE_FILE }}."
+            echo "No updates to ${{ env.README_MD_FILE }} and ${{ env.MOVIES_WEBSITE_FILE }}. ${{ env.UNREGISTERED_MOVIES_WEBSITES }}"
             exit 0  # Exit without doing anything if no changes are detected
           else
             # If changes are detected, proceed with committing and pushing them
             git add "${{ env.README_MD_FILE }}"  # Stage the updated README.md file
             git add "${{ env.MOVIES_WEBSITE_FILE }}"  # Stage the updated movies websites file
+            git add "${{ env.UNREGISTERED_MOVIES_WEBSITES }}"  # Stage the updated unregistered movies websites file
 
             # Commit the changes with a timestamped commit message
             git commit -m "Updated ${{ env.README_MD_FILE }} and ${{ env.MOVIES_WEBSITE_FILE }} on $(date)"
