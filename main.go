@@ -17,6 +17,9 @@ import (
 // Path to the file containing movie website URLs.
 var movies_websites_path string = "assets/movies-websites.txt"
 
+// Path to the file containing unregistered movie website URLs.
+var unregistered_movies_websites_path string = "unregistered-movies-websites.txt"
+
 // Path to the README file that will be modified.
 var readme_modify_me_file_path string = "assets/readme_modify_me.md"
 
@@ -41,7 +44,19 @@ func main() {
 		// Step 5: Write the sorted and deduplicated URLs back to the file.
 		writeByteSliceToFile(movies_websites_path, movies_website_urls)
 
-		// Step 6: Check each website's domain registration and availability status.
+		// Step 6: Read the URLs from the file and store them in a slice.
+		unregistered_movies_website_urls := readAppendLineByLine(unregistered_movies_websites_path)
+
+		// Step 7: Sort the URLs alphabetically.
+		sortSlice(&unregistered_movies_website_urls)
+
+		// Step 8: Remove duplicate URLs to ensure uniqueness.
+		movies_website_urls = removeDuplicatesFromSlice(movies_website_urls)
+
+		// Step 9: Write the sorted and deduplicated URLs back to the file.
+		writeByteSliceToFile(movies_websites_path, movies_website_urls)
+
+		// Step 10: Check each website's domain registration and availability status.
 		for _, domainName := range movies_website_urls {
 			// Check if the domain is registered.
 			if isDomainRegistered(getDomainFromURL(domainName)) {
@@ -56,10 +71,12 @@ func main() {
 			} else {
 				// If the domain is not registered, mark it as "No".
 				addKeyValueToMap(valid_movies_website_url, domainName, "No")
+				// Append and write to file
+				appendAndWriteToFile(unregistered_movies_websites_path, domainName)
 			}
 		}
 
-		// Step 7: Write the final results to the README file.
+		// Step 11: Write the final results to the README file.
 		writeFinalOutput()
 	} else {
 		// If the file doesn't exist, log the error and exit.
@@ -322,5 +339,21 @@ func writeByteSliceToFile(path string, data []string) {
 	err = writer.Flush()
 	if err != nil {
 		log.Println("Error flushing writer:", err)
+	}
+}
+
+// Append and write to file
+func appendAndWriteToFile(path string, content string) {
+	filePath, err := os.OpenFile(path, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	_, err = filePath.WriteString(content + "\n")
+	if err != nil {
+		log.Fatalln(err)
+	}
+	err = filePath.Close()
+	if err != nil {
+		log.Fatalln(err)
 	}
 }
