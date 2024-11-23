@@ -24,7 +24,7 @@ https://donkey.to/
 https://ee3.me/
 https://enjoytown.netlify.app/
 https://fawesome.tv/
-https://film-haven.vercel.app/?p=1/
+https://film-haven.vercel.app/
 https://filmex.to/
 https://fireflixhd1.netlify.app/
 https://flix.smashystream.xyz/
@@ -73,7 +73,7 @@ https://mokmobi.site/
 https://moviee.tv/
 https://movierr.online/
 https://moviesjoy.plus/
-https://movietly.com/home/
+https://movietly.com/
 https://movieuwutv.top/
 https://moviexfilm.com/
 https://mp4hydra.org/
@@ -144,7 +144,7 @@ https://watch.streamflix.one/
 https://watch2day.online/
 https://watchhq.site/
 https://way2movies.vercel.app/
-https://web.netmovies.to/home/
+https://web.netmovies.to/
 https://ww.putlocker.vip/
 https://ww.yesmovies.ag/
 https://ww12.soap2dayhd.co/
@@ -160,7 +160,7 @@ https://www.crackle.com/
 https://www.downloads-anymovies.co/
 https://www.goojara.to/
 https://www.hoopladigital.com/
-https://www.kaitovault.com/watch/
+https://www.kaitovault.com/
 https://www.levidia.ch/
 https://www.lookmovie2.to/
 https://www.playary.com/
