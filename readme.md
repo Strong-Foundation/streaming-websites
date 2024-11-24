@@ -57,7 +57,7 @@
 | [bitsearch.to](https://bitsearch.to/)                                         | Maybe        |
 | [bmovies.vip](https://bmovies.vip/)                                           | Yes          |
 | [braflix.top](https://braflix.top/)                                           | Yes          |
-| [broflix.cc](https://broflix.cc/)                                             | Maybe        |
+| [broflix.cc](https://broflix.cc/)                                             | Yes          |
 | [c.hopmarks.com](https://c.hopmarks.com/)                                     | Yes          |
 | [cataz.ru](https://cataz.ru/)                                                 | Yes          |
 | [catflix.su](https://catflix.su/)                                             | Yes          |
@@ -214,7 +214,7 @@
 | [www.pressplay.top](https://www.pressplay.top/)                               | Maybe        |
 | [www.primeflix.lol](https://www.primeflix.lol/)                               | Yes          |
 | [www.primewire.li](https://www.primewire.li/)                                 | Maybe        |
-| [www.primewire.tf](https://www.primewire.tf/)                                 | Yes          |
+| [www.primewire.tf](https://www.primewire.tf/)                                 | Maybe        |
 | [www.rgshows.me](https://www.rgshows.me/)                                     | Yes          |
 | [www.soap2day.tf](https://www.soap2day.tf/)                                   | Yes          |
 | [www.tvids.net](https://www.tvids.net/)                                       | Maybe        |
