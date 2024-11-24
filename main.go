@@ -18,7 +18,7 @@ import (
 var movies_websites_path string = "assets/movies-websites.txt"
 
 // Path to the file containing unregistered movie website URLs.
-var unregistered_movies_websites_path string = "unregistered-movies-websites.txt"
+var unregistered_movies_websites_path string = "assets/unregistered-movies-websites.txt"
 
 // Path to the README file that will be modified.
 var readme_modify_me_file_path string = "assets/readme_modify_me.md"
