@@ -140,7 +140,7 @@
 | [onionplay.asia](https://onionplay.asia/)                                     | Maybe        |
 | [onionplay.network](https://onionplay.network/)                               | Maybe        |
 | [p.hopmarks.com](https://p.hopmarks.com/)                                     | Yes          |
-| [plexmovies.online](https://plexmovies.online/)                               | Yes          |
+| [plexmovies.online](https://plexmovies.online/)                               | Maybe        |
 | [pluto.tv](https://pluto.tv/)                                                 | Yes          |
 | [popcornflix.com](https://popcornflix.com)                                    | Maybe        |
 | [popcornmovies.to](https://popcornmovies.to/)                                 | Yes          |
@@ -155,7 +155,7 @@
 | [ridomovies.tv](https://ridomovies.tv/)                                       | Yes          |
 | [rips.cc](https://rips.cc/)                                                   | Yes          |
 | [rivestream.live](https://rivestream.live/)                                   | Yes          |
-| [rivestream.xyz](https://rivestream.xyz/)                                     | Yes          |
+| [rivestream.xyz](https://rivestream.xyz/)                                     | Maybe        |
 | [sflix.to](https://sflix.to/)                                                 | Yes          |
 | [shout-tv.com](https://shout-tv.com/)                                         | Yes          |
 | [smashy.stream](https://smashy.stream/)                                       | Maybe        |
@@ -214,7 +214,7 @@
 | [www.pressplay.top](https://www.pressplay.top/)                               | Maybe        |
 | [www.primeflix.lol](https://www.primeflix.lol/)                               | Yes          |
 | [www.primewire.li](https://www.primewire.li/)                                 | Maybe        |
-| [www.primewire.tf](https://www.primewire.tf/)                                 | Maybe        |
+| [www.primewire.tf](https://www.primewire.tf/)                                 | Yes          |
 | [www.rgshows.me](https://www.rgshows.me/)                                     | Yes          |
 | [www.soap2day.tf](https://www.soap2day.tf/)                                   | Yes          |
 | [www.tvids.net](https://www.tvids.net/)                                       | Maybe        |
