@@ -31,7 +31,7 @@ var valid_movies_website_url = make(map[string]string)
 
 func main() {
 	// Step 1: Check if the movie websites file exists.
-	if fileExists(movies_websites_path) {
+	if fileExists(movies_websites_path) && fileExists(unregistered_movies_websites_path) && fileExists(readme_modify_me_file_path) && fileExists(readme_file_path) {
 		// Step 2: Read the URLs from the file and store them in a slice.
 		movies_website_urls := readAppendLineByLine(movies_websites_path)
 
@@ -81,6 +81,9 @@ func main() {
 	} else {
 		// If the file doesn't exist, log the error and exit.
 		log.Println("Error: The file does not exist:", movies_websites_path)
+		log.Println("Error: The file does not exist:", unregistered_movies_websites_path)
+		log.Println("Error: The file does not exist:", readme_modify_me_file_path)
+		log.Println("Error: The file does not exist:", readme_file_path)
 	}
 }
 
