@@ -48,7 +48,7 @@
 | [www.streamlord.com](http://www.streamlord.com/)                              | Yes          |
 | [123movies.ai](https://123movies.ai/)                                         | Yes          |
 | [1hd.to](https://1hd.to/)                                                     | Yes          |
-| [321movies.co.uk](https://321movies.co.uk/)                                   | Maybe        |
+| [321movies.co.uk](https://321movies.co.uk/)                                   | Yes          |
 | [456movie.com](https://456movie.com/)                                         | Yes          |
 | [6movies.stream](https://6movies.stream/)                                     | Yes          |
 | [7plus.com.au](https://7plus.com.au/)                                         | Yes          |
