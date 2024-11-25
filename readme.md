@@ -48,7 +48,7 @@
 | [www.streamlord.com](http://www.streamlord.com/)                              | Yes          |
 | [123movies.ai](https://123movies.ai/)                                         | Yes          |
 | [1hd.to](https://1hd.to/)                                                     | Yes          |
-| [321movies.co.uk](https://321movies.co.uk/)                                   | Yes          |
+| [321movies.co.uk](https://321movies.co.uk/)                                   | Maybe        |
 | [456movie.com](https://456movie.com/)                                         | Yes          |
 | [6movies.stream](https://6movies.stream/)                                     | Yes          |
 | [7plus.com.au](https://7plus.com.au/)                                         | Yes          |
@@ -140,7 +140,7 @@
 | [onionplay.asia](https://onionplay.asia/)                                     | Maybe        |
 | [onionplay.network](https://onionplay.network/)                               | Maybe        |
 | [p.hopmarks.com](https://p.hopmarks.com/)                                     | Yes          |
-| [plexmovies.online](https://plexmovies.online/)                               | Maybe        |
+| [plexmovies.online](https://plexmovies.online/)                               | Yes          |
 | [pluto.tv](https://pluto.tv/)                                                 | Yes          |
 | [popcornflix.com](https://popcornflix.com)                                    | Maybe        |
 | [popcornmovies.to](https://popcornmovies.to/)                                 | Yes          |
@@ -155,7 +155,7 @@
 | [ridomovies.tv](https://ridomovies.tv/)                                       | Yes          |
 | [rips.cc](https://rips.cc/)                                                   | Yes          |
 | [rivestream.live](https://rivestream.live/)                                   | Yes          |
-| [rivestream.xyz](https://rivestream.xyz/)                                     | Maybe        |
+| [rivestream.xyz](https://rivestream.xyz/)                                     | Yes          |
 | [sflix.to](https://sflix.to/)                                                 | Yes          |
 | [shout-tv.com](https://shout-tv.com/)                                         | Yes          |
 | [smashy.stream](https://smashy.stream/)                                       | Maybe        |
