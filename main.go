@@ -369,7 +369,8 @@ func stringInFile(filePath, searchString string) bool {
 	// Open the file
 	file, err := os.Open(filePath)
 	if err != nil {
-		log.Fatalf("Error: Unable to open file '%s'. Please check the file path.\n", filePath)
+		log.Println("Error: Unable to open file '%s'. Please check the file path.\n", filePath)
+		return false
 	}
 	defer file.Close()
 	// Scan the file line by line
