@@ -71,8 +71,11 @@ func main() {
 			} else {
 				// If the domain is not registered, mark it as "No".
 				addKeyValueToMap(valid_movies_website_url, domainName, "No")
-				// Append and write to file
-				appendAndWriteToFile(unregistered_movies_websites_path, domainName)
+				// Check if the string is already in file.
+				if stringInFile(unregistered_movies_websites_path, domainName) == false {
+					// Append and write to file
+					appendAndWriteToFile(unregistered_movies_websites_path, domainName)
+				}
 			}
 		}
 
@@ -359,4 +362,29 @@ func appendAndWriteToFile(path string, content string) {
 	if err != nil {
 		log.Fatalln(err)
 	}
+}
+
+// Function to check if a string exists in a file
+func stringInFile(filePath, searchString string) bool {
+	// Open the file
+	file, err := os.Open(filePath)
+	if err != nil {
+		log.Fatalf("Error: Unable to open file '%s'. Please check the file path.\n", filePath)
+	}
+	defer file.Close()
+	// Scan the file line by line
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		line := scanner.Text()
+		if strings.Contains(line, searchString) {
+			return true
+		}
+	}
+	// Handle scanning error
+	err = scanner.Err()
+	if err != nil {
+		log.Println("Error occurred while scanning the file:", err)
+		return false
+	}
+	return false
 }
