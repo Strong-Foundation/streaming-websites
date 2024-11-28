@@ -78,7 +78,7 @@
 | [flixhq.click](https://flixhq.click/)                                         | Maybe        |
 | [flixrave.to](https://flixrave.to/)                                           | Maybe        |
 | [flixtor.to](https://flixtor.to/)                                             | Maybe        |
-| [flixwave.me](https://flixwave.me/)                                           | Yes          |
+| [flixwave.me](https://flixwave.me/)                                           | Maybe        |
 | [fmovies-hd.to](https://fmovies-hd.to/)                                       | Yes          |
 | [fmovies.ps](https://fmovies.ps/)                                             | Yes          |
 | [fmovies247.net](https://fmovies247.net/)                                     | Yes          |
@@ -92,7 +92,7 @@
 | [gotytv.com](https://gotytv.com/)                                             | Yes          |
 | [hdtodayz.to](https://hdtodayz.to/)                                           | Yes          |
 | [heartive.pages.dev](https://heartive.pages.dev/)                             | Yes          |
-| [hexa.watch](https://hexa.watch/)                                             | Yes          |
+| [hexa.watch](https://hexa.watch/)                                             | Maybe        |
 | [hollymoviehd.cc](https://hollymoviehd.cc/)                                   | Yes          |
 | [hydrahd.cc](https://hydrahd.cc/)                                             | Yes          |
 | [kanopy.com](https://kanopy.com/)                                             | Maybe        |
@@ -171,14 +171,14 @@
 | [therokuchannel.roku.com](https://therokuchannel.roku.com/)                   | Yes          |
 | [tubitv.com](https://tubitv.com)                                              | Yes          |
 | [tubitv.com](https://tubitv.com/)                                             | Yes          |
-| [upmovies.net](https://upmovies.net/)                                         | Yes          |
+| [upmovies.net](https://upmovies.net/)                                         | Maybe        |
 | [valhallastream.pages.dev](https://valhallastream.pages.dev/)                 | Yes          |
 | [valhallastream.us.kg](https://valhallastream.us.kg/)                         | Yes          |
 | [vidcloud1.com](https://vidcloud1.com/)                                       | Yes          |
 | [vidplay.org](https://vidplay.org/)                                           | Yes          |
 | [vidstream.to](https://vidstream.to/)                                         | Yes          |
 | [viewvault.org](https://viewvault.org/)                                       | Maybe        |
-| [vumoo.mx](https://vumoo.mx/)                                                 | Yes          |
+| [vumoo.mx](https://vumoo.mx/)                                                 | Maybe        |
 | [vumoox.to](https://vumoox.to/)                                               | Maybe        |
 | [watch-tvseries.net](https://watch-tvseries.net/)                             | Maybe        |
 | [watch.autoembed.cc](https://watch.autoembed.cc/)                             | Maybe        |
@@ -225,7 +225,7 @@
 | [zmov.vercel.app](https://zmov.vercel.app/)                                   | Yes          |
 | [zmoviess.co](https://zmoviess.co/)                                           | Yes          |
 | [zoechip.cc](https://zoechip.cc/)                                             | Yes          |
-| [zoroxtv.net](https://zoroxtv.net/)                                           | Yes          |
+| [zoroxtv.net](https://zoroxtv.net/)                                           | Maybe        |
 
 **Disclaimer**: While these websites offer free streaming of movies and TV shows, users should be aware of the legal implications and copyright laws in their respective jurisdictions. It's advisable to use these platforms responsibly and ensure compliance with local regulations.
 
