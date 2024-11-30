@@ -92,7 +92,7 @@
 | [gotytv.com](https://gotytv.com/)                                             | Yes          |
 | [hdtodayz.to](https://hdtodayz.to/)                                           | Yes          |
 | [heartive.pages.dev](https://heartive.pages.dev/)                             | Yes          |
-| [hexa.watch](https://hexa.watch/)                                             | Maybe        |
+| [hexa.watch](https://hexa.watch/)                                             | Yes          |
 | [hollymoviehd.cc](https://hollymoviehd.cc/)                                   | Yes          |
 | [hydrahd.cc](https://hydrahd.cc/)                                             | Yes          |
 | [kanopy.com](https://kanopy.com/)                                             | Maybe        |
