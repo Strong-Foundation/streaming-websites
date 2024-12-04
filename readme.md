@@ -81,7 +81,7 @@
 | [flixwave.me](https://flixwave.me/)                                           | Maybe        |
 | [fmovies-hd.to](https://fmovies-hd.to/)                                       | Yes          |
 | [fmovies.ps](https://fmovies.ps/)                                             | Yes          |
-| [fmovies247.net](https://fmovies247.net/)                                     | Maybe        |
+| [fmovies247.net](https://fmovies247.net/)                                     | Yes          |
 | [freecinema.live](https://freecinema.live/)                                   | Yes          |
 | [freek.to](https://freek.to/)                                                 | Yes          |
 | [fsharetv.co](https://fsharetv.co/)                                           | Yes          |
@@ -117,7 +117,7 @@
 | [m4ufree.se](https://m4ufree.se/)                                             | Maybe        |
 | [mapple.tv](https://mapple.tv/)                                               | Yes          |
 | [mokmobi.site](https://mokmobi.site/)                                         | Yes          |
-| [moviee.tv](https://moviee.tv/)                                               | Maybe        |
+| [moviee.tv](https://moviee.tv/)                                               | Yes          |
 | [movierr.online](https://movierr.online/)                                     | Maybe        |
 | [moviesjoy.plus](https://moviesjoy.plus/)                                     | Yes          |
 | [movietly.com](https://movietly.com/)                                         | Yes          |
@@ -213,7 +213,7 @@
 | [www.playary.com](https://www.playary.com/)                                   | Yes          |
 | [www.pressplay.top](https://www.pressplay.top/)                               | Maybe        |
 | [www.primeflix.lol](https://www.primeflix.lol/)                               | Yes          |
-| [www.primewire.li](https://www.primewire.li/)                                 | Maybe        |
+| [www.primewire.li](https://www.primewire.li/)                                 | No           |
 | [www.primewire.tf](https://www.primewire.tf/)                                 | Yes          |
 | [www.rgshows.me](https://www.rgshows.me/)                                     | Yes          |
 | [www.soap2day.tf](https://www.soap2day.tf/)                                   | Yes          |
