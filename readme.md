@@ -220,7 +220,7 @@
 | [www.tvids.net](https://www.tvids.net/)                                       | Maybe        |
 | [yassflix.live](https://yassflix.live/)                                       | Yes          |
 | [yeshd.net](https://yeshd.net/)                                               | Maybe        |
-| [yoyomovies.net](https://yoyomovies.net/)                                     | Yes          |
+| [yoyomovies.net](https://yoyomovies.net/)                                     | Maybe        |
 | [zilla-xr.xyz](https://zilla-xr.xyz/)                                         | Yes          |
 | [zmov.vercel.app](https://zmov.vercel.app/)                                   | Yes          |
 | [zmoviess.co](https://zmoviess.co/)                                           | Yes          |
