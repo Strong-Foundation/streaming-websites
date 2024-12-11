@@ -111,7 +111,7 @@
 | [lookmovie.guru](https://lookmovie.guru/)                                     | Yes          |
 | [lookmovie.media](https://lookmovie.media/)                                   | Yes          |
 | [lookmovie.mobi](https://lookmovie.mobi/)                                     | Yes          |
-| [lookmovie.site](https://lookmovie.site/)                                     | Yes          |
+| [lookmovie.site](https://lookmovie.site/)                                     | No           |
 | [lookmovie2.la](https://lookmovie2.la/)                                       | Yes          |
 | [lookmovie2.to](https://lookmovie2.to/)                                       | Yes          |
 | [m4ufree.se](https://m4ufree.se/)                                             | Maybe        |
