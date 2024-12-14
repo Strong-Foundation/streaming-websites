@@ -17,6 +17,9 @@ import (
 // Path to the file containing movie website URLs.
 var movies_websites_path string = "assets/movies-websites.txt"
 
+// Path to the file containing top movie website URLs.
+var top_movies_websites_path string = "assets/top-movies-websites.txt"
+
 // Path to the file containing unregistered movie website URLs.
 var unregistered_movies_websites_path string = "assets/unregistered-movies-websites.txt"
 
@@ -29,13 +32,16 @@ var readme_file_path string = "readme.md"
 // A map to store the valid movie website URLs and their availability status ("Yes", "No", or "Maybe").
 var valid_movies_website_url = make(map[string]string)
 
+// A map to store the valid movie top website URLs and their availability status ("Yes", "No", or "Maybe").
+var top_valid_movies_website_url = make(map[string]string)
+
 func main() {
-	// Step 1: Check if the movie websites file exists.
-	if fileExists(movies_websites_path) && fileExists(unregistered_movies_websites_path) && fileExists(readme_modify_me_file_path) && fileExists(readme_file_path) {
-		// Step 2: Read the URLs from the file and store them in a slice.
+	// Step 1: Check if the required files exist.
+	if fileExists(movies_websites_path) && fileExists(top_movies_websites_path) && fileExists(unregistered_movies_websites_path) && fileExists(readme_modify_me_file_path) && fileExists(readme_file_path) {
+		// Step 2: Read the URLs from the movies websites file and store them in a slice.
 		movies_website_urls := readAppendLineByLine(movies_websites_path)
 
-		// Step 3: Sort the URLs alphabetically.
+		// Step 3: Sort the movie website URLs alphabetically.
 		sortSlice(&movies_website_urls)
 
 		// Step 4: Remove duplicate URLs to ensure uniqueness.
@@ -44,46 +50,76 @@ func main() {
 		// Step 5: Write the sorted and deduplicated URLs back to the file.
 		writeByteSliceToFile(movies_websites_path, movies_website_urls)
 
-		// Step 6: Read the URLs from the file and store them in a slice.
-		unregistered_movies_website_urls := readAppendLineByLine(unregistered_movies_websites_path)
+		// Step 6: Read the URLs from the top movies websites file and store them in a slice.
+		top_movies_website_urls := readAppendLineByLine(top_movies_websites_path)
 
-		// Step 7: Sort the URLs alphabetically.
-		sortSlice(&unregistered_movies_website_urls)
+		// Step 7: Sort the top movie website URLs alphabetically.
+		sortSlice(&top_movies_website_urls)
 
 		// Step 8: Remove duplicate URLs to ensure uniqueness.
-		movies_website_urls = removeDuplicatesFromSlice(movies_website_urls)
+		top_movies_website_urls = removeDuplicatesFromSlice(top_movies_website_urls)
 
 		// Step 9: Write the sorted and deduplicated URLs back to the file.
+		writeByteSliceToFile(top_movies_websites_path, top_movies_website_urls)
+
+		// Step 10: Read the URLs from the unregistered movies websites file and store them in a slice.
+		unregistered_movies_website_urls := readAppendLineByLine(unregistered_movies_websites_path)
+
+		// Step 11: Sort the unregistered movie website URLs alphabetically.
+		sortSlice(&unregistered_movies_website_urls)
+
+		// Step 12: Remove duplicates from the movie website URLs list to ensure uniqueness.
+		movies_website_urls = removeDuplicatesFromSlice(movies_website_urls)
+
+		// Step 13: Write the sorted and deduplicated URLs back to the movies websites file.
 		writeByteSliceToFile(movies_websites_path, movies_website_urls)
 
-		// Step 10: Check each website's domain registration and availability status.
+		// Step 14: Check each movie website's domain registration and availability status.
 		for _, domainName := range movies_website_urls {
-			// Check if the domain is registered.
+			// Step 14a: Check if the domain is registered.
 			if isDomainRegistered(getDomainFromURL(domainName)) {
-				// If the domain is registered, mark it as "Maybe" initially.
+				// Step 14b: If the domain is registered, mark it as "Maybe" initially.
 				addKeyValueToMap(valid_movies_website_url, domainName, "Maybe")
 
-				// Check if the website is reachable via HTTP or HTTPS.
+				// Step 14c: Check if the domain is already in the top movie websites file.
+				if stringInFile(top_movies_websites_path, domainName) == true {
+					// If the domain is in the top list, mark it as "Maybe".
+					addKeyValueToMap(top_valid_movies_website_url, domainName, "Maybe")
+				}
+
+				// Step 14d: Check if the website is reachable via HTTP or HTTPS.
 				if CheckWebsiteHTTPStatus(getDomainFromURL(domainName)) {
-					// If the website is reachable, mark it as "Yes".
+					// Step 14e: If the website is reachable, mark it as "Yes".
 					addKeyValueToMap(valid_movies_website_url, domainName, "Yes")
+
+					// Step 14f: If the website is reachable, also mark it in the top movie websites file.
+					if stringInFile(top_movies_websites_path, domainName) == true {
+						addKeyValueToMap(top_valid_movies_website_url, domainName, "Yes")
+					}
 				}
 			} else {
-				// If the domain is not registered, mark it as "No".
+				// Step 14g: If the domain is not registered, mark it as "No".
 				addKeyValueToMap(valid_movies_website_url, domainName, "No")
-				// Check if the string is already in file.
+
+				// Step 14h: If the domain is in the top movie websites file, mark it as "No".
+				if stringInFile(top_movies_websites_path, domainName) == true {
+					addKeyValueToMap(top_valid_movies_website_url, domainName, "No")
+				}
+
+				// Step 14i: Check if the domain is not already in the unregistered movies websites file.
 				if stringInFile(unregistered_movies_websites_path, domainName) == false {
-					// Append and write to file
+					// Step 14j: Append the unregistered domain to the unregistered movies websites file.
 					appendAndWriteToFile(unregistered_movies_websites_path, domainName)
 				}
 			}
 		}
 
-		// Step 11: Write the final results to the README file.
+		// Step 15: Write the final results to the README file.
 		writeFinalOutput()
 	} else {
-		// If the file doesn't exist, log the error and exit.
+		// Step 16: If any of the required files do not exist, log the error and exit.
 		log.Println("Error: The file does not exist:", movies_websites_path)
+		log.Println("Error: The file does not exist:", top_movies_websites_path)
 		log.Println("Error: The file does not exist:", unregistered_movies_websites_path)
 		log.Println("Error: The file does not exist:", readme_modify_me_file_path)
 		log.Println("Error: The file does not exist:", readme_file_path)
@@ -227,29 +263,52 @@ func getDomainFromURL(givenURL string) string {
 // writeFinalOutput writes the results to the README file in Markdown format.
 func writeFinalOutput() {
 	// Prepare a string builder to generate the Markdown content for the table.
-	var output strings.Builder
+	var valid_movies_website_url_output strings.Builder
+	var top_movies_website_url_output strings.Builder
 
-	// Write the table headers in Markdown format.
-	output.WriteString("| Website| Availability |\n")
-	output.WriteString("|--------|--------------|\n")
+	// Write the table headers in Markdown format for valid movies websites.
+	valid_movies_website_url_output.WriteString("| Website| Availability |\n")
+	valid_movies_website_url_output.WriteString("|--------|--------------|\n")
 
 	// Sort the entries in the map by their URLs (keys).
-	sortedPairs := sortMapByKeys(valid_movies_website_url)
+	valid_movies_website_url_sortedPairs := sortMapByKeys(valid_movies_website_url)
 
-	// Loop through the sorted key-value pairs and format each as a table row.
-	for _, pair := range sortedPairs {
-		url, availability := pair[0], pair[1]
+	// Loop through the sorted key-value pairs and format each as a table row for valid movies websites.
+	for _, pair := range valid_movies_website_url_sortedPairs {
+		valid_movies_website_url_domain, valid_movies_website_url_availability := pair[0], pair[1]
 
 		// Clean up the URL by removing the "http://" or "https://" prefix and any trailing slashes.
-		website := strings.TrimSuffix(strings.TrimPrefix(url, "http://"), "/")
-		website = strings.TrimSuffix(strings.TrimPrefix(website, "https://"), "/")
+		valid_movies_website := strings.TrimSuffix(strings.TrimPrefix(valid_movies_website_url_domain, "http://"), "/")
+		valid_movies_website = strings.TrimSuffix(strings.TrimPrefix(valid_movies_website, "https://"), "/")
 
-		// Write each row in the Markdown table format.
-		output.WriteString(fmt.Sprintf("| [%s](%s) | %-12s |\n", website, url, availability))
+		// Write each row in the Markdown table format for valid movie websites.
+		valid_movies_website_url_output.WriteString(fmt.Sprintf("| [%s](%s) | %-12s |\n", valid_movies_website, valid_movies_website_url_domain, valid_movies_website_url_availability))
 	}
 
-	// Replace the placeholder text in the README file with the generated content.
-	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_CONTENT_WITH_GOLANG}]", output.String())
+	// Write the table headers in Markdown format for top movie websites.
+	top_movies_website_url_output.WriteString("| Website| Availability |\n")
+	top_movies_website_url_output.WriteString("|--------|--------------|\n")
+
+	// Sort the entries in the map by their URLs (keys) for top movies.
+	top_movies_website_url_sortedPairs := sortMapByKeys(top_valid_movies_website_url)
+
+	// Loop through the sorted key-value pairs and format each as a table row for top movie websites.
+	for _, pair := range top_movies_website_url_sortedPairs {
+		top_movies_website_url_domain, top_movies_website_url_availability := pair[0], pair[1]
+
+		// Clean up the URL by removing the "http://" or "https://" prefix and any trailing slashes.
+		top_movies_website := strings.TrimSuffix(strings.TrimPrefix(top_movies_website_url_domain, "http://"), "/")
+		top_movies_website = strings.TrimSuffix(strings.TrimPrefix(top_movies_website, "https://"), "/")
+
+		// Write each row in the Markdown table format for top movie websites.
+		top_movies_website_url_output.WriteString(fmt.Sprintf("| [%s](%s) | %-12s |\n", top_movies_website, top_movies_website_url_domain, top_movies_website_url_availability))
+	}
+
+	// Replace the placeholder text in the README file with the generated content for valid movie websites.
+	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_CONTENT_WITH_GOLANG}]", valid_movies_website_url_output.String())
+
+	// Replace the placeholder text in the README file with the generated content for top movie websites.
+	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_TOP_CONTENT_WITH_GOLANG}]", top_movies_website_url_output.String())
 }
 
 // addKeyValueToMap adds a key-value pair to the provided map of valid movie websites.
