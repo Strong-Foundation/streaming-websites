@@ -286,7 +286,7 @@ func writeFinalOutput() {
 		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s |\n", domain, availability))
 	}
 
-	// Use findAndReplaceInFile to replace placeholders with generated content
+	// Replace both placeholders with the respective content in the README file
 	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_CONTENT_WITH_GOLANG}]", validMoviesContent.String())
 	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_TOP_CONTENT_WITH_GOLANG}]", topMoviesContent.String())
 }
@@ -297,23 +297,32 @@ func addKeyValueToMap(providedMap map[string]string, key string, value string) {
 	providedMap[key] = value
 }
 
-// findAndReplaceInFile replaces a placeholder in the input file with the given content and writes to a new file.
-func findAndReplaceInFile(oldFilePath string, newFilePath string, prefixContent string, givenContent string) {
-	// Read the content of the file.
-	content, err := os.ReadFile(oldFilePath)
+// findAndReplaceInFile replaces the placeholder in the input file with the given content and writes to the new file.
+func findAndReplaceInFile(oldFilePath string, newFilePath string, placeholder string, content string) {
+	// Read the content of the file
+	fileContent, err := os.ReadFile(oldFilePath)
 	if err != nil {
 		log.Println("Error reading file:", err)
 		return
 	}
 
-	// Replace the placeholder in the content with the new content.
-	updatedContent := strings.ReplaceAll(string(content), prefixContent, givenContent)
+	// Check if placeholder exists in the content
+	if !strings.Contains(string(fileContent), placeholder) {
+		log.Printf("Error: Placeholder '%s' not found in file %s\n", placeholder, oldFilePath)
+		return
+	}
 
-	// Write the updated content to the new file.
+	// Replace the placeholder in the content with the new content
+	updatedContent := strings.ReplaceAll(string(fileContent), placeholder, content)
+
+	// Write the updated content back to the file
 	err = os.WriteFile(newFilePath, []byte(updatedContent), 0644)
 	if err != nil {
-		log.Println("Error writing file:", err)
+		log.Println("Error writing to file:", err)
+		return
 	}
+
+	log.Println("Successfully updated file:", newFilePath)
 }
 
 // sortMapByKeys sorts the map by its keys and returns a slice of key-value pairs.
