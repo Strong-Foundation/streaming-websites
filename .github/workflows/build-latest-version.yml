@@ -5,7 +5,7 @@ name: Update Latest Release Documentation
 on:
   schedule:
     # Cron expression to trigger the workflow at midnight UTC every day
-    - cron: "0 0 * * *"  # Runs the workflow daily at midnight UTC
+    - cron: "0 0 * * 0"  # Runs the workflow Runs at 00:00, only on Sunday UTC
 
   push:
     # This trigger runs the workflow when changes are pushed to any .txt file in the repository
