@@ -106,7 +106,7 @@
 | https://fsharetv.co/                      | Yes          |
 | https://gomovies-online.link/             | Yes          |
 | https://gomovies.sx/                      | Yes          |
-| https://gomoviestv.to/                    | Yes          |
+| https://gomoviestv.to/                    | Maybe        |
 | https://gostream.to/                      | Yes          |
 | https://gotytv.com/                       | Yes          |
 | https://hdtodayz.to/                      | Yes          |
@@ -137,7 +137,7 @@
 | https://mapple.tv/                        | Yes          |
 | https://mokmobi.site/                     | Yes          |
 | https://moviee.tv/                        | Yes          |
-| https://movierr.online/                   | Yes          |
+| https://movierr.online/                   | Maybe        |
 | https://moviesjoy.plus/                   | Yes          |
 | https://movietly.com/                     | Yes          |
 | https://movieuwutv.top/                   | Yes          |
