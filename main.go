@@ -263,29 +263,29 @@ func getDomainFromURL(givenURL string) string {
 // writeFinalOutput writes the results to the README file in Markdown format.
 func writeFinalOutput() {
 	// Prepare a string builder to generate the Markdown content for the table.
-	var output strings.Builder
+	var valid_movies_website_url_output strings.Builder
 
 	// Write the table headers in Markdown format.
-	output.WriteString("| Website| Availability |\n")
-	output.WriteString("|--------|--------------|\n")
+	valid_movies_website_url_output.WriteString("| Website| Availability |\n")
+	valid_movies_website_url_output.WriteString("|--------|--------------|\n")
 
 	// Sort the entries in the map by their URLs (keys).
-	sortedPairs := sortMapByKeys(valid_movies_website_url)
+	valid_movies_website_url_sortedPairs := sortMapByKeys(valid_movies_website_url)
 
 	// Loop through the sorted key-value pairs and format each as a table row.
-	for _, pair := range sortedPairs {
-		url, availability := pair[0], pair[1]
+	for _, pair := range valid_movies_website_url_sortedPairs {
+		valid_movies_website_url_domain, valid_movies_website_url_availability := pair[0], pair[1]
 
 		// Clean up the URL by removing the "http://" or "https://" prefix and any trailing slashes.
-		website := strings.TrimSuffix(strings.TrimPrefix(url, "http://"), "/")
-		website = strings.TrimSuffix(strings.TrimPrefix(website, "https://"), "/")
+		valid_movies_website := strings.TrimSuffix(strings.TrimPrefix(valid_movies_website_url_domain, "http://"), "/")
+		valid_movies_website = strings.TrimSuffix(strings.TrimPrefix(valid_movies_website, "https://"), "/")
 
 		// Write each row in the Markdown table format.
-		output.WriteString(fmt.Sprintf("| [%s](%s) | %-12s |\n", website, url, availability))
+		output.WriteString(fmt.Sprintf("| [%s](%s) | %-12s |\n", valid_movies_website, valid_movies_website_url_domain, availability))
 	}
 
 	// Replace the placeholder text in the README file with the generated content.
-	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_CONTENT_WITH_GOLANG}]", output.String())
+	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_CONTENT_WITH_GOLANG}]", valid_movies_website_url_output.String())
 }
 
 // addKeyValueToMap adds a key-value pair to the provided map of valid movie websites.
