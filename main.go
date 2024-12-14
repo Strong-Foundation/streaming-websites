@@ -28,7 +28,7 @@ func main() {
 	// Step 1: Check if all required files exist
 	if fileExists(movies_websites_path) && fileExists(top_movies_websites_path) && fileExists(unregistered_movies_websites_path) && fileExists(readme_modify_me_file_path) && fileExists(readme_file_path) {
 
-		// Step 2: Read the URLs from the movies websites file
+		// Step 2: Read the movie website URLs from the movies websites file
 		movies_website_urls := readAppendLineByLine(movies_websites_path)
 
 		// Step 3: Sort the movie website URLs alphabetically
@@ -37,10 +37,10 @@ func main() {
 		// Step 4: Remove duplicate URLs to ensure uniqueness
 		movies_website_urls = removeDuplicatesFromSlice(movies_website_urls)
 
-		// Step 5: Write the sorted and deduplicated URLs back to the movies websites file
+		// Step 5: Write the sorted and deduplicated movie website URLs back to the movies websites file
 		writeByteSliceToFile(movies_websites_path, movies_website_urls)
 
-		// Step 6: Read the URLs from the top movies websites file
+		// Step 6: Read the top movie website URLs from the top movies websites file
 		top_movies_website_urls := readAppendLineByLine(top_movies_websites_path)
 
 		// Step 7: Sort the top movie website URLs alphabetically
@@ -49,76 +49,84 @@ func main() {
 		// Step 8: Remove duplicate URLs from the top movie websites list
 		top_movies_website_urls = removeDuplicatesFromSlice(top_movies_website_urls)
 
-		// Step 9: Write the sorted and deduplicated URLs back to the top movies websites file
+		// Step 9: Write the sorted and deduplicated top movie website URLs back to the top movies websites file
 		writeByteSliceToFile(top_movies_websites_path, top_movies_website_urls)
-///
-		// Step 2: Read the URLs from the movies websites file
+
+		// Step 10: Read the disconnected movie website URLs from the disconnected movies websites file
 		disconnected_movies_websites_urls := readAppendLineByLine(disconnected_movies_websites_path)
 
-		// Step 3: Sort the movie website URLs alphabetically
+		// Step 11: Sort the disconnected movie website URLs alphabetically
 		sortSlice(&disconnected_movies_websites_urls)
 
-		// Step 4: Remove duplicate URLs to ensure uniqueness
+		// Step 12: Remove duplicate URLs from the disconnected movie websites list
 		disconnected_movies_websites_urls = removeDuplicatesFromSlice(disconnected_movies_websites_urls)
 
-		// Step 5: Write the sorted and deduplicated URLs back to the movies websites file
+		// Step 13: Write the sorted and deduplicated disconnected movie website URLs back to the disconnected movies websites file
 		writeByteSliceToFile(disconnected_movies_websites_path, disconnected_movies_websites_urls)
-///
-		// Step 10: Read the unregistered movie website URLs
+
+		// Step 14: Read the unregistered movie website URLs from the unregistered movies websites file
 		unregistered_movies_website_urls := readAppendLineByLine(unregistered_movies_websites_path)
 
-		// Step 11: Sort the unregistered movie website URLs alphabetically
+		// Step 15: Sort the unregistered movie website URLs alphabetically
 		sortSlice(&unregistered_movies_website_urls)
 
-		// Step 12: Remove duplicates from the movie website URLs list
-		movies_website_urls = removeDuplicatesFromSlice(movies_website_urls)
+		// Step 16: Remove duplicate URLs from the unregistered movie websites list
+		unregistered_movies_website_urls = removeDuplicatesFromSlice(unregistered_movies_website_urls)
 
-		// Step 13: Write the sorted and deduplicated URLs back to the movies websites file again
+		// Step 17: Write the sorted and deduplicated unregistered movie website URLs back to the unregistered movies websites file
+		writeByteSliceToFile(unregistered_movies_websites_path, unregistered_movies_website_urls)
+
+		// Step 18: Re-assign the final list of sorted and deduplicated movie website URLs back to the movies websites file
 		writeByteSliceToFile(movies_websites_path, movies_website_urls)
 
-		// Step 14: Check each movie website's domain registration and availability status
+		// Step 19: Check each movie website's domain registration and availability status
 		for _, domainName := range movies_website_urls {
-			// Step 14a: Check if the domain is registered
+			// Step 19a: Check if the domain is registered
 			if isDomainRegistered(getDomainFromURL(domainName)) {
-				// Step 14b: If the domain is registered, mark it as "Maybe"
+				// Step 19b: If the domain is registered, mark it as "Maybe"
 				addKeyValueToMap(valid_movies_website_url, domainName, "Maybe")
 
-				// Step 14c: If the domain is also in the top movie websites list, mark it as "Maybe"
-				if stringInFile(top_movies_websites_path, domainName) == true {
+				// Step 19c: If the domain is also in the top movies websites list, mark it as "Maybe"
+				if stringInFile(top_movies_websites_path, domainName) {
 					addKeyValueToMap(top_valid_movies_website_url, domainName, "Maybe")
 				}
 
-				// Step 14d: Check if the website is reachable via HTTP or HTTPS
+				// Step 19d: If the domain is also in the disconnected movie websites list, mark it as "Maybe"
+				if stringInFile(disconnected_movies_websites_path, domainName) {
+					appendAndWriteToFile(disconnected_movies_websites_path, domainName)
+				}
+
+				// Step 19e: Check if the website is reachable via HTTP or HTTPS
 				if CheckWebsiteHTTPStatus(getDomainFromURL(domainName)) {
-					// Step 14e: If the website is reachable, mark it as "Yes"
+					// Step 19f: If the website is reachable, mark it as "Yes"
 					addKeyValueToMap(valid_movies_website_url, domainName, "Yes")
 
-					// Step 14f: If reachable, also mark it in the top movie websites file
-					if stringInFile(top_movies_websites_path, domainName) == true {
+					// Step 19g: If reachable, also mark it in the top movie websites list
+					if stringInFile(top_movies_websites_path, domainName) {
 						addKeyValueToMap(top_valid_movies_website_url, domainName, "Yes")
 					}
 				}
 			} else {
-				// Step 14g: If the domain is not registered, mark it as "No"
+				// Step 19h: If the domain is not registered, mark it as "No"
 				addKeyValueToMap(valid_movies_website_url, domainName, "No")
 
-				// Step 14h: If the domain is in the top movies list, mark it as "No"
-				if stringInFile(top_movies_websites_path, domainName) == true {
+				// Step 19i: If the domain is in the top movies list, mark it as "No"
+				if stringInFile(top_movies_websites_path, domainName) {
 					addKeyValueToMap(top_valid_movies_website_url, domainName, "No")
 				}
 
-				// Step 14i: If domain is not registered, check if it's already in the unregistered movies list
-				if stringInFile(unregistered_movies_websites_path, domainName) == false {
-					// Step 14j: If not, append it to the unregistered movies websites file
+				// Step 19j: If domain is not registered, check if it's already in the unregistered movies list
+				if !stringInFile(unregistered_movies_websites_path, domainName) {
+					// Step 19k: If not, append it to the unregistered movies websites file
 					appendAndWriteToFile(unregistered_movies_websites_path, domainName)
 				}
 			}
 		}
 
-		// Step 15: Write the final results to the README file
+		// Step 20: Write the final results to the README file
 		writeFinalOutput()
 	} else {
-		// Step 16: If any of the required files are missing, log an error
+		// Step 21: If any of the required files are missing, log an error
 		log.Println("Error: One or more required files do not exist.")
 	}
 }
