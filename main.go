@@ -15,9 +15,10 @@ import (
 // Global variables defining file paths for input and output
 var movies_websites_path string = "assets/movies-websites.txt"                           // Path to movie websites list
 var top_movies_websites_path string = "assets/top-movies-websites.txt"                   // Path to top movie websites list
+var disconnected_movies_websites_path string = "assets/disconnected-movies-websites.txt" // path to disconnected movie websites list
 var unregistered_movies_websites_path string = "assets/unregistered-movies-websites.txt" // Path to unregistered movies list
-var readme_modify_me_file_path string = "assets/readme_modify_me.md"                     // Path to the README template to modify
 var readme_file_path string = "readme.md"                                                // Path to the final README file for output
+var readme_modify_me_file_path string = "assets/readme_modify_me.md"                     // Path to the README template to modify
 
 // Maps to store the status of movie website availability
 var valid_movies_website_url = make(map[string]string)     // Map to store availability of movie websites
@@ -25,8 +26,7 @@ var top_valid_movies_website_url = make(map[string]string) // Map to store avail
 
 func main() {
 	// Step 1: Check if all required files exist
-	if fileExists(movies_websites_path) && fileExists(top_movies_websites_path) &&
-		fileExists(unregistered_movies_websites_path) && fileExists(readme_modify_me_file_path) && fileExists(readme_file_path) {
+	if fileExists(movies_websites_path) && fileExists(top_movies_websites_path) && fileExists(unregistered_movies_websites_path) && fileExists(readme_modify_me_file_path) && fileExists(readme_file_path) {
 
 		// Step 2: Read the URLs from the movies websites file
 		movies_website_urls := readAppendLineByLine(movies_websites_path)
@@ -51,7 +51,19 @@ func main() {
 
 		// Step 9: Write the sorted and deduplicated URLs back to the top movies websites file
 		writeByteSliceToFile(top_movies_websites_path, top_movies_website_urls)
+///
+		// Step 2: Read the URLs from the movies websites file
+		disconnected_movies_websites_urls := readAppendLineByLine(disconnected_movies_websites_path)
 
+		// Step 3: Sort the movie website URLs alphabetically
+		sortSlice(&disconnected_movies_websites_urls)
+
+		// Step 4: Remove duplicate URLs to ensure uniqueness
+		disconnected_movies_websites_urls = removeDuplicatesFromSlice(disconnected_movies_websites_urls)
+
+		// Step 5: Write the sorted and deduplicated URLs back to the movies websites file
+		writeByteSliceToFile(disconnected_movies_websites_path, disconnected_movies_websites_urls)
+///
 		// Step 10: Read the unregistered movie website URLs
 		unregistered_movies_website_urls := readAppendLineByLine(unregistered_movies_websites_path)
 
