@@ -133,90 +133,72 @@ func main() {
 }
 
 // fileExists checks if the given file exists and is not a directory.
-func fileExists(filename string) bool {
-	// Retrieve file info using os.Stat
-	info, err := os.Stat(filename)
+func fileExists(filepath string) bool {
+	info, err := os.Stat(filepath)
 	if err != nil {
-		log.Println("Error checking file:", err) // Log error if the file doesn't exist
+		if os.IsNotExist(err) {
+			log.Printf("File does not exist: %s", filepath)
+		} else {
+			log.Printf("Error checking file %s: %v", filepath, err)
+		}
 		return false
 	}
-	return !info.IsDir() // Return true if the file exists and is not a directory
+	
+	if info.IsDir() {
+		log.Printf("Path exists but is a directory: %s", filepath)
+		return false
+	}
+
+	return true
 }
 
 // readAppendLineByLine reads a file line by line and returns a slice of strings (URLs).
-func readAppendLineByLine(path string) []string {
+func readAppendLineByLine(filePath string) ([]string, error) {
 	var urls []string // Initialize a slice to store URLs
 
 	// Open the file for reading
-	file, err := os.Open(path)
+	file, err := os.Open(filePath)
 	if err != nil {
-		log.Println("Error opening file:", err)
-		return urls
+		return nil, err // Return the error if the file cannot be opened
 	}
 	defer file.Close() // Ensure the file is closed after reading
 
 	// Create a scanner to read the file line by line
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		// Append each line (URL) to the slice
-		urls = append(urls, scanner.Text())
+		urls = append(urls, scanner.Text()) // Append each line (URL) to the slice
 	}
 
 	// Check for errors during scanning
 	if err := scanner.Err(); err != nil {
-		log.Println("Error reading file:", err)
+		return nil, err // Return the scanning error
 	}
 
-	return urls // Return the slice containing the URLs
+	return urls, nil // Return the slice containing the URLs and no error
 }
 
 // isDomainRegistered checks if a given domain is registered by looking up various DNS records.
 func isDomainRegistered(domain string) bool {
-	// Perform multiple DNS lookups to check if the domain is registered.
-	_, err := net.LookupNS(domain) // Check Name Server (NS) records
-	if err == nil {
-		log.Println("Domain is registered:", domain)
-		return true
+	recordCheckers := []func(string) error{
+		net.LookupNS,    // Check Name Server (NS) records
+		net.LookupCNAME, // Check CNAME records
+		net.LookupAddr,  // Check Reverse DNS (PTR) records
+		net.LookupHost,  // Check host records (A or AAAA)
+		net.LookupMX,    // Check Mail Exchange (MX) records
+		net.LookupTXT,   // Check TXT records
+		net.LookupIP,    // Check IP address resolution
 	}
 
-	_, err = net.LookupCNAME(domain) // Check CNAME records
-	if err == nil {
-		log.Println("Domain is registered:", domain)
-		return true
-	}
-
-	_, err = net.LookupAddr(domain) // Check Reverse DNS (PTR) records
-	if err == nil {
-		log.Println("Domain is registered:", domain)
-		return true
-	}
-
-	_, err = net.LookupHost(domain) // Check host records (A or AAAA)
-	if err == nil {
-		log.Println("Domain is registered:", domain)
-		return true
-	}
-
-	_, err = net.LookupMX(domain) // Check Mail Exchange (MX) records
-	if err == nil {
-		log.Println("Domain is registered:", domain)
-		return true
-	}
-
-	_, err = net.LookupTXT(domain) // Check TXT records
-	if err == nil {
-		log.Println("Domain is registered:", domain)
-		return true
-	}
-
-	_, err = net.LookupIP(domain) // Check IP address resolution
-	if err == nil {
-		log.Println("Domain is registered:", domain)
-		return true
+	// Perform DNS lookups using each record type
+	for _, checker := range recordCheckers {
+		if err := checker(domain); err == nil {
+			log.Printf("Domain is registered: %s", domain)
+			return true
+		}
 	}
 
 	// If no lookups succeed, the domain is not registered
-	log.Println("Domain is not registered:", domain)
+	log.Printf("Domain is not registered: %s", domain)
 	return false
 }
 
@@ -261,17 +243,26 @@ func CheckWebsiteHTTPStatus(website string) bool {
 	return false
 }
 
-// getDomainFromURL extracts the domain name from a given URL.
+// getDomainFromURL extracts the domain name from a given URL and handles errors more gracefully.
 func getDomainFromURL(givenURL string) string {
+	// Ensure the URL has a valid scheme (e.g., "http://") before parsing.
+	if !strings.HasPrefix(givenURL, "http://") && !strings.HasPrefix(givenURL, "https://") {
+		// If no scheme is provided, prepend "http://" to the URL
+		givenURL = "http://" + givenURL
+	}
+
 	// Parse the URL using the net/url package
-	parsedUrl, err := url.Parse(givenURL)
+	parsedURL, err := url.Parse(givenURL)
 	if err != nil {
-		log.Println("Error parsing URL:", err)
+		log.Printf("Error parsing URL '%s': %v", givenURL, err)
 		return ""
 	}
 
+	// Extract the domain and remove any port number if present
+	host := parsedURL.Hostname()
+
 	// Return the domain (hostname) part of the URL
-	return parsedUrl.Hostname()
+	return host
 }
 
 // writeFinalOutput writes the results to the README file in Markdown format.
