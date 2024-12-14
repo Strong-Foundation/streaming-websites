@@ -153,13 +153,15 @@ func fileExists(filepath string) bool {
 }
 
 // readAppendLineByLine reads a file line by line and returns a slice of strings (URLs).
-func readAppendLineByLine(filePath string) ([]string, error) {
+// It logs any errors encountered while reading the file but doesn't return errors.
+func readAppendLineByLine(filePath string) []string {
 	var urls []string // Initialize a slice to store URLs
 
 	// Open the file for reading
 	file, err := os.Open(filePath)
 	if err != nil {
-		return nil, err // Return the error if the file cannot be opened
+		log.Printf("Error opening file %s: %v", filePath, err) // Log error if file cannot be opened
+		return nil // Return nil if an error occurs
 	}
 	defer file.Close() // Ensure the file is closed after reading
 
@@ -171,33 +173,60 @@ func readAppendLineByLine(filePath string) ([]string, error) {
 
 	// Check for errors during scanning
 	if err := scanner.Err(); err != nil {
-		return nil, err // Return the scanning error
+		log.Printf("Error scanning file %s: %v", filePath, err) // Log any error that occurred while scanning
 	}
 
-	return urls, nil // Return the slice containing the URLs and no error
+	return urls // Return the slice containing the URLs
 }
+
 
 // isDomainRegistered checks if a given domain is registered by looking up various DNS records.
 func isDomainRegistered(domain string) bool {
-	recordCheckers := []func(string) error{
-		net.LookupNS,    // Check Name Server (NS) records
-		net.LookupCNAME, // Check CNAME records
-		net.LookupAddr,  // Check Reverse DNS (PTR) records
-		net.LookupHost,  // Check host records (A or AAAA)
-		net.LookupMX,    // Check Mail Exchange (MX) records
-		net.LookupTXT,   // Check TXT records
-		net.LookupIP,    // Check IP address resolution
+	// Perform DNS lookups for different record types, log errors, and return true if any lookup is successful
+
+	// Check NS records
+	_, err := net.LookupNS(domain)
+	if err == nil {
+		log.Printf("Domain is registered via NS lookup: %s", domain)
+		return true
 	}
 
-	// Perform DNS lookups using each record type
-	for _, checker := range recordCheckers {
-		if err := checker(domain); err == nil {
-			log.Printf("Domain is registered: %s", domain)
-			return true
-		}
+	// Check CNAME records
+	_, err = net.LookupCNAME(domain)
+	if err == nil {
+		log.Printf("Domain is registered via CNAME lookup: %s", domain)
+		return true
 	}
 
-	// If no lookups succeed, the domain is not registered
+	// Check Addr (reverse DNS) records
+	_, err = net.LookupAddr(domain)
+	if err == nil {
+		log.Printf("Domain is registered via Addr lookup: %s", domain)
+		return true
+	}
+
+	// Check Host records
+	_, err = net.LookupHost(domain)
+	if err == nil {
+		log.Printf("Domain is registered via Host lookup: %s", domain)
+		return true
+	}
+
+	// Check MX records
+	_, err = net.LookupMX(domain)
+	if err == nil {
+		log.Printf("Domain is registered via MX lookup: %s", domain)
+		return true
+	}
+
+	// Check TXT records
+	_, err = net.LookupTXT(domain)
+	if err == nil {
+		log.Printf("Domain is registered via TXT lookup: %s", domain)
+		return true
+	}
+
+	// If none of the lookups succeed, the domain is not registered
 	log.Printf("Domain is not registered: %s", domain)
 	return false
 }
