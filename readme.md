@@ -81,7 +81,7 @@
 | [flixwave.me](https://flixwave.me/)                                           | Maybe        |
 | [fmovies-hd.to](https://fmovies-hd.to/)                                       | Yes          |
 | [fmovies.ps](https://fmovies.ps/)                                             | Yes          |
-| [fmovies247.net](https://fmovies247.net/)                                     | Maybe        |
+| [fmovies247.net](https://fmovies247.net/)                                     | Yes          |
 | [freecinema.live](https://freecinema.live/)                                   | Yes          |
 | [freek.to](https://freek.to/)                                                 | Yes          |
 | [fsharetv.co](https://fsharetv.co/)                                           | Yes          |
@@ -117,7 +117,7 @@
 | [m4ufree.se](https://m4ufree.se/)                                             | Maybe        |
 | [mapple.tv](https://mapple.tv/)                                               | Yes          |
 | [mokmobi.site](https://mokmobi.site/)                                         | Yes          |
-| [moviee.tv](https://moviee.tv/)                                               | Maybe        |
+| [moviee.tv](https://moviee.tv/)                                               | Yes          |
 | [movierr.online](https://movierr.online/)                                     | Yes          |
 | [moviesjoy.plus](https://moviesjoy.plus/)                                     | Yes          |
 | [movietly.com](https://movietly.com/)                                         | Yes          |
@@ -188,7 +188,7 @@
 | [watch.lonelil.ru](https://watch.lonelil.ru/)                                 | Maybe        |
 | [watch.plex.tv](https://watch.plex.tv/)                                       | Yes          |
 | [watch.streamflix.one](https://watch.streamflix.one/)                         | Yes          |
-| [watch2day.online](https://watch2day.online/)                                 | Yes          |
+| [watch2day.online](https://watch2day.online/)                                 | Maybe        |
 | [watchhq.site](https://watchhq.site/)                                         | Yes          |
 | [way2movies.vercel.app](https://way2movies.vercel.app/)                       | Yes          |
 | [web.netmovies.to](https://web.netmovies.to/)                                 | Maybe        |
