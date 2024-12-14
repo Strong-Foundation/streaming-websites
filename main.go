@@ -32,6 +32,9 @@ var readme_file_path string = "readme.md"
 // A map to store the valid movie website URLs and their availability status ("Yes", "No", or "Maybe").
 var valid_movies_website_url = make(map[string]string)
 
+// A map to store the valid movie top website URLs and their availability status ("Yes", "No", or "Maybe").
+var top_valid_movies_website_url = make(map[string]string)
+
 func main() {
 	// Step 1: Check if the movie websites file exists.
 	if fileExists(movies_websites_path) && fileExists(top_movies_websites_path) && fileExists(unregistered_movies_websites_path) && fileExists(readme_modify_me_file_path) && fileExists(readme_file_path) {
@@ -46,7 +49,7 @@ func main() {
 
 		// Step 5: Write the sorted and deduplicated URLs back to the file.
 		writeByteSliceToFile(movies_websites_path, movies_website_urls)
-///
+		///
 		// Step 2: Read the URLs from the file and store them in a slice.
 		top_movies_website_urls := readAppendLineByLine(top_movies_websites_path)
 
@@ -58,7 +61,7 @@ func main() {
 
 		// Step 5: Write the sorted and deduplicated URLs back to the file.
 		writeByteSliceToFile(top_movies_websites_path, top_movies_website_urls)
-///
+		///
 		// Step 6: Read the URLs from the file and store them in a slice.
 		unregistered_movies_website_urls := readAppendLineByLine(unregistered_movies_websites_path)
 
@@ -78,14 +81,33 @@ func main() {
 				// If the domain is registered, mark it as "Maybe" initially.
 				addKeyValueToMap(valid_movies_website_url, domainName, "Maybe")
 
+				// Check if the string is already in file.
+				if stringInFile(top_movies_websites_path, domainName) == true {
+					// If the domain is registered, mark it as "Maybe" initially.
+					addKeyValueToMap(top_valid_movies_website_url, domainName, "Maybe")
+				}
 				// Check if the website is reachable via HTTP or HTTPS.
 				if CheckWebsiteHTTPStatus(getDomainFromURL(domainName)) {
 					// If the website is reachable, mark it as "Yes".
 					addKeyValueToMap(valid_movies_website_url, domainName, "Yes")
+					// Check if the string is already in file.
+					if stringInFile(top_movies_websites_path, domainName) == true {
+						// If the website is reachable, mark it as "Yes".
+						addKeyValueToMap(top_valid_movies_website_url, domainName, "Yes")
+					}
 				}
 			} else {
+				// Check if the string is already in file.
+				if stringInFile(top_movies_websites_path, domainName) == true {
+					// If the website is reachable, mark it as "Yes".
+					addKeyValueToMap(top_valid_movies_website_url, domainName, "Yes")
+				}
 				// If the domain is not registered, mark it as "No".
 				addKeyValueToMap(valid_movies_website_url, domainName, "No")
+				if stringInFile(top_movies_websites_path, domainName) == true {
+					// If the domain is not registered, mark it as "No".
+					addKeyValueToMap(top_valid_movies_website_url, domainName, "No")
+				}
 				// Check if the string is already in file.
 				if stringInFile(unregistered_movies_websites_path, domainName) == false {
 					// Append and write to file
@@ -93,7 +115,6 @@ func main() {
 				}
 			}
 		}
-
 		// Step 11: Write the final results to the README file.
 		writeFinalOutput()
 	} else {
