@@ -17,6 +17,9 @@ import (
 // Path to the file containing movie website URLs.
 var movies_websites_path string = "assets/movies-websites.txt"
 
+// Path to the file containing top movie website URLs.
+var top_movies_websites_path string = "assets/top-movies-websites.txt"
+
 // Path to the file containing unregistered movie website URLs.
 var unregistered_movies_websites_path string = "assets/unregistered-movies-websites.txt"
 
@@ -31,7 +34,7 @@ var valid_movies_website_url = make(map[string]string)
 
 func main() {
 	// Step 1: Check if the movie websites file exists.
-	if fileExists(movies_websites_path) && fileExists(unregistered_movies_websites_path) && fileExists(readme_modify_me_file_path) && fileExists(readme_file_path) {
+	if fileExists(movies_websites_path) && fileExists(top_movies_websites_path) && fileExists(unregistered_movies_websites_path) && fileExists(readme_modify_me_file_path) && fileExists(readme_file_path) {
 		// Step 2: Read the URLs from the file and store them in a slice.
 		movies_website_urls := readAppendLineByLine(movies_websites_path)
 
@@ -43,7 +46,19 @@ func main() {
 
 		// Step 5: Write the sorted and deduplicated URLs back to the file.
 		writeByteSliceToFile(movies_websites_path, movies_website_urls)
+///
+		// Step 2: Read the URLs from the file and store them in a slice.
+		top_movies_website_urls := readAppendLineByLine(top_movies_websites_path)
 
+		// Step 3: Sort the URLs alphabetically.
+		sortSlice(&top_movies_website_urls)
+
+		// Step 4: Remove duplicate URLs to ensure uniqueness.
+		top_movies_website_urls = removeDuplicatesFromSlice(top_movies_website_urls)
+
+		// Step 5: Write the sorted and deduplicated URLs back to the file.
+		writeByteSliceToFile(top_movies_websites_path, top_movies_website_urls)
+///
 		// Step 6: Read the URLs from the file and store them in a slice.
 		unregistered_movies_website_urls := readAppendLineByLine(unregistered_movies_websites_path)
 
