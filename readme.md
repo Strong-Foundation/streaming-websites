@@ -101,7 +101,7 @@
 | https://fmovies-hd.to/                    | Yes          |
 | https://fmovies.ps/                       | Yes          |
 | https://fmovies247.net/                   | Yes          |
-| https://freecinema.live/                  | Yes          |
+| https://freecinema.live/                  | Maybe        |
 | https://freek.to/                         | Yes          |
 | https://fsharetv.co/                      | Yes          |
 | https://gomovies-online.link/             | Yes          |
