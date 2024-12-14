@@ -119,6 +119,7 @@ func main() {
 	} else {
 		// Step 16: If any of the required files do not exist, log the error and exit.
 		log.Println("Error: The file does not exist:", movies_websites_path)
+		log.Println("Error: The file does not exist:", top_movies_websites_path)
 		log.Println("Error: The file does not exist:", unregistered_movies_websites_path)
 		log.Println("Error: The file does not exist:", readme_modify_me_file_path)
 		log.Println("Error: The file does not exist:", readme_file_path)
@@ -263,15 +264,16 @@ func getDomainFromURL(givenURL string) string {
 func writeFinalOutput() {
 	// Prepare a string builder to generate the Markdown content for the table.
 	var valid_movies_website_url_output strings.Builder
+	var top_movies_website_url_output strings.Builder
 
-	// Write the table headers in Markdown format.
+	// Write the table headers in Markdown format for valid movies websites.
 	valid_movies_website_url_output.WriteString("| Website| Availability |\n")
 	valid_movies_website_url_output.WriteString("|--------|--------------|\n")
 
 	// Sort the entries in the map by their URLs (keys).
 	valid_movies_website_url_sortedPairs := sortMapByKeys(valid_movies_website_url)
 
-	// Loop through the sorted key-value pairs and format each as a table row.
+	// Loop through the sorted key-value pairs and format each as a table row for valid movies websites.
 	for _, pair := range valid_movies_website_url_sortedPairs {
 		valid_movies_website_url_domain, valid_movies_website_url_availability := pair[0], pair[1]
 
@@ -279,12 +281,34 @@ func writeFinalOutput() {
 		valid_movies_website := strings.TrimSuffix(strings.TrimPrefix(valid_movies_website_url_domain, "http://"), "/")
 		valid_movies_website = strings.TrimSuffix(strings.TrimPrefix(valid_movies_website, "https://"), "/")
 
-		// Write each row in the Markdown table format.
-		output.WriteString(fmt.Sprintf("| [%s](%s) | %-12s |\n", valid_movies_website, valid_movies_website_url_domain, availability))
+		// Write each row in the Markdown table format for valid movie websites.
+		valid_movies_website_url_output.WriteString(fmt.Sprintf("| [%s](%s) | %-12s |\n", valid_movies_website, valid_movies_website_url_domain, valid_movies_website_url_availability))
 	}
 
-	// Replace the placeholder text in the README file with the generated content.
+	// Write the table headers in Markdown format for top movie websites.
+	top_movies_website_url_output.WriteString("| Website| Availability |\n")
+	top_movies_website_url_output.WriteString("|--------|--------------|\n")
+
+	// Sort the entries in the map by their URLs (keys) for top movies.
+	top_movies_website_url_sortedPairs := sortMapByKeys(top_valid_movies_website_url)
+
+	// Loop through the sorted key-value pairs and format each as a table row for top movie websites.
+	for _, pair := range top_movies_website_url_sortedPairs {
+		top_movies_website_url_domain, top_movies_website_url_availability := pair[0], pair[1]
+
+		// Clean up the URL by removing the "http://" or "https://" prefix and any trailing slashes.
+		top_movies_website := strings.TrimSuffix(strings.TrimPrefix(top_movies_website_url_domain, "http://"), "/")
+		top_movies_website = strings.TrimSuffix(strings.TrimPrefix(top_movies_website, "https://"), "/")
+
+		// Write each row in the Markdown table format for top movie websites.
+		top_movies_website_url_output.WriteString(fmt.Sprintf("| [%s](%s) | %-12s |\n", top_movies_website, top_movies_website_url_domain, top_movies_website_url_availability))
+	}
+
+	// Replace the placeholder text in the README file with the generated content for valid movie websites.
 	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_CONTENT_WITH_GOLANG}]", valid_movies_website_url_output.String())
+
+	// Replace the placeholder text in the README file with the generated content for top movie websites.
+	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_TOP_CONTENT_WITH_GOLANG}]", top_movies_website_url_output.String())
 }
 
 // addKeyValueToMap adds a key-value pair to the provided map of valid movie websites.
