@@ -10,6 +10,7 @@ import (
 	"os"
 	"sort"
 	"strings"
+	"time"
 )
 
 // Global variables defining file paths for input and output
@@ -220,25 +221,44 @@ func isDomainRegistered(domain string) bool {
 }
 
 // CheckWebsiteHTTPStatus checks if a website is reachable via HTTP or HTTPS.
-func CheckWebsiteHTTPStatus(domain string) bool {
-	protocols := []string{"http://", "https://"} // List of protocols to check
+func CheckWebsiteHTTPStatus(website string) bool {
+	protocols := []string{"http://", "https://"} // Protocols to check
+	httpClient := &http.Client{Timeout: 10 * time.Second} // HTTP client with timeout
 
-	// Iterate over protocols and attempt a GET request for each
+	// Validate DNS resolution before making requests
+	if _, dnsError := net.LookupHost(website); dnsError != nil {
+		log.Printf("DNS resolution failed for website %s: %v", website, dnsError)
+		return false
+	}
+
 	for _, protocol := range protocols {
-		resp, err := http.Get(protocol + domain) // Make HTTP/HTTPS GET request
-		if err == nil {
-			defer resp.Body.Close() // Ensure the response body is closed after reading
-			if resp.StatusCode == http.StatusOK {
-				log.Println("Website is reachable:", protocol+domain)
-				return true // Return true if the website is reachable
+		websiteURL := protocol + website
+
+		// Retry up to 3 times for transient errors
+		for attempt := 1; attempt <= 3; attempt++ {
+			startTime := time.Now()
+			response, requestError := httpClient.Get(websiteURL)
+			if requestError != nil {
+				log.Printf("Attempt %d: Error checking %s: %v", attempt, websiteURL, requestError)
+				continue
 			}
-		} else {
-			log.Println("Error checking website (", protocol, "):", err) // Log if the website is not reachable
+
+			// Ensure the response body is closed
+			response.Body.Close()
+
+			log.Printf("Response time for %s: %v", websiteURL, time.Since(startTime))
+
+			if response.StatusCode == http.StatusOK {
+				log.Printf("Website is reachable: %s", websiteURL)
+				return true
+			}
+
+			log.Printf("Attempt %d: Status %d for %s", attempt, response.StatusCode, websiteURL)
 		}
 	}
 
-	log.Println("Website is not reachable:", domain)
-	return false // Return false if the website is not reachable via both protocols
+	log.Printf("Website is not reachable: %s", website)
+	return false
 }
 
 // getDomainFromURL extracts the domain name from a given URL.
