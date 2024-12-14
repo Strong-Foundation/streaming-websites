@@ -93,7 +93,7 @@ func main() {
 				}
 
 				// Step 19d: If the domain is also in the disconnected movie websites list, mark it as "Maybe"
-				if stringInFile(disconnected_movies_websites_path, domainName) {
+				if !stringInFile(disconnected_movies_websites_path, domainName) {
 					appendAndWriteToFile(disconnected_movies_websites_path, domainName)
 				}
 
