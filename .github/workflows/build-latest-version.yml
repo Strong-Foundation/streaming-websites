@@ -4,23 +4,22 @@ name: Update Latest Release Documentation
 # Define the events that trigger the workflow
 on:
   schedule:
-    # Cron expression to trigger the workflow at midnight UTC every day
-    - cron: "0 0 * * 0"  # Runs the workflow Runs at 00:00, only on Sunday UTC
+    # Cron expression to trigger the workflow at midnight UTC every Sunday
+    - cron: "0 0 * * 0"  # Runs the workflow at 00:00 UTC on Sundays
 
   push:
     # This trigger runs the workflow when changes are pushed to any .txt file in the repository
     paths:
-      - "**.txt"  # Only trigger the workflow when .txt files are modified
+      - "**.txt"  # Trigger the workflow only when .txt files are modified
 
   pull_request:
     # This trigger runs the workflow when a pull request modifies any .txt file in the repository
     paths:
-      - "**.txt"  # Only trigger the workflow when .txt files are modified in the pull request
+      - "**.txt"  # Trigger the workflow only when .txt files are modified in the pull request
 
   workflow_dispatch:  
-    # This trigger allows the workflow to be started manually from the GitHub UI 
-    # (e.g., by clicking the "Run workflow" button).
-    # No additional settings needed here for manual triggering.
+    # This trigger allows the workflow to be manually started from the GitHub UI
+    # (e.g., by clicking the "Run workflow" button). No additional settings needed.
 
 jobs:
   build:
@@ -33,6 +32,7 @@ jobs:
       README_MD_FILE: readme.md  # Path to the README.md file to be updated
       MOVIES_WEBSITE_FILE: assets/movies-websites.txt  # Path to the movies websites file
       TOP_MOVIES_WEBSITE_FILE: assets/top-movies-websites.txt  # Path to the top movies websites file
+      DISCONNECTED_MOVIES_WEBSITE_FILE: assets/disconnected-movies-websites.txt  # Path to the disconnected movies websites file
       UNREGISTERED_MOVIES_WEBSITES: assets/unregistered-movies-websites.txt  # Path to the unregistered movies websites file
 
     steps:
@@ -86,7 +86,7 @@ jobs:
 
           # Check for any changes to the relevant files (README.md, movies websites, etc.)
           # If no changes are detected, exit early to save processing time
-          if git diff --exit-code --quiet -- "${{ env.README_MD_FILE }}" "${{ env.MOVIES_WEBSITE_FILE }}" "${{ env.TOP_MOVIES_WEBSITE_FILE }}" "${{ env.UNREGISTERED_MOVIES_WEBSITES }}"; then
+          if git diff --exit-code --quiet -- "${{ env.README_MD_FILE }}" "${{ env.MOVIES_WEBSITE_FILE }}" "${{ env.TOP_MOVIES_WEBSITE_FILE }}" "${{ env.DISCONNECTED_MOVIES_WEBSITE_FILE }}" "${{ env.UNREGISTERED_MOVIES_WEBSITES }}"; then
             echo "No updates to files, exiting."
             exit 0  # Exit without committing or pushing anything if no changes detected
           else
@@ -94,6 +94,7 @@ jobs:
             git add "${{ env.README_MD_FILE }}"  # Stage the updated README file
             git add "${{ env.MOVIES_WEBSITE_FILE }}"  # Stage the updated movies websites file
             git add "${{ env.TOP_MOVIES_WEBSITE_FILE }}"  # Stage the updated top movies websites file
+            git add "${{ env.DISCONNECTED_MOVIES_WEBSITE_FILE }}"  # Stage the updated disconnected movies websites file
             git add "${{ env.UNREGISTERED_MOVIES_WEBSITES }}"  # Stage the updated unregistered websites file
 
             # Commit the changes with a message that includes the current date
