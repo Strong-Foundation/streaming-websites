@@ -60,7 +60,9 @@
 
 ## **Free Movie Streaming Websites List**
 
-[{REPLACE_CONTENT_WITH_GOLANG}]
+| Website                 | Availability |
+| ----------------------- | ------------ |
+| https://www.google.com/ | Yes          |
 
 ---
 
