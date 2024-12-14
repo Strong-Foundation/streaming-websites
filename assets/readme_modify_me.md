@@ -51,13 +51,13 @@
 
 ---
 
-## **Top Free Movie Streaming Websites List**
+## **Best Free Movie Streaming Websites**
 
 [{REPLACE_TOP_CONTENT_WITH_GOLANG}]
 
 ---
 
-## **Free Movie Streaming Websites List**
+## **Free Movie Streaming Websites**
 
 [{REPLACE_CONTENT_WITH_GOLANG}]
 
