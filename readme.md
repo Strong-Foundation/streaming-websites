@@ -53,9 +53,8 @@
 
 ## **Top Free Movie Streaming Websites List**
 
-| Website                               | Availability |
-| ------------------------------------- | ------------ |
-| [456movie.com](https://456movie.com/) | Yes          |
+| Website | Availability |
+| ------- | ------------ |
 
 ---
 
