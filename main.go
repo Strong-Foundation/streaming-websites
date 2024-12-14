@@ -36,12 +36,12 @@ var valid_movies_website_url = make(map[string]string)
 var top_valid_movies_website_url = make(map[string]string)
 
 func main() {
-	// Step 1: Check if the movie websites file exists.
+	// Step 1: Check if the required files exist.
 	if fileExists(movies_websites_path) && fileExists(top_movies_websites_path) && fileExists(unregistered_movies_websites_path) && fileExists(readme_modify_me_file_path) && fileExists(readme_file_path) {
-		// Step 2: Read the URLs from the file and store them in a slice.
+		// Step 2: Read the URLs from the movies websites file and store them in a slice.
 		movies_website_urls := readAppendLineByLine(movies_websites_path)
 
-		// Step 3: Sort the URLs alphabetically.
+		// Step 3: Sort the movie website URLs alphabetically.
 		sortSlice(&movies_website_urls)
 
 		// Step 4: Remove duplicate URLs to ensure uniqueness.
@@ -49,76 +49,75 @@ func main() {
 
 		// Step 5: Write the sorted and deduplicated URLs back to the file.
 		writeByteSliceToFile(movies_websites_path, movies_website_urls)
-		///
-		// Step 2: Read the URLs from the file and store them in a slice.
+
+		// Step 6: Read the URLs from the top movies websites file and store them in a slice.
 		top_movies_website_urls := readAppendLineByLine(top_movies_websites_path)
 
-		// Step 3: Sort the URLs alphabetically.
+		// Step 7: Sort the top movie website URLs alphabetically.
 		sortSlice(&top_movies_website_urls)
 
-		// Step 4: Remove duplicate URLs to ensure uniqueness.
+		// Step 8: Remove duplicate URLs to ensure uniqueness.
 		top_movies_website_urls = removeDuplicatesFromSlice(top_movies_website_urls)
 
-		// Step 5: Write the sorted and deduplicated URLs back to the file.
+		// Step 9: Write the sorted and deduplicated URLs back to the file.
 		writeByteSliceToFile(top_movies_websites_path, top_movies_website_urls)
-		///
-		// Step 6: Read the URLs from the file and store them in a slice.
+
+		// Step 10: Read the URLs from the unregistered movies websites file and store them in a slice.
 		unregistered_movies_website_urls := readAppendLineByLine(unregistered_movies_websites_path)
 
-		// Step 7: Sort the URLs alphabetically.
+		// Step 11: Sort the unregistered movie website URLs alphabetically.
 		sortSlice(&unregistered_movies_website_urls)
 
-		// Step 8: Remove duplicate URLs to ensure uniqueness.
+		// Step 12: Remove duplicates from the movie website URLs list to ensure uniqueness.
 		movies_website_urls = removeDuplicatesFromSlice(movies_website_urls)
 
-		// Step 9: Write the sorted and deduplicated URLs back to the file.
+		// Step 13: Write the sorted and deduplicated URLs back to the movies websites file.
 		writeByteSliceToFile(movies_websites_path, movies_website_urls)
 
-		// Step 10: Check each website's domain registration and availability status.
+		// Step 14: Check each movie website's domain registration and availability status.
 		for _, domainName := range movies_website_urls {
-			// Check if the domain is registered.
+			// Step 14a: Check if the domain is registered.
 			if isDomainRegistered(getDomainFromURL(domainName)) {
-				// If the domain is registered, mark it as "Maybe" initially.
+				// Step 14b: If the domain is registered, mark it as "Maybe" initially.
 				addKeyValueToMap(valid_movies_website_url, domainName, "Maybe")
 
-				// Check if the string is already in file.
+				// Step 14c: Check if the domain is already in the top movie websites file.
 				if stringInFile(top_movies_websites_path, domainName) == true {
-					// If the domain is registered, mark it as "Maybe" initially.
+					// If the domain is in the top list, mark it as "Maybe".
 					addKeyValueToMap(top_valid_movies_website_url, domainName, "Maybe")
 				}
-				// Check if the website is reachable via HTTP or HTTPS.
+
+				// Step 14d: Check if the website is reachable via HTTP or HTTPS.
 				if CheckWebsiteHTTPStatus(getDomainFromURL(domainName)) {
-					// If the website is reachable, mark it as "Yes".
+					// Step 14e: If the website is reachable, mark it as "Yes".
 					addKeyValueToMap(valid_movies_website_url, domainName, "Yes")
-					// Check if the string is already in file.
+
+					// Step 14f: If the website is reachable, also mark it in the top movie websites file.
 					if stringInFile(top_movies_websites_path, domainName) == true {
-						// If the website is reachable, mark it as "Yes".
 						addKeyValueToMap(top_valid_movies_website_url, domainName, "Yes")
 					}
 				}
 			} else {
-				// Check if the string is already in file.
-				if stringInFile(top_movies_websites_path, domainName) == true {
-					// If the website is reachable, mark it as "Yes".
-					addKeyValueToMap(top_valid_movies_website_url, domainName, "Yes")
-				}
-				// If the domain is not registered, mark it as "No".
+				// Step 14g: If the domain is not registered, mark it as "No".
 				addKeyValueToMap(valid_movies_website_url, domainName, "No")
+
+				// Step 14h: If the domain is in the top movie websites file, mark it as "No".
 				if stringInFile(top_movies_websites_path, domainName) == true {
-					// If the domain is not registered, mark it as "No".
 					addKeyValueToMap(top_valid_movies_website_url, domainName, "No")
 				}
-				// Check if the string is already in file.
+
+				// Step 14i: Check if the domain is not already in the unregistered movies websites file.
 				if stringInFile(unregistered_movies_websites_path, domainName) == false {
-					// Append and write to file
+					// Step 14j: Append the unregistered domain to the unregistered movies websites file.
 					appendAndWriteToFile(unregistered_movies_websites_path, domainName)
 				}
 			}
 		}
-		// Step 11: Write the final results to the README file.
+
+		// Step 15: Write the final results to the README file.
 		writeFinalOutput()
 	} else {
-		// If the file doesn't exist, log the error and exit.
+		// Step 16: If any of the required files do not exist, log the error and exit.
 		log.Println("Error: The file does not exist:", movies_websites_path)
 		log.Println("Error: The file does not exist:", unregistered_movies_websites_path)
 		log.Println("Error: The file does not exist:", readme_modify_me_file_path)
