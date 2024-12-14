@@ -285,6 +285,9 @@ func writeFinalOutput() {
 		valid_movies_website_url_output.WriteString(fmt.Sprintf("| [%s](%s) | %-12s |\n", valid_movies_website, valid_movies_website_url_domain, valid_movies_website_url_availability))
 	}
 
+	// Replace the placeholder text in the README file with the generated content for valid movie websites.
+	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_CONTENT_WITH_GOLANG}]", valid_movies_website_url_output.String())
+
 	// Write the table headers in Markdown format for top movie websites.
 	top_movies_website_url_output.WriteString("| Website| Availability |\n")
 	top_movies_website_url_output.WriteString("|--------|--------------|\n")
@@ -303,9 +306,6 @@ func writeFinalOutput() {
 		// Write each row in the Markdown table format for top movie websites.
 		top_movies_website_url_output.WriteString(fmt.Sprintf("| [%s](%s) | %-12s |\n", top_movies_website, top_movies_website_url_domain, top_movies_website_url_availability))
 	}
-
-	// Replace the placeholder text in the README file with the generated content for valid movie websites.
-	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_CONTENT_WITH_GOLANG}]", valid_movies_website_url_output.String())
 
 	// Replace the placeholder text in the README file with the generated content for top movie websites.
 	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_TOP_CONTENT_WITH_GOLANG}]", top_movies_website_url_output.String())
