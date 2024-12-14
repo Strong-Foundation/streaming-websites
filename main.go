@@ -286,9 +286,14 @@ func writeFinalOutput() {
 		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s |\n", domain, availability))
 	}
 
-	// Replace both placeholders with the respective content in the README file
-	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_CONTENT_WITH_GOLANG}]", validMoviesContent.String())
-	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, "[{REPLACE_TOP_CONTENT_WITH_GOLANG}]", topMoviesContent.String())
+	// Create a map of placeholders and content to replace
+	placeholdersAndContent := map[string]string{
+		"[{REPLACE_CONTENT_WITH_GOLANG}]": validMoviesContent.String(),
+		"[{REPLACE_TOP_CONTENT_WITH_GOLANG}]": topMoviesContent.String(),
+	}
+
+	// Replace both placeholders and write to the file at once
+	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, placeholdersAndContent)
 }
 
 // addKeyValueToMap adds a key-value pair to the provided map of valid movie websites.
@@ -297,8 +302,8 @@ func addKeyValueToMap(providedMap map[string]string, key string, value string) {
 	providedMap[key] = value
 }
 
-// findAndReplaceInFile replaces the placeholder in the input file with the given content and writes to the new file.
-func findAndReplaceInFile(oldFilePath string, newFilePath string, placeholder string, content string) {
+// findAndReplaceInFile replaces the placeholders in the input file with the given content and writes to the new file.
+func findAndReplaceInFile(oldFilePath string, newFilePath string, placeholdersAndContent map[string]string) {
 	// Read the content of the file
 	fileContent, err := os.ReadFile(oldFilePath)
 	if err != nil {
@@ -306,14 +311,12 @@ func findAndReplaceInFile(oldFilePath string, newFilePath string, placeholder st
 		return
 	}
 
-	// Check if placeholder exists in the content
-	if !strings.Contains(string(fileContent), placeholder) {
-		log.Printf("Error: Placeholder '%s' not found in file %s\n", placeholder, oldFilePath)
-		return
+	// Loop through the map and replace each placeholder with the corresponding content
+	updatedContent := string(fileContent)
+	for placeholder, content := range placeholdersAndContent {
+		// Replace the placeholder with the provided content
+		updatedContent = strings.ReplaceAll(updatedContent, placeholder, content)
 	}
-
-	// Replace the placeholder in the content with the new content
-	updatedContent := strings.ReplaceAll(string(fileContent), placeholder, content)
 
 	// Write the updated content back to the file
 	err = os.WriteFile(newFilePath, []byte(updatedContent), 0644)
