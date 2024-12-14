@@ -101,12 +101,12 @@
 | https://fmovies-hd.to/                    | Yes          |
 | https://fmovies.ps/                       | Yes          |
 | https://fmovies247.net/                   | Yes          |
-| https://freecinema.live/                  | Maybe        |
+| https://freecinema.live/                  | Yes          |
 | https://freek.to/                         | Yes          |
 | https://fsharetv.co/                      | Yes          |
 | https://gomovies-online.link/             | Yes          |
 | https://gomovies.sx/                      | Yes          |
-| https://gomoviestv.to/                    | Maybe        |
+| https://gomoviestv.to/                    | Yes          |
 | https://gostream.to/                      | Yes          |
 | https://gotytv.com/                       | Yes          |
 | https://hdtodayz.to/                      | Yes          |
