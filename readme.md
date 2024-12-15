@@ -227,7 +227,7 @@
 | https://www.goojara.to/                   | Maybe        |
 | https://www.hoopladigital.com/            | Yes          |
 | https://www.kaitovault.com/               | Yes          |
-| https://www.levidia.ch/                   | Maybe        |
+| https://www.levidia.ch/                   | Yes          |
 | https://www.lookmovie2.to/                | Yes          |
 | https://www.playary.com/                  | Yes          |
 | https://www.pressplay.top/                | Maybe        |
