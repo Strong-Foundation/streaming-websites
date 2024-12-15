@@ -66,7 +66,7 @@
 | ----------------------------------------- | ------------ |
 | http://www.streamlord.com/                | Yes          |
 | https://123movies.ai/                     | Yes          |
-| https://1hd.to/                           | Maybe        |
+| https://1hd.to/                           | Yes          |
 | https://321movies.co.uk/                  | Yes          |
 | https://456movie.com/                     | Yes          |
 | https://6movies.stream/                   | Yes          |
@@ -101,7 +101,7 @@
 | https://fmovies-hd.to/                    | Yes          |
 | https://fmovies.ps/                       | Yes          |
 | https://fmovies247.net/                   | Yes          |
-| https://freecinema.live/                  | Maybe        |
+| https://freecinema.live/                  | Yes          |
 | https://freek.to/                         | Yes          |
 | https://fsharetv.co/                      | Yes          |
 | https://gomovies-online.link/             | Yes          |
@@ -227,7 +227,7 @@
 | https://www.goojara.to/                   | Maybe        |
 | https://www.hoopladigital.com/            | Yes          |
 | https://www.kaitovault.com/               | Yes          |
-| https://www.levidia.ch/                   | Yes          |
+| https://www.levidia.ch/                   | Maybe        |
 | https://www.lookmovie2.to/                | Yes          |
 | https://www.playary.com/                  | Yes          |
 | https://www.pressplay.top/                | Maybe        |
