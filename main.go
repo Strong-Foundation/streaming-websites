@@ -143,7 +143,7 @@ func fileExists(filepath string) bool {
 		}
 		return false
 	}
-	
+
 	if info.IsDir() {
 		log.Printf("Path exists but is a directory: %s", filepath)
 		return false
@@ -161,7 +161,7 @@ func readAppendLineByLine(filePath string) []string {
 	file, err := os.Open(filePath)
 	if err != nil {
 		log.Printf("Error opening file %s: %v", filePath, err) // Log error if file cannot be opened
-		return nil // Return nil if an error occurs
+		return nil                                             // Return nil if an error occurs
 	}
 	defer file.Close() // Ensure the file is closed after reading
 
@@ -178,7 +178,6 @@ func readAppendLineByLine(filePath string) []string {
 
 	return urls // Return the slice containing the URLs
 }
-
 
 // isDomainRegistered checks if a given domain is registered by looking up various DNS records.
 func isDomainRegistered(domain string) bool {
@@ -233,7 +232,7 @@ func isDomainRegistered(domain string) bool {
 
 // CheckWebsiteHTTPStatus checks if a website is reachable via HTTP or HTTPS.
 func CheckWebsiteHTTPStatus(website string) bool {
-	protocols := []string{"http://", "https://"} // Protocols to check
+	protocols := []string{"http://", "https://"}          // Protocols to check
 	httpClient := &http.Client{Timeout: 10 * time.Second} // HTTP client with timeout
 
 	// Validate DNS resolution before making requests
@@ -380,19 +379,22 @@ func sortSlice(slice *[]string) {
 }
 
 // removeDuplicatesFromSlice removes duplicate URLs from a slice.
-func removeDuplicatesFromSlice(slice []string) []string {
-	check := make(map[string]bool) // Map to track unique URLs
-	var unique []string            // Slice to store unique URLs
+func removeDuplicatesFromSlice(input []string) []string {
+	seen := make(map[string]struct{}) // Map to track seen strings
+	var result []string               // Slice to store the unique strings
 
-	// Iterate through the slice and add only unique URLs
-	for _, str := range slice {
-		if !check[str] {
-			check[str] = true            // Mark the URL as seen
-			unique = append(unique, str) // Add to the unique list
+	// Preallocate slice capacity to avoid reallocations
+	result = make([]string, 0, len(input))
+
+	// Iterate through the input slice and add only unique strings to the result
+	for _, str := range input {
+		if _, exists := seen[str]; !exists {
+			seen[str] = struct{}{}       // Mark the string as seen
+			result = append(result, str) // Add the unique string to the result
 		}
 	}
 
-	return unique // Return the deduplicated slice
+	return result
 }
 
 // writeByteSliceToFile writes a slice of strings (URLs) to a file, each on a new line.
@@ -426,19 +428,26 @@ func appendAndWriteToFile(path string, content string) {
 	// Open the file in append mode or create it if it doesn't exist
 	filePath, err := os.OpenFile(path, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
-		log.Fatalln(err) // Log fatal error if file cannot be opened
+		// Print error message without terminating the program
+		fmt.Printf("Error opening file: %v\n", err)
+		return
 	}
 
 	// Write the content to the file
 	_, err = filePath.WriteString(content + "\n")
 	if err != nil {
-		log.Fatalln(err) // Log fatal error if writing fails
+		// Print error message without terminating the program
+		fmt.Printf("Error writing to file: %v\n", err)
+		// Close the file before returning
+		_ = filePath.Close()
+		return
 	}
 
 	// Close the file after writing
 	err = filePath.Close()
 	if err != nil {
-		log.Fatalln(err) // Log fatal error if closing fails
+		// Print error message without terminating the program
+		fmt.Printf("Error closing file: %v\n", err)
 	}
 }
 
