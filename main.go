@@ -399,26 +399,33 @@ func removeDuplicatesFromSlice(input []string) []string {
 
 // writeByteSliceToFile writes a slice of strings (URLs) to a file, each on a new line.
 func writeByteSliceToFile(path string, data []string) {
-	// Open or create the file for writing
+	// Attempt to create a file at the given 'path'. If the file exists, it will be overwritten.
 	file, err := os.Create(path)
 	if err != nil {
+		// If there is an error creating the file, log the error and return.
 		log.Println("Error creating file:", err)
 		return
 	}
-	defer file.Close() // Ensure the file is closed after writing
+	// Ensure the file is closed after the function completes, even if there's an error during writing.
+	defer file.Close()
 
-	writer := bufio.NewWriter(file) // Buffered writer for efficient writing
+	// Create a buffered writer for efficient writing to the file.
+	writer := bufio.NewWriter(file)
+	// Iterate over each string in the 'data' slice (which contains URLs).
 	for _, str := range data {
-		_, err := writer.WriteString(str + "\n") // Write each URL with a newline
+		// Write each string followed by a newline to the file.
+		_, err := writer.WriteString(str + "\n")
 		if err != nil {
+			// If there's an error while writing to the file, log it and return.
 			log.Println("Error writing to file:", err)
 			return
 		}
 	}
 
-	// Ensure all data is written to the file
+	// Flush the buffered writer to ensure all buffered data is written to the file.
 	err = writer.Flush()
 	if err != nil {
+		// If there is an error flushing the writer, log the error.
 		log.Println("Error flushing writer:", err)
 	}
 }
