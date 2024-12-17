@@ -243,7 +243,7 @@
 | https://www.arte.tv/en                    | Yes          |
 | https://www.bbc.co.uk/iplayer             | Yes          |
 | https://www.cinebook.xyz/                 | Yes          |
-| https://www.cineby.ru/                    | Maybe        |
+| https://www.cineby.ru/                    | Yes          |
 | https://www.crackle.com/                  | Yes          |
 | https://www.downloads-anymovies.co/       | Yes          |
 | https://www.goojara.to/                   | Maybe        |
