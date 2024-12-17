@@ -77,7 +77,7 @@
 | https://allmanga.to                       | Yes          |       |
 | https://anime.nexus                       | Yes          |       |
 | https://animegg.org                       | Yes          |       |
-| https://animepahe.ru                      | Maybe        |       |
+| https://animepahe.ru                      | Maybe        | 0s    |
 | https://anitaku.io                        | Yes          |       |
 | https://aniwatchtv.to                     | Yes          |       |
 | https://aniworld.to                       | Yes          |       |
@@ -171,7 +171,7 @@
 | https://nunflix-firebase.firebaseapp.com/ | Yes          |       |
 | https://nunflix-firebase.web.app/         | Yes          |       |
 | https://nunflix.org/                      | Yes          |       |
-| https://nyaa.land                         | Maybe        |       |
+| https://nyaa.land                         | Maybe        | 0s    |
 | https://onhockey.tv                       | Yes          |       |
 | https://onionplay.asia/                   | Maybe        |       |
 | https://onionplay.network/                | Maybe        |       |
@@ -202,17 +202,17 @@
 | https://soapertv.cc/                      | Yes          |       |
 | https://solarmovie.vip/                   | Yes          |       |
 | https://sport365.stream                   | Yes          |       |
-| https://sportplus.live                    | Maybe        |       |
-| https://sportshub.stream                  | Maybe        |       |
-| https://sportsurge.net                    | Maybe        |       |
-| https://streamed.su                       | Maybe        |       |
+| https://sportplus.live                    | Maybe        | 0s    |
+| https://sportshub.stream                  | Maybe        | 0s    |
+| https://sportsurge.net                    | Maybe        | 0s    |
+| https://streamed.su                       | Maybe        | 0s    |
 | https://streamflix.space/                 | Yes          |       |
 | https://streamfr.onrender.com/            | Yes          |       |
 | https://supernova.to/                     | Maybe        |       |
 | https://therokuchannel.roku.com/          | Yes          |       |
 | https://tubitv.com                        | Yes          |       |
 | https://tubitv.com/                       | Yes          |       |
-| https://upmovies.net/                     | Maybe        |       |
+| https://upmovies.net/                     | No           |       |
 | https://valhallastream.pages.dev/         | Yes          |       |
 | https://valhallastream.us.kg/             | Yes          |       |
 | https://vidcloud1.com/                    | Yes          |       |
