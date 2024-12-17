@@ -77,7 +77,7 @@
 | https://allmanga.to                       | Yes          |
 | https://anime.nexus                       | Yes          |
 | https://animegg.org                       | Yes          |
-| https://animepahe.ru                      | Yes          |
+| https://animepahe.ru                      | Maybe        |
 | https://anitaku.io                        | Yes          |
 | https://aniwatchtv.to                     | Yes          |
 | https://aniworld.to                       | Yes          |
@@ -212,7 +212,7 @@
 | https://therokuchannel.roku.com/          | Yes          |
 | https://tubitv.com                        | Yes          |
 | https://tubitv.com/                       | Yes          |
-| https://upmovies.net/                     | Maybe        |
+| https://upmovies.net/                     | No           |
 | https://valhallastream.pages.dev/         | Yes          |
 | https://valhallastream.us.kg/             | Yes          |
 | https://vidcloud1.com/                    | Yes          |
