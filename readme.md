@@ -77,7 +77,7 @@
 | https://allmanga.to                       | Yes          |
 | https://anime.nexus                       | Yes          |
 | https://animegg.org                       | Yes          |
-| https://animepahe.ru                      | Maybe        |
+| https://animepahe.ru                      | Yes          |
 | https://anitaku.io                        | Yes          |
 | https://aniwatchtv.to                     | Yes          |
 | https://aniworld.to                       | Yes          |
@@ -152,7 +152,7 @@
 | https://mapple.tv/                        | Yes          |
 | https://mokmobi.site/                     | Yes          |
 | https://moviee.tv/                        | Yes          |
-| https://movierr.online/                   | Maybe        |
+| https://movierr.online/                   | Yes          |
 | https://moviesjoy.plus/                   | Yes          |
 | https://movietly.com/                     | Yes          |
 | https://movieuwutv.top/                   | Yes          |
@@ -197,7 +197,7 @@
 | https://smashy.stream/                    | Maybe        |
 | https://smashystream.com/                 | Maybe        |
 | https://smashystream.xyz/                 | Yes          |
-| https://soaper.live/                      | Maybe        |
+| https://soaper.live/                      | Yes          |
 | https://soaper.tv/                        | No           |
 | https://soapertv.cc/                      | Yes          |
 | https://solarmovie.vip/                   | Yes          |
