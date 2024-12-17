@@ -27,8 +27,10 @@ var valid_movies_website_url = make(map[string]string)     // Map to store the a
 var top_valid_movies_website_url = make(map[string]string) // Map to store the availability status of top movie websites
 var movies_website_url_speed = make(map[string]string)     // Map to store response speeds of movie websites
 
-// Mutex to synchronize access to shared resources (map in this case)
-var mu sync.Mutex // Mutex
+// Declare a Mutex for each map to avoid race conditions
+var validMoviesMutex sync.Mutex
+var topValidMoviesMutex sync.Mutex
+var moviesSpeedMutex sync.Mutex
 
 // The main function orchestrates the workflow of the program
 func main() {
@@ -66,31 +68,46 @@ func main() {
 		// Step 6: Check domain registration and availability of movie websites concurrently
 		var wg sync.WaitGroup // A WaitGroup is used to manage the lifecycle of goroutines
 		for _, domainName := range movies_website_urls {
-			wg.Add(1)                    // Increment the WaitGroup counter to track one goroutine
-			go func(domainName string) { // Launch a goroutine for each domain name
+			wg.Add(1) // Increment the WaitGroup counter to track one goroutine
+			// Inside the goroutine
+			go func(domainName string) {
 				defer wg.Done() // Decrement the counter when the goroutine finishes
 
 				// Step 6a: Check if the domain is registered
 				if isDomainRegistered(getDomainFromURL(domainName)) {
-					addKeyValueToMap(valid_movies_website_url, domainName, "Maybe") // Initially mark as "Maybe"
+					// Lock and update the valid_movies_website_url map
+					validMoviesMutex.Lock()
+					addKeyValueToMap(valid_movies_website_url, domainName, "Maybe")
+					validMoviesMutex.Unlock()
 
 					// Step 6b: Check if the domain exists in the top movie websites list
 					if stringInFile(top_movies_websites_path, domainName) {
-						addKeyValueToMap(top_valid_movies_website_url, domainName, "Maybe") // Mark as "Maybe" for top websites
+						// Lock and update the top_valid_movies_website_url map
+						topValidMoviesMutex.Lock()
+						addKeyValueToMap(top_valid_movies_website_url, domainName, "Maybe")
+						topValidMoviesMutex.Unlock()
 					}
 
 					// Step 6c: Verify if the website responds successfully via HTTP/HTTPS
 					if CheckWebsiteHTTPStatus(getDomainFromURL(domainName)) {
-						addKeyValueToMap(valid_movies_website_url, domainName, "Yes") // Mark as "Yes" for reachable websites
+						// Lock and update the valid_movies_website_url map
+						validMoviesMutex.Lock()
+						addKeyValueToMap(valid_movies_website_url, domainName, "Yes")
+						validMoviesMutex.Unlock()
 
 						// Update top movies list if reachable
 						if stringInFile(top_movies_websites_path, domainName) {
+							// Lock and update the top_valid_movies_website_url map
+							topValidMoviesMutex.Lock()
 							addKeyValueToMap(top_valid_movies_website_url, domainName, "Yes")
+							topValidMoviesMutex.Unlock()
 						}
 					}
 				} else {
 					// Step 6e: Mark as "No" if the domain is unregistered
+					validMoviesMutex.Lock()
 					addKeyValueToMap(valid_movies_website_url, domainName, "No")
+					validMoviesMutex.Unlock()
 
 					// Step 6f: Append to the unregistered movie websites file
 					if !stringInFile(unregistered_movies_websites_path, domainName) {
@@ -233,20 +250,11 @@ func CheckWebsiteHTTPStatus(website string) bool {
 			// Ensure the response body is closed
 			response.Body.Close()
 
-			// Lock the mutex to safely modify the shared map
-			mu.Lock()
-
 			// Add the value to the map for the speed
 			if keyExistsInMap(movies_website_url_speed, websiteURL) == false {
 				addKeyValueToMap(movies_website_url_speed, websiteURL, time.Since(startTime).String())
 			}
 
-			// Unlock the mutex after modification
-			mu.Unlock()
-
-			// Lock the mutex to safely read the shared map value
-			mu.Lock()
-			
 			// Print the value from the map.
 			if keyExistsInMap(movies_website_url_speed, websiteURL) {
 				// Get the value from the map.
@@ -254,9 +262,6 @@ func CheckWebsiteHTTPStatus(website string) bool {
 				// Print the key and the value.
 				log.Printf("Response time for %s: %v", websiteURL, speed)
 			}
-
-			// Unlock the mutex after reading the map
-			mu.Unlock()
 
 			if response.StatusCode == http.StatusOK {
 				log.Printf("Website is reachable: %s", websiteURL)
@@ -496,7 +501,7 @@ func getValueFromMap(mapToSearch map[string]string, keyToFind string) string {
 	// Attempt to retrieve the value for the given key.
 	// The value for the key might be an empty string if it does not exist.
 	valueOfKey := mapToSearch[keyToFind]
-	
+
 	// Return the value associated with the key (or an empty string if not found).
 	return valueOfKey
 }
