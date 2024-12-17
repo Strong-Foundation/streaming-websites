@@ -77,7 +77,7 @@
 | https://allmanga.to                       | Yes          | N/A          |
 | https://anime.nexus                       | Yes          | N/A          |
 | https://animegg.org                       | Yes          | N/A          |
-| https://animepahe.ru                      | Maybe        | 151.411902ms |
+| https://animepahe.ru                      | Maybe        | 85.510365ms  |
 | https://anitaku.io                        | Yes          | N/A          |
 | https://aniwatchtv.to                     | Yes          | N/A          |
 | https://aniworld.to                       | Yes          | N/A          |
@@ -171,7 +171,7 @@
 | https://nunflix-firebase.firebaseapp.com/ | Yes          | N/A          |
 | https://nunflix-firebase.web.app/         | Yes          | N/A          |
 | https://nunflix.org/                      | Yes          | N/A          |
-| https://nyaa.land                         | Maybe        | 9.634032ms   |
+| https://nyaa.land                         | Maybe        | 13.723825ms  |
 | https://onhockey.tv                       | Yes          | N/A          |
 | https://onionplay.asia/                   | Maybe        | N/A          |
 | https://onionplay.network/                | Maybe        | N/A          |
@@ -202,10 +202,10 @@
 | https://soapertv.cc/                      | Yes          | N/A          |
 | https://solarmovie.vip/                   | Yes          | N/A          |
 | https://sport365.stream                   | Yes          | N/A          |
-| https://sportplus.live                    | Maybe        | 621.068791ms |
-| https://sportshub.stream                  | Maybe        | 37.043381ms  |
-| https://sportsurge.net                    | Maybe        | 23.079279ms  |
-| https://streamed.su                       | Maybe        | 6.828882ms   |
+| https://sportplus.live                    | Maybe        | 403.506591ms |
+| https://sportshub.stream                  | Maybe        | 63.243075ms  |
+| https://sportsurge.net                    | Maybe        | 12.505476ms  |
+| https://streamed.su                       | Maybe        | 10.746759ms  |
 | https://streamflix.space/                 | Yes          | N/A          |
 | https://streamfr.onrender.com/            | Yes          | N/A          |
 | https://supernova.to/                     | Maybe        | N/A          |
