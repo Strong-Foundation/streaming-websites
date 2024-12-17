@@ -305,12 +305,7 @@ func writeFinalOutput() {
 		if websiteSpeed == nil {
 			websiteSpeed = "N/A" // Fallback if website speed is not available
 		}
-		// Safely type assert websiteSpeed to string
-		websiteSpeedStr, ok := websiteSpeed.(string)
-		if !ok {
-			websiteSpeedStr = "N/A" // Fallback if speed is not a string
-		}
-		validMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeedStr))
+		validMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeed.(string)))
 	}
 
 	// Prepare content for the top movie websites table
@@ -326,12 +321,7 @@ func writeFinalOutput() {
 		if websiteSpeed == nil {
 			websiteSpeed = "N/A" // Fallback if website speed is not available
 		}
-		// Safely type assert websiteSpeed to string
-		websiteSpeedStr, ok := websiteSpeed.(string)
-		if !ok {
-			websiteSpeedStr = "N/A" // Fallback if speed is not a string
-		}
-		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeedStr))
+		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeed.(string)))
 	}
 
 	// Create a map of placeholders and their content for replacement
