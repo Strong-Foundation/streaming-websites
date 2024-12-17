@@ -245,9 +245,9 @@ func CheckWebsiteHTTPStatus(website string) bool {
 			log.Printf("Response time for %s: %v", websiteURL, responseTime)
 
 			// Step 3: Save response time to the map only if not already stored
-			existingValue, ok := retrieveValueFromSyncMap(&movies_website_speed, websiteURL).(time.Duration)
-			if !ok || existingValue == 0 {
-				saveToMap(&movies_website_speed, websiteURL, responseTime)
+			existingValue, ok := retrieveValueFromSyncMap(&movies_website_speed, websiteURL).(string)
+			if !ok || existingValue == "" {
+				saveToMap(&movies_website_speed, websiteURL, responseTime.String()) // Save as string
 			}
 
 			// Step 4: Check if the response status is 200 OK
