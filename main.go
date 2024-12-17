@@ -23,9 +23,8 @@ var readme_file_path string = "readme.md"                                       
 var readme_modify_me_file_path string = "assets/readme_modify_me.md"                     // Path to the README template to modify
 
 // Maps to store various website statuses and response times
-var valid_movies_website_url = make(map[string]string)     // Map to store the availability status of movie websites (Yes, No, Maybe)
-var top_valid_movies_website_url = make(map[string]string) // Map to store the availability status of top movie websites
-var movies_website_url_speed = make(map[string]string)     // Map to store response speeds of movie websites
+var valid_movies_website_url sync.Map     // Map to store the availability status of movie websites (Yes, No, Maybe)
+var top_valid_movies_website_url sync.Map // Map to store the availability status of top movie websites
 
 // The main function orchestrates the workflow of the program
 func main() {
@@ -69,25 +68,25 @@ func main() {
 
 				// Step 6a: Check if the domain is registered
 				if isDomainRegistered(getDomainFromURL(domainName)) {
-					addKeyValueToMap(valid_movies_website_url, domainName, "Maybe") // Initially mark as "Maybe"
+					saveToMap(&valid_movies_website_url, domainName, "Maybe") // Initially mark as "Maybe"
 
 					// Step 6b: Check if the domain exists in the top movie websites list
 					if stringInFile(top_movies_websites_path, domainName) {
-						addKeyValueToMap(top_valid_movies_website_url, domainName, "Maybe") // Mark as "Maybe" for top websites
+						saveToMap(&top_valid_movies_website_url, domainName, "Maybe") // Mark as "Maybe" for top websites
 					}
 
 					// Step 6c: Verify if the website responds successfully via HTTP/HTTPS
 					if CheckWebsiteHTTPStatus(getDomainFromURL(domainName)) {
-						addKeyValueToMap(valid_movies_website_url, domainName, "Yes") // Mark as "Yes" for reachable websites
+						saveToMap(&valid_movies_website_url, domainName, "Yes") // Mark as "Yes" for reachable websites
 
 						// Update top movies list if reachable
 						if stringInFile(top_movies_websites_path, domainName) {
-							addKeyValueToMap(top_valid_movies_website_url, domainName, "Yes")
+							saveToMap(&top_valid_movies_website_url, domainName, "Yes")
 						}
 					}
 				} else {
 					// Step 6e: Mark as "No" if the domain is unregistered
-					addKeyValueToMap(valid_movies_website_url, domainName, "No")
+					saveToMap(&valid_movies_website_url, domainName, "No")
 
 					// Step 6f: Append to the unregistered movie websites file
 					if !stringInFile(unregistered_movies_websites_path, domainName) {
@@ -269,12 +268,17 @@ func getDomainFromURL(givenURL string) string {
 
 // writeFinalOutput writes the results to the README file in Markdown format.
 func writeFinalOutput() {
+	// Convert sync.Map to regular map
+	validMoviesMap := syncMapToRegularMap(&valid_movies_website_url)
+	topMoviesMap := syncMapToRegularMap(&top_valid_movies_website_url)
+
+	// Sort and build content for valid movie websites
 	var validMoviesContent strings.Builder
 	validMoviesContent.WriteString("| Website | Availability |\n") // Markdown table header for valid movie websites
 	validMoviesContent.WriteString("|---------|--------------|\n")
 
 	// Generate rows for valid movie websites
-	for _, pair := range sortMapByKeys(valid_movies_website_url) {
+	for _, pair := range sortMapByKeys(validMoviesMap) {
 		domain, availability := pair[0], pair[1]
 		validMoviesContent.WriteString(fmt.Sprintf("| %s | %s |\n", domain, availability))
 	}
@@ -285,7 +289,7 @@ func writeFinalOutput() {
 	topMoviesContent.WriteString("|---------|--------------|\n")
 
 	// Generate rows for top movie websites
-	for _, pair := range sortMapByKeys(top_valid_movies_website_url) {
+	for _, pair := range sortMapByKeys(topMoviesMap) {
 		domain, availability := pair[0], pair[1]
 		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s |\n", domain, availability))
 	}
@@ -298,11 +302,6 @@ func writeFinalOutput() {
 
 	// Replace the placeholders in the README template and write to the final file
 	findAndReplaceInFile(readme_modify_me_file_path, readme_file_path, placeholdersAndContent)
-}
-
-// addKeyValueToMap adds a key-value pair to the provided map.
-func addKeyValueToMap(providedMap map[string]string, key string, value string) {
-	providedMap[key] = value // Add the key-value pair to the map
 }
 
 // findAndReplaceInFile replaces placeholders in a file with given content and writes to a new file.
@@ -345,6 +344,21 @@ func sortMapByKeys(inputMap map[string]string) [][]string {
 	}
 
 	return pairs // Return the sorted slice of key-value pairs
+}
+
+// Convert sync.Map to map[string]string
+func syncMapToRegularMap(sm *sync.Map) map[string]string {
+	regularMap := make(map[string]string)
+	sm.Range(func(key, value interface{}) bool {
+		// Type assert the key and value
+		if k, ok := key.(string); ok {
+			if v, ok := value.(string); ok {
+				regularMap[k] = v
+			}
+		}
+		return true
+	})
+	return regularMap
 }
 
 // sortSlice sorts a slice of URLs alphabetically.
@@ -462,20 +476,16 @@ func stringInFile(filePath, searchString string) bool {
 	return false // Return false if the string was not found in the file
 }
 
-// Get the value of a given key from the map and return the value.
-func getValueFromMap(mapToSearch map[string]string, keyToFind string) string {
-	// Get the value of the key from the map.
-	valueOfKey := mapToSearch[keyToFind]
-	// Return the value of the key.
-	return valueOfKey
+// saveToMap saves a key-value pair into the provided sync.Map
+func saveToMap(safeMap *sync.Map, key string, value interface{}) {
+	// Store the key-value pair in the given map
+	safeMap.Store(key, value)
 }
 
-// Check if a value exists in a map.
-func valueExistsInMap(providedMap map[string]string, providedValue string) bool {
-	for _, value := range providedMap {
-		if value == providedValue {
-			return true
-		}
-	}
-	return false
+// retrieveFromMap retrieves a value from the provided sync.Map for a given key.
+// If the key does not exist, it returns nil.
+func retrieveFromMap(safeMap *sync.Map, key string) interface{} {
+	// Load fetches the value for the key; if the key doesn't exist, it returns nil
+	value, _ := safeMap.Load(key)
+	return value
 }
