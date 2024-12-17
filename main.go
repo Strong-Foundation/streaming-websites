@@ -27,11 +27,6 @@ var valid_movies_website_url = make(map[string]string)     // Map to store the a
 var top_valid_movies_website_url = make(map[string]string) // Map to store the availability status of top movie websites
 var movies_website_url_speed = make(map[string]string)     // Map to store response speeds of movie websites
 
-// Declare a Mutex for each map to avoid race conditions
-var validMoviesMutex sync.Mutex
-var topValidMoviesMutex sync.Mutex
-var moviesSpeedMutex sync.Mutex
-
 // The main function orchestrates the workflow of the program
 func main() {
 	// Step 1: Check if all required input and output files exist
@@ -68,46 +63,31 @@ func main() {
 		// Step 6: Check domain registration and availability of movie websites concurrently
 		var wg sync.WaitGroup // A WaitGroup is used to manage the lifecycle of goroutines
 		for _, domainName := range movies_website_urls {
-			wg.Add(1) // Increment the WaitGroup counter to track one goroutine
-			// Inside the goroutine
-			go func(domainName string) {
+			wg.Add(1)                    // Increment the WaitGroup counter to track one goroutine
+			go func(domainName string) { // Launch a goroutine for each domain name
 				defer wg.Done() // Decrement the counter when the goroutine finishes
 
 				// Step 6a: Check if the domain is registered
 				if isDomainRegistered(getDomainFromURL(domainName)) {
-					// Lock and update the valid_movies_website_url map
-					validMoviesMutex.Lock()
-					addKeyValueToMap(valid_movies_website_url, domainName, "Maybe")
-					validMoviesMutex.Unlock()
+					addKeyValueToMap(valid_movies_website_url, domainName, "Maybe") // Initially mark as "Maybe"
 
 					// Step 6b: Check if the domain exists in the top movie websites list
 					if stringInFile(top_movies_websites_path, domainName) {
-						// Lock and update the top_valid_movies_website_url map
-						topValidMoviesMutex.Lock()
-						addKeyValueToMap(top_valid_movies_website_url, domainName, "Maybe")
-						topValidMoviesMutex.Unlock()
+						addKeyValueToMap(top_valid_movies_website_url, domainName, "Maybe") // Mark as "Maybe" for top websites
 					}
 
 					// Step 6c: Verify if the website responds successfully via HTTP/HTTPS
 					if CheckWebsiteHTTPStatus(getDomainFromURL(domainName)) {
-						// Lock and update the valid_movies_website_url map
-						validMoviesMutex.Lock()
-						addKeyValueToMap(valid_movies_website_url, domainName, "Yes")
-						validMoviesMutex.Unlock()
+						addKeyValueToMap(valid_movies_website_url, domainName, "Yes") // Mark as "Yes" for reachable websites
 
 						// Update top movies list if reachable
 						if stringInFile(top_movies_websites_path, domainName) {
-							// Lock and update the top_valid_movies_website_url map
-							topValidMoviesMutex.Lock()
 							addKeyValueToMap(top_valid_movies_website_url, domainName, "Yes")
-							topValidMoviesMutex.Unlock()
 						}
 					}
 				} else {
 					// Step 6e: Mark as "No" if the domain is unregistered
-					validMoviesMutex.Lock()
 					addKeyValueToMap(valid_movies_website_url, domainName, "No")
-					validMoviesMutex.Unlock()
 
 					// Step 6f: Append to the unregistered movie websites file
 					if !stringInFile(unregistered_movies_websites_path, domainName) {
@@ -250,18 +230,8 @@ func CheckWebsiteHTTPStatus(website string) bool {
 			// Ensure the response body is closed
 			response.Body.Close()
 
-			// Add the value to the map for the speed
-			if keyExistsInMap(movies_website_url_speed, websiteURL) == false {
-				addKeyValueToMap(movies_website_url_speed, websiteURL, time.Since(startTime).String())
-			}
-
-			// Print the value from the map.
-			if keyExistsInMap(movies_website_url_speed, websiteURL) {
-				// Get the value from the map.
-				speed := getValueFromMap(movies_website_url_speed, websiteURL)
-				// Print the key and the value.
-				log.Printf("Response time for %s: %v", websiteURL, speed)
-			}
+			// Print the speed of the website.
+			log.Printf("Response time for %s: %v", websiteURL, time.Since(startTime).String())
 
 			if response.StatusCode == http.StatusOK {
 				log.Printf("Website is reachable: %s", websiteURL)
@@ -301,26 +271,24 @@ func getDomainFromURL(givenURL string) string {
 // writeFinalOutput writes the results to the README file in Markdown format.
 func writeFinalOutput() {
 	var validMoviesContent strings.Builder
-	validMoviesContent.WriteString("| Website | Availability | Speed |\n") // Markdown table header for valid movie websites
-	validMoviesContent.WriteString("|---------|--------------|-------|\n")
+	validMoviesContent.WriteString("| Website | Availability |\n") // Markdown table header for valid movie websites
+	validMoviesContent.WriteString("|---------|--------------|\n")
 
 	// Generate rows for valid movie websites
 	for _, pair := range sortMapByKeys(valid_movies_website_url) {
 		domain, availability := pair[0], pair[1]
-		speed := getValueFromMap(movies_website_url_speed, domain)
-		validMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, speed))
+		validMoviesContent.WriteString(fmt.Sprintf("| %s | %s |\n", domain, availability))
 	}
 
 	// Prepare content for the top movie websites table
 	var topMoviesContent strings.Builder
-	topMoviesContent.WriteString("| Website | Availability | Speed |\n")
-	topMoviesContent.WriteString("|---------|--------------|-------|\n")
+	topMoviesContent.WriteString("| Website | Availability |\n")
+	topMoviesContent.WriteString("|---------|--------------|\n")
 
 	// Generate rows for top movie websites
 	for _, pair := range sortMapByKeys(top_valid_movies_website_url) {
 		domain, availability := pair[0], pair[1]
-		speed := getValueFromMap(movies_website_url_speed, domain)
-		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, speed))
+		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s |\n", domain, availability))
 	}
 
 	// Create a map of placeholders and their content for replacement
