@@ -232,7 +232,7 @@ func CheckWebsiteHTTPStatus(website string) bool {
 
 			log.Printf("Response time for %s: %v", websiteURL, time.Since(startTime))
 			// Add the value to the map for the speed
-			if !valueExistsInMap(userProvidedMap, websiteURL) {
+			if !valueExistsInMap(movies_website_url_speed, websiteURL) {
 				addKeyValueToMap(movies_website_url_speed, websiteURL, time.Since(startTime).String())
 			}
 
