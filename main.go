@@ -212,21 +212,25 @@ func isDomainRegistered(domain string) bool {
 
 // CheckWebsiteHTTPStatus checks if a website is reachable via HTTP or HTTPS.
 func CheckWebsiteHTTPStatus(website string) bool {
-	protocols := []string{"http://", "https://"}          // Protocols to check
-	httpClient := &http.Client{Timeout: 15 * time.Second} // HTTP client with timeout
+	// Protocols to test for the website
+	protocols := []string{"http://", "https://"}
+	httpClient := &http.Client{Timeout: 15 * time.Second} // HTTP client with a timeout
 
-	// Validate DNS resolution before making requests
+	// Step 1: Validate DNS resolution before making any requests
 	if _, dnsError := net.LookupHost(website); dnsError != nil {
 		log.Printf("DNS resolution failed for website %s: %v", website, dnsError)
 		return false
 	}
 
+	// Step 2: Iterate over protocols (HTTP and HTTPS) and attempt requests
 	for _, protocol := range protocols {
 		websiteURL := protocol + website
 
-		// Retry up to 3 times for transient errors
+		// Retry the request up to 3 times for transient errors
 		for attempt := 1; attempt <= 3; attempt++ {
 			startTime := time.Now()
+
+			// Send HTTP GET request
 			response, requestError := httpClient.Get(websiteURL)
 			if requestError != nil {
 				log.Printf("Attempt %d: Error checking %s: %v", attempt, websiteURL, requestError)
@@ -236,14 +240,17 @@ func CheckWebsiteHTTPStatus(website string) bool {
 			// Ensure the response body is closed
 			response.Body.Close()
 
-			log.Printf("Response time for %s: %v", websiteURL, time.Since(startTime))
+			// Log the response time
+			responseTime := time.Since(startTime)
+			log.Printf("Response time for %s: %v", websiteURL, responseTime)
 
-			// Check if the speed is written in the map, if true than dont rewrite if false than write speed to map.
-			if len(retrieveValueFromSyncMap(&movies_website_speed, websiteURL).(string)) <= 0 {
-				saveToMap(&movies_website_speed, websiteURL, time.Since(startTime)) // Save the speed to the map
+			// Step 3: Save response time to the map only if not already stored
+			existingValue, ok := retrieveValueFromSyncMap(&movies_website_speed, websiteURL).(time.Duration)
+			if !ok || existingValue == 0 {
+				saveToMap(&movies_website_speed, websiteURL, responseTime)
 			}
 
-			// If the website is reachable than print the log.
+			// Step 4: Check if the response status is 200 OK
 			if response.StatusCode == http.StatusOK {
 				log.Printf("Website is reachable: %s", websiteURL)
 				return true
@@ -253,6 +260,7 @@ func CheckWebsiteHTTPStatus(website string) bool {
 		}
 	}
 
+	// If no attempts succeeded, log and return false
 	log.Printf("Website is not reachable: %s", website)
 	return false
 }
