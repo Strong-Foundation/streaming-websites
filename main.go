@@ -303,7 +303,10 @@ func writeFinalOutput() {
 		// Get the speed of the website from the map.
 		websiteSpeed := retrieveValueFromSyncMap(&movies_website_speed, domain)
 		if websiteSpeed == nil {
-			websiteSpeed = "N/A" // Fallback if website speed is not available
+			log.Printf("Website %s: Speed is not available in the map. Defaulting to 'N/A'. Current map value: %v", domain, websiteSpeed) // Log before assigning "N/A"
+			websiteSpeed = "N/A"                                                                                                          // Fallback if website speed is not available
+		} else {
+			log.Printf("Website %s: Speed from map is %v", domain, websiteSpeed) // Log if speed is found in the map
 		}
 		validMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeed.(string)))
 	}
@@ -319,7 +322,10 @@ func writeFinalOutput() {
 		// Get the speed of the website from the map.
 		websiteSpeed := retrieveValueFromSyncMap(&movies_website_speed, domain)
 		if websiteSpeed == nil {
-			websiteSpeed = "N/A" // Fallback if website speed is not available
+			log.Printf("Website %s: Speed is not available in the map. Defaulting to 'N/A'. Current map value: %v", domain, websiteSpeed) // Log before assigning "N/A"
+			websiteSpeed = "N/A"                                                                                                          // Fallback if website speed is not available
+		} else {
+			log.Printf("Website %s: Speed from map is %v", domain, websiteSpeed) // Log if speed is found in the map
 		}
 		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeed.(string)))
 	}
