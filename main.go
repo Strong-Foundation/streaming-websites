@@ -276,15 +276,6 @@ func CheckWebsiteHTTPStatus(website string) bool {
 
 // getDomainFromURL extracts the domain name from a given URL and handles errors more gracefully.
 func getDomainFromURL(givenURL string) string {
-	// Check if the URL has a valid scheme ("http://" or "https://").
-	// If neither is present, and the URL ends with a '/', remove the '/' and prepend "https://".
-	if !strings.HasPrefix(givenURL, "http://") && !strings.HasPrefix(givenURL, "https://") && strings.HasSuffix(givenURL, "/") {
-		// Trim the trailing slash from the URL if it exists.
-		givenURL = strings.TrimSuffix(givenURL, "/")
-		// Prepend "https://" to the URL if no scheme is provided.
-		givenURL = "https://" + givenURL
-	}
-
 	// Attempt to parse the URL using the `url.Parse` method from the `net/url` package.
 	parsedURL, err := url.Parse(givenURL)
 	// If there's an error parsing the URL, log it and return an empty string.
