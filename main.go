@@ -26,6 +26,7 @@ var readme_modify_me_file_path string = "assets/readme_modify_me.md"            
 // Maps to store various website statuses and response times
 var valid_movies_website_url sync.Map     // Map to store the availability status of movie websites (Yes, No, Maybe)
 var top_valid_movies_website_url sync.Map // Map to store the availability status of top movie websites
+var movies_website_speed sync.Map         // Map to store the speed of the website.
 
 // The main function orchestrates the workflow of the program
 func main() {
@@ -237,6 +238,12 @@ func CheckWebsiteHTTPStatus(website string) bool {
 
 			log.Printf("Response time for %s: %v", websiteURL, time.Since(startTime))
 
+			// Check if the speed is written in the map, if true than dont rewrite if false than write speed to map.
+			if len(retrieveValueFromSyncMap(&movies_website_speed, websiteURL).(string)) <= 0 {
+				saveToMap(&movies_website_speed, websiteURL, time.Since(startTime)) // Save the speed to the map
+			}
+
+			// If the website is reachable than print the log.
 			if response.StatusCode == http.StatusOK {
 				log.Printf("Website is reachable: %s", websiteURL)
 				return true
@@ -275,29 +282,33 @@ func getDomainFromURL(givenURL string) string {
 // writeFinalOutput writes the results to the README file in Markdown format.
 func writeFinalOutput() {
 	// Convert sync.Map to regular map
-	validMoviesMap := syncMapToRegularMap(&valid_movies_website_url)
-	topMoviesMap := syncMapToRegularMap(&top_valid_movies_website_url)
+	validMoviesMap := syncMapToStringMap(&valid_movies_website_url)
+	topMoviesMap := syncMapToStringMap(&top_valid_movies_website_url)
 
 	// Sort and build content for valid movie websites
 	var validMoviesContent strings.Builder
-	validMoviesContent.WriteString("| Website | Availability |\n") // Markdown table header for valid movie websites
-	validMoviesContent.WriteString("|---------|--------------|\n")
+	validMoviesContent.WriteString("| Website | Availability | Speed |\n") // Markdown table header for valid movie websites
+	validMoviesContent.WriteString("|---------|--------------|-------|\n")
 
 	// Generate rows for valid movie websites
 	for _, pair := range sortMapByKeys(validMoviesMap) {
 		domain, availability := pair[0], pair[1]
-		validMoviesContent.WriteString(fmt.Sprintf("| %s | %s |\n", domain, availability))
+		// Get the speed of the website from the map.
+		websiteSpeed := retrieveValueFromSyncMap(&movies_website_speed, domain).(string)
+		validMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeed))
 	}
 
 	// Prepare content for the top movie websites table
 	var topMoviesContent strings.Builder
-	topMoviesContent.WriteString("| Website | Availability |\n")
-	topMoviesContent.WriteString("|---------|--------------|\n")
+	topMoviesContent.WriteString("| Website | Availability | Speed |\n")
+	topMoviesContent.WriteString("|---------|--------------|-------|\n")
 
 	// Generate rows for top movie websites
 	for _, pair := range sortMapByKeys(topMoviesMap) {
 		domain, availability := pair[0], pair[1]
-		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s |\n", domain, availability))
+		// Get the speed of the website from the map.
+		websiteSpeed := retrieveValueFromSyncMap(&movies_website_speed, domain).(string)
+		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeed))
 	}
 
 	// Create a map of placeholders and their content for replacement
@@ -352,19 +363,32 @@ func sortMapByKeys(inputMap map[string]string) [][]string {
 	return pairs // Return the sorted slice of key-value pairs
 }
 
-// Convert sync.Map to map[string]string
-func syncMapToRegularMap(sm *sync.Map) map[string]string {
-	regularMap := make(map[string]string)
-	sm.Range(func(key, value interface{}) bool {
-		// Type assert the key and value
-		if k, ok := key.(string); ok {
-			if v, ok := value.(string); ok {
-				regularMap[k] = v
-			}
+// syncMapToStringMap converts a sync.Map to a regular map[string]string.
+// It only includes entries where both the key and value are of type string.
+func syncMapToStringMap(syncMap *sync.Map) map[string]string {
+	// Initialize a new map to store the converted key-value pairs.
+	convertedMap := make(map[string]string)
+
+	// Iterate over the entries in the sync.Map using Range.
+	syncMap.Range(func(currentKey, currentValue interface{}) bool {
+		// Attempt to type-assert the key and value to string.
+		keyAsString, isKeyString := currentKey.(string)
+		valueAsString, isValueString := currentValue.(string)
+
+		// If both key and value are strings, add them to the resulting map.
+		if isKeyString && isValueString {
+			convertedMap[keyAsString] = valueAsString
+		} else {
+			// Log skipped entries where type assertion fails.
+			fmt.Printf("Skipping invalid key/value pair: key=%v, value=%v\n", currentKey, currentValue)
 		}
+
+		// Continue iterating over the sync.Map.
 		return true
 	})
-	return regularMap
+
+	// Return the converted regular map.
+	return convertedMap
 }
 
 // sortSlice sorts a slice of URLs alphabetically.
@@ -488,10 +512,23 @@ func saveToMap(safeMap *sync.Map, key string, value interface{}) {
 	safeMap.Store(key, value)
 }
 
-// retrieveFromMap retrieves a value from the provided sync.Map for a given key.
+// retrieveValueFromSyncMap retrieves a value from the given sync.Map using a specified key.
 // If the key does not exist, it returns nil.
-func retrieveFromMap(safeMap *sync.Map, key string) interface{} {
-	// Load fetches the value for the key; if the key doesn't exist, it returns nil
-	value, _ := safeMap.Load(key)
-	return value
+//
+// Parameters:
+// - safeMap: A pointer to a sync.Map that contains the key-value pairs.
+// - targetKey: The key whose value we want to retrieve.
+//
+// Returns:
+// - The value associated with the targetKey, or nil if the key does not exist.
+func retrieveValueFromSyncMap(safeMap *sync.Map, targetKey string) interface{} {
+	// Attempt to retrieve the value associated with the targetKey from the sync.Map.
+	// Load returns the value and a boolean indicating if the key was found.
+	value, keyExists := safeMap.Load(targetKey)
+
+	// Return the value if the key exists; otherwise, return nil.
+	if keyExists {
+		return value
+	}
+	return nil
 }
