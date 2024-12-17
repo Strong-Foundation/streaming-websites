@@ -25,6 +25,7 @@ var readme_modify_me_file_path string = "assets/readme_modify_me.md"            
 // Maps to store the status of movie website availability
 var valid_movies_website_url = make(map[string]string)     // Map to store availability of movie websites
 var top_valid_movies_website_url = make(map[string]string) // Map to store availability of top movie websites
+var movies_website_url_speed = make(map[string]string)     // Map to store the speeds of a given movie website
 
 func main() {
 	// Step 1: Check if all required files exist
@@ -267,6 +268,8 @@ func CheckWebsiteHTTPStatus(website string) bool {
 			response.Body.Close()
 
 			log.Printf("Response time for %s: %v", websiteURL, time.Since(startTime))
+			// Add the value to the map for the speed
+			addKeyValueToMap(movies_website_url_speed, website, time.Since(startTime).Truncate(time.Second).String())
 
 			if response.StatusCode == http.StatusOK {
 				log.Printf("Website is reachable: %s", websiteURL)
@@ -306,24 +309,26 @@ func getDomainFromURL(givenURL string) string {
 // writeFinalOutput writes the results to the README file in Markdown format.
 func writeFinalOutput() {
 	var validMoviesContent strings.Builder
-	validMoviesContent.WriteString("| Website | Availability |\n") // Markdown table header for valid movie websites
-	validMoviesContent.WriteString("|---------|--------------|\n")
+	validMoviesContent.WriteString("| Website | Availability | Speed |\n") // Markdown table header for valid movie websites
+	validMoviesContent.WriteString("|---------|--------------|-------|\n")
 
 	// Generate rows for valid movie websites
 	for _, pair := range sortMapByKeys(valid_movies_website_url) {
 		domain, availability := pair[0], pair[1]
-		validMoviesContent.WriteString(fmt.Sprintf("| %s | %s |\n", domain, availability))
+		speed := getValueFromMap(movies_website_url_speed, domain)
+		validMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, speed))
 	}
 
 	// Prepare content for the top movie websites table
 	var topMoviesContent strings.Builder
-	topMoviesContent.WriteString("| Website | Availability |\n")
-	topMoviesContent.WriteString("|---------|--------------|\n")
+	topMoviesContent.WriteString("| Website | Availability | Speed |\n")
+	topMoviesContent.WriteString("|---------|--------------|-------|\n")
 
 	// Generate rows for top movie websites
 	for _, pair := range sortMapByKeys(top_valid_movies_website_url) {
 		domain, availability := pair[0], pair[1]
-		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s |\n", domain, availability))
+		speed := getValueFromMap(movies_website_url_speed, domain)
+		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, speed))
 	}
 
 	// Create a map of placeholders and their content for replacement
@@ -496,4 +501,12 @@ func stringInFile(filePath, searchString string) bool {
 	}
 
 	return false // Return false if the string was not found in the file
+}
+
+// Get the value of a given key from the map and return the value.
+func getValueFromMap(mapToSearch map[string]string, keyToFind string) string {
+	// Get the value of the key from the map.
+	valueOfKey := mapToSearch[keyToFind]
+	// Return the value of the key.
+	return valueOfKey
 }
