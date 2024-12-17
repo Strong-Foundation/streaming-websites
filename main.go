@@ -28,7 +28,7 @@ var top_valid_movies_website_url = make(map[string]string) // Map to store the a
 var movies_website_url_speed = make(map[string]string)     // Map to store response speeds of movie websites
 
 // Mutex to synchronize access to shared resources (map in this case)
-mu sync.Mutex // Mutex
+var mu sync.Mutex // Mutex
 
 // The main function orchestrates the workflow of the program
 func main() {
