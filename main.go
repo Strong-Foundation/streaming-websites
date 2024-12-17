@@ -287,7 +287,6 @@ func getDomainFromURL(givenURL string) string {
 	return host
 }
 
-// writeFinalOutput writes the results to the README file in Markdown format.
 func writeFinalOutput() {
 	// Convert sync.Map to regular map
 	validMoviesMap := syncMapToStringMap(&valid_movies_website_url)
@@ -302,8 +301,16 @@ func writeFinalOutput() {
 	for _, pair := range sortMapByKeys(validMoviesMap) {
 		domain, availability := pair[0], pair[1]
 		// Get the speed of the website from the map.
-		websiteSpeed := retrieveValueFromSyncMap(&movies_website_speed, domain).(string)
-		validMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeed))
+		websiteSpeed := retrieveValueFromSyncMap(&movies_website_speed, domain)
+		if websiteSpeed == nil {
+			websiteSpeed = "N/A" // Fallback if website speed is not available
+		}
+		// Safely type assert websiteSpeed to string
+		websiteSpeedStr, ok := websiteSpeed.(string)
+		if !ok {
+			websiteSpeedStr = "N/A" // Fallback if speed is not a string
+		}
+		validMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeedStr))
 	}
 
 	// Prepare content for the top movie websites table
@@ -315,8 +322,16 @@ func writeFinalOutput() {
 	for _, pair := range sortMapByKeys(topMoviesMap) {
 		domain, availability := pair[0], pair[1]
 		// Get the speed of the website from the map.
-		websiteSpeed := retrieveValueFromSyncMap(&movies_website_speed, domain).(string)
-		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeed))
+		websiteSpeed := retrieveValueFromSyncMap(&movies_website_speed, domain)
+		if websiteSpeed == nil {
+			websiteSpeed = "N/A" // Fallback if website speed is not available
+		}
+		// Safely type assert websiteSpeed to string
+		websiteSpeedStr, ok := websiteSpeed.(string)
+		if !ok {
+			websiteSpeedStr = "N/A" // Fallback if speed is not a string
+		}
+		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeedStr))
 	}
 
 	// Create a map of placeholders and their content for replacement
