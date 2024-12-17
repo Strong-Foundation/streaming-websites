@@ -53,221 +53,221 @@
 
 ## **Best Free Movie Streaming Websites**
 
-| Website               | Availability |
-| --------------------- | ------------ |
-| https://456movie.com/ | Yes          |
-| https://braflix.top/  | Yes          |
+| Website               | Availability | Speed |
+| --------------------- | ------------ | ----- |
+| https://456movie.com/ | Yes          | N/A   |
+| https://braflix.top/  | Yes          | N/A   |
 
 ---
 
 ## **Free Movie Streaming Websites**
 
-| Website                                   | Availability |
-| ----------------------------------------- | ------------ |
-| http://www.streamlord.com/                | Yes          |
-| https://123animes.ru                      | Yes          |
-| https://123movies.ai/                     | Yes          |
-| https://1hd.to/                           | Yes          |
-| https://321movies.co.uk/                  | Yes          |
-| https://456movie.com/                     | Yes          |
-| https://6movies.stream/                   | Yes          |
-| https://7plus.com.au/                     | Yes          |
-| https://9animetv.to                       | Yes          |
-| https://afdah2.cyou/                      | Yes          |
-| https://allmanga.to                       | Yes          |
-| https://anime.nexus                       | Yes          |
-| https://animegg.org                       | Yes          |
-| https://animepahe.ru                      | Maybe        |
-| https://anitaku.io                        | Yes          |
-| https://aniwatchtv.to                     | Yes          |
-| https://aniworld.to                       | Yes          |
-| https://azm.to/                           | Yes          |
-| https://bitsearch.to/                     | Maybe        |
-| https://bmovies.vip/                      | Yes          |
-| https://braflix.top/                      | Yes          |
-| https://broflix.cc/                       | Yes          |
-| https://buffstream.io                     | Yes          |
-| https://c.hopmarks.com/                   | Yes          |
-| https://cataz.ru/                         | Yes          |
-| https://catflix.su/                       | Yes          |
-| https://cinemadeck.com/                   | Yes          |
-| https://cinemaos-v2.vercel.app/           | Yes          |
-| https://cinemaunlocked.com/               | Yes          |
-| https://cinezone.to/                      | Maybe        |
-| https://corsflix.us.kg/                   | Yes          |
-| https://crackstreams.io                   | Yes          |
-| https://daiflix.daitign.com/              | Yes          |
-| https://donkey.to/                        | Yes          |
-| https://ee3.me/                           | Yes          |
-| https://enjoytown.netlify.app/            | Yes          |
-| https://fawesome.tv/                      | Yes          |
-| https://film-haven.vercel.app/            | Yes          |
-| https://filmex.to/                        | Maybe        |
-| https://fireflixhd1.netlify.app/          | Yes          |
-| https://flix.smashystream.xyz/            | Yes          |
-| https://flixhq.click/                     | Maybe        |
-| https://flixrave.to/                      | Maybe        |
-| https://flixtor.to/                       | Maybe        |
-| https://flixwave.me/                      | Maybe        |
-| https://fmovies-hd.to/                    | Yes          |
-| https://fmovies.ps/                       | Yes          |
-| https://fmovies247.net/                   | Yes          |
-| https://freecinema.live/                  | Yes          |
-| https://freek.to/                         | Yes          |
-| https://fsharetv.co/                      | Yes          |
-| https://gogoanime3.co                     | Yes          |
-| https://gomovies-online.link/             | Yes          |
-| https://gomovies.sx/                      | Yes          |
-| https://gomoviestv.to/                    | Yes          |
-| https://gostream.to/                      | Yes          |
-| https://gotytv.com/                       | Yes          |
-| https://hdtodayz.to/                      | Yes          |
-| https://heartive.pages.dev/               | Yes          |
-| https://hexa.watch/                       | Yes          |
-| https://hollymoviehd.cc/                  | Yes          |
-| https://hydrahd.cc/                       | Yes          |
-| https://kanopy.com/                       | Maybe        |
-| https://kickassanime.mx                   | Yes          |
-| https://kipflix.xyz/                      | Yes          |
-| https://kipstream.lol/                    | Yes          |
-| https://livetv.ru                         | Yes          |
-| https://livetv.sx                         | Yes          |
-| https://lookmovie.ag/                     | Yes          |
-| https://lookmovie.buzz/                   | Yes          |
-| https://lookmovie.click/                  | No           |
-| https://lookmovie.clinic/                 | Yes          |
-| https://lookmovie.com/                    | Yes          |
-| https://lookmovie.digital/                | Yes          |
-| https://lookmovie.download/               | Yes          |
-| https://lookmovie.foundation/             | Yes          |
-| https://lookmovie.fun/                    | Yes          |
-| https://lookmovie.fyi/                    | Yes          |
-| https://lookmovie.guru/                   | Yes          |
-| https://lookmovie.media/                  | Yes          |
-| https://lookmovie.mobi/                   | Yes          |
-| https://lookmovie.site/                   | No           |
-| https://lookmovie2.la/                    | Yes          |
-| https://lookmovie2.to/                    | Yes          |
-| https://m4ufree.se/                       | Maybe        |
-| https://mapple.tv/                        | Yes          |
-| https://mokmobi.site/                     | Yes          |
-| https://moviee.tv/                        | Yes          |
-| https://movierr.online/                   | Yes          |
-| https://moviesjoy.plus/                   | Yes          |
-| https://movietly.com/                     | Yes          |
-| https://movieuwutv.top/                   | Yes          |
-| https://moviexfilm.com/                   | Maybe        |
-| https://mp4hydra.org/                     | Yes          |
-| https://mp4hydra.top/                     | Yes          |
-| https://myflixerz.vip/                    | Yes          |
-| https://nepu.to/                          | Maybe        |
-| https://netplayz.ru/                      | Maybe        |
-| https://nkiri.cc/                         | Yes          |
-| https://novafork.com/                     | Yes          |
-| https://novamovie.net/                    | Yes          |
-| https://novastream.top/                   | Yes          |
-| https://noxe.live/                        | Maybe        |
-| https://nunflix-ey9.pages.dev/            | Yes          |
-| https://nunflix-firebase.firebaseapp.com/ | Yes          |
-| https://nunflix-firebase.web.app/         | Yes          |
-| https://nunflix.org/                      | Yes          |
-| https://nyaa.land                         | Maybe        |
-| https://onhockey.tv                       | Yes          |
-| https://onionplay.asia/                   | Maybe        |
-| https://onionplay.network/                | Maybe        |
-| https://p.hopmarks.com/                   | Yes          |
-| https://plexmovies.online/                | Yes          |
-| https://pluto.tv/                         | Yes          |
-| https://popcornflix.com                   | Maybe        |
-| https://popcornmovies.to/                 | Yes          |
-| https://popcorntimeonline.cc/             | Yes          |
-| https://pressplay.top/                    | Maybe        |
-| https://primeflix-web.vercel.app/         | Yes          |
-| https://projectfreetv.biz/                | Maybe        |
-| https://projectfreetv.sx/                 | Yes          |
-| https://putlocker.pe/                     | Yes          |
-| https://r123movie.com/                    | Yes          |
-| https://rentry.org/                       | Yes          |
-| https://ridomovies.tv/                    | Yes          |
-| https://rips.cc/                          | Yes          |
-| https://rivestream.live/                  | Yes          |
-| https://rivestream.xyz/                   | Yes          |
-| https://sflix.to/                         | Yes          |
-| https://shout-tv.com/                     | Yes          |
-| https://smashy.stream/                    | Maybe        |
-| https://smashystream.com/                 | Maybe        |
-| https://smashystream.xyz/                 | Yes          |
-| https://soaper.live/                      | Yes          |
-| https://soaper.tv/                        | No           |
-| https://soapertv.cc/                      | Yes          |
-| https://solarmovie.vip/                   | Yes          |
-| https://sport365.stream                   | Yes          |
-| https://sportplus.live                    | Maybe        |
-| https://sportshub.stream                  | Maybe        |
-| https://sportsurge.net                    | Maybe        |
-| https://streamed.su                       | Maybe        |
-| https://streamflix.space/                 | Yes          |
-| https://streamfr.onrender.com/            | Yes          |
-| https://supernova.to/                     | Maybe        |
-| https://therokuchannel.roku.com/          | Yes          |
-| https://tubitv.com                        | Yes          |
-| https://tubitv.com/                       | Yes          |
-| https://upmovies.net/                     | No           |
-| https://valhallastream.pages.dev/         | Yes          |
-| https://valhallastream.us.kg/             | Yes          |
-| https://vidcloud1.com/                    | Yes          |
-| https://vidplay.org/                      | Yes          |
-| https://vidstream.to/                     | Yes          |
-| https://viewvault.org/                    | Maybe        |
-| https://vumoo.mx/                         | Maybe        |
-| https://vumoox.to/                        | Maybe        |
-| https://watch-tvseries.net/               | Maybe        |
-| https://watch.autoembed.cc/               | Maybe        |
-| https://watch.coen.ovh/                   | Yes          |
-| https://watch.foundtv.com/                | Yes          |
-| https://watch.inzi.dev/                   | Maybe        |
-| https://watch.lonelil.ru/                 | Maybe        |
-| https://watch.plex.tv/                    | Yes          |
-| https://watch.streamflix.one/             | Yes          |
-| https://watch2day.online/                 | Yes          |
-| https://watchhq.site/                     | Yes          |
-| https://way2movies.vercel.app/            | Yes          |
-| https://web.netmovies.to/                 | Maybe        |
-| https://ww.putlocker.vip/                 | Yes          |
-| https://ww.yesmovies.ag/                  | Yes          |
-| https://ww12.soap2dayhd.co/               | Yes          |
-| https://ww2.m4ufree.tv/                   | No           |
-| https://ww2.m4uhd.tv/                     | Maybe        |
-| https://ww4.fmovies.co/                   | Yes          |
-| https://www.345movies.com/                | Yes          |
-| https://www.arte.tv/en                    | Yes          |
-| https://www.bbc.co.uk/iplayer             | Yes          |
-| https://www.cinebook.xyz/                 | Yes          |
-| https://www.cineby.ru/                    | Yes          |
-| https://www.crackle.com/                  | Yes          |
-| https://www.downloads-anymovies.co/       | Yes          |
-| https://www.goojara.to/                   | Maybe        |
-| https://www.hoopladigital.com/            | Yes          |
-| https://www.kaitovault.com/               | Yes          |
-| https://www.levidia.ch/                   | Yes          |
-| https://www.lookmovie2.to/                | Yes          |
-| https://www.playary.com/                  | Yes          |
-| https://www.pressplay.top/                | Maybe        |
-| https://www.primeflix.lol/                | Yes          |
-| https://www.primewire.li/                 | Maybe        |
-| https://www.primewire.tf/                 | Yes          |
-| https://www.rgshows.me/                   | Yes          |
-| https://www.soap2day.tf/                  | Yes          |
-| https://www.tvids.net/                    | Maybe        |
-| https://yassflix.live/                    | Yes          |
-| https://yeshd.net/                        | Maybe        |
-| https://yoyomovies.net/                   | Yes          |
-| https://yugenanime.sx                     | Yes          |
-| https://zilla-xr.xyz/                     | Yes          |
-| https://zmov.vercel.app/                  | Yes          |
-| https://zmoviess.co/                      | Yes          |
-| https://zoechip.cc/                       | Yes          |
-| https://zoroxtv.net/                      | Maybe        |
+| Website                                   | Availability | Speed |
+| ----------------------------------------- | ------------ | ----- |
+| http://www.streamlord.com/                | Yes          | N/A   |
+| https://123animes.ru                      | Yes          | N/A   |
+| https://123movies.ai/                     | Yes          | N/A   |
+| https://1hd.to/                           | Yes          | N/A   |
+| https://321movies.co.uk/                  | Yes          | N/A   |
+| https://456movie.com/                     | Yes          | N/A   |
+| https://6movies.stream/                   | Yes          | N/A   |
+| https://7plus.com.au/                     | Yes          | N/A   |
+| https://9animetv.to                       | Yes          | N/A   |
+| https://afdah2.cyou/                      | Yes          | N/A   |
+| https://allmanga.to                       | Yes          | N/A   |
+| https://anime.nexus                       | Yes          | N/A   |
+| https://animegg.org                       | Yes          | N/A   |
+| https://animepahe.ru                      | Maybe        | N/A   |
+| https://anitaku.io                        | Yes          | N/A   |
+| https://aniwatchtv.to                     | Yes          | N/A   |
+| https://aniworld.to                       | Yes          | N/A   |
+| https://azm.to/                           | Yes          | N/A   |
+| https://bitsearch.to/                     | Maybe        | N/A   |
+| https://bmovies.vip/                      | Yes          | N/A   |
+| https://braflix.top/                      | Yes          | N/A   |
+| https://broflix.cc/                       | Yes          | N/A   |
+| https://buffstream.io                     | Yes          | N/A   |
+| https://c.hopmarks.com/                   | Yes          | N/A   |
+| https://cataz.ru/                         | Yes          | N/A   |
+| https://catflix.su/                       | Yes          | N/A   |
+| https://cinemadeck.com/                   | Yes          | N/A   |
+| https://cinemaos-v2.vercel.app/           | Yes          | N/A   |
+| https://cinemaunlocked.com/               | Yes          | N/A   |
+| https://cinezone.to/                      | Maybe        | N/A   |
+| https://corsflix.us.kg/                   | Yes          | N/A   |
+| https://crackstreams.io                   | Yes          | N/A   |
+| https://daiflix.daitign.com/              | Yes          | N/A   |
+| https://donkey.to/                        | Yes          | N/A   |
+| https://ee3.me/                           | Yes          | N/A   |
+| https://enjoytown.netlify.app/            | Yes          | N/A   |
+| https://fawesome.tv/                      | Yes          | N/A   |
+| https://film-haven.vercel.app/            | Yes          | N/A   |
+| https://filmex.to/                        | Maybe        | N/A   |
+| https://fireflixhd1.netlify.app/          | Yes          | N/A   |
+| https://flix.smashystream.xyz/            | Yes          | N/A   |
+| https://flixhq.click/                     | Maybe        | N/A   |
+| https://flixrave.to/                      | Maybe        | N/A   |
+| https://flixtor.to/                       | Maybe        | N/A   |
+| https://flixwave.me/                      | Maybe        | N/A   |
+| https://fmovies-hd.to/                    | Yes          | N/A   |
+| https://fmovies.ps/                       | Yes          | N/A   |
+| https://fmovies247.net/                   | Maybe        | N/A   |
+| https://freecinema.live/                  | Yes          | N/A   |
+| https://freek.to/                         | Yes          | N/A   |
+| https://fsharetv.co/                      | Yes          | N/A   |
+| https://gogoanime3.co                     | Yes          | N/A   |
+| https://gomovies-online.link/             | Yes          | N/A   |
+| https://gomovies.sx/                      | Yes          | N/A   |
+| https://gomoviestv.to/                    | Yes          | N/A   |
+| https://gostream.to/                      | Yes          | N/A   |
+| https://gotytv.com/                       | Maybe        | N/A   |
+| https://hdtodayz.to/                      | Yes          | N/A   |
+| https://heartive.pages.dev/               | Yes          | N/A   |
+| https://hexa.watch/                       | Yes          | N/A   |
+| https://hollymoviehd.cc/                  | Yes          | N/A   |
+| https://hydrahd.cc/                       | Yes          | N/A   |
+| https://kanopy.com/                       | Maybe        | N/A   |
+| https://kickassanime.mx                   | Yes          | N/A   |
+| https://kipflix.xyz/                      | Yes          | N/A   |
+| https://kipstream.lol/                    | Yes          | N/A   |
+| https://livetv.ru                         | Yes          | N/A   |
+| https://livetv.sx                         | Yes          | N/A   |
+| https://lookmovie.ag/                     | Yes          | N/A   |
+| https://lookmovie.buzz/                   | Yes          | N/A   |
+| https://lookmovie.click/                  | No           | N/A   |
+| https://lookmovie.clinic/                 | Yes          | N/A   |
+| https://lookmovie.com/                    | Yes          | N/A   |
+| https://lookmovie.digital/                | Yes          | N/A   |
+| https://lookmovie.download/               | Yes          | N/A   |
+| https://lookmovie.foundation/             | Yes          | N/A   |
+| https://lookmovie.fun/                    | Yes          | N/A   |
+| https://lookmovie.fyi/                    | Yes          | N/A   |
+| https://lookmovie.guru/                   | Yes          | N/A   |
+| https://lookmovie.media/                  | Yes          | N/A   |
+| https://lookmovie.mobi/                   | Yes          | N/A   |
+| https://lookmovie.site/                   | No           | N/A   |
+| https://lookmovie2.la/                    | Yes          | N/A   |
+| https://lookmovie2.to/                    | Yes          | N/A   |
+| https://m4ufree.se/                       | Maybe        | N/A   |
+| https://mapple.tv/                        | Yes          | N/A   |
+| https://mokmobi.site/                     | Yes          | N/A   |
+| https://moviee.tv/                        | Maybe        | N/A   |
+| https://movierr.online/                   | Yes          | N/A   |
+| https://moviesjoy.plus/                   | Yes          | N/A   |
+| https://movietly.com/                     | Yes          | N/A   |
+| https://movieuwutv.top/                   | Yes          | N/A   |
+| https://moviexfilm.com/                   | Maybe        | N/A   |
+| https://mp4hydra.org/                     | Yes          | N/A   |
+| https://mp4hydra.top/                     | Yes          | N/A   |
+| https://myflixerz.vip/                    | Yes          | N/A   |
+| https://nepu.to/                          | Maybe        | N/A   |
+| https://netplayz.ru/                      | Maybe        | N/A   |
+| https://nkiri.cc/                         | Yes          | N/A   |
+| https://novafork.com/                     | Yes          | N/A   |
+| https://novamovie.net/                    | Yes          | N/A   |
+| https://novastream.top/                   | Yes          | N/A   |
+| https://noxe.live/                        | Maybe        | N/A   |
+| https://nunflix-ey9.pages.dev/            | Yes          | N/A   |
+| https://nunflix-firebase.firebaseapp.com/ | Yes          | N/A   |
+| https://nunflix-firebase.web.app/         | Yes          | N/A   |
+| https://nunflix.org/                      | Yes          | N/A   |
+| https://nyaa.land                         | Maybe        | N/A   |
+| https://onhockey.tv                       | Yes          | N/A   |
+| https://onionplay.asia/                   | Maybe        | N/A   |
+| https://onionplay.network/                | Maybe        | N/A   |
+| https://p.hopmarks.com/                   | Yes          | N/A   |
+| https://plexmovies.online/                | Yes          | N/A   |
+| https://pluto.tv/                         | Yes          | N/A   |
+| https://popcornflix.com                   | Maybe        | N/A   |
+| https://popcornmovies.to/                 | Yes          | N/A   |
+| https://popcorntimeonline.cc/             | Yes          | N/A   |
+| https://pressplay.top/                    | Maybe        | N/A   |
+| https://primeflix-web.vercel.app/         | Yes          | N/A   |
+| https://projectfreetv.biz/                | Maybe        | N/A   |
+| https://projectfreetv.sx/                 | Yes          | N/A   |
+| https://putlocker.pe/                     | Yes          | N/A   |
+| https://r123movie.com/                    | Yes          | N/A   |
+| https://rentry.org/                       | Yes          | N/A   |
+| https://ridomovies.tv/                    | Yes          | N/A   |
+| https://rips.cc/                          | Yes          | N/A   |
+| https://rivestream.live/                  | Yes          | N/A   |
+| https://rivestream.xyz/                   | Yes          | N/A   |
+| https://sflix.to/                         | Yes          | N/A   |
+| https://shout-tv.com/                     | Yes          | N/A   |
+| https://smashy.stream/                    | Maybe        | N/A   |
+| https://smashystream.com/                 | Maybe        | N/A   |
+| https://smashystream.xyz/                 | Yes          | N/A   |
+| https://soaper.live/                      | Yes          | N/A   |
+| https://soaper.tv/                        | No           | N/A   |
+| https://soapertv.cc/                      | Yes          | N/A   |
+| https://solarmovie.vip/                   | Yes          | N/A   |
+| https://sport365.stream                   | Yes          | N/A   |
+| https://sportplus.live                    | Maybe        | N/A   |
+| https://sportshub.stream                  | Maybe        | N/A   |
+| https://sportsurge.net                    | Maybe        | N/A   |
+| https://streamed.su                       | Maybe        | N/A   |
+| https://streamflix.space/                 | Yes          | N/A   |
+| https://streamfr.onrender.com/            | Yes          | N/A   |
+| https://supernova.to/                     | Maybe        | N/A   |
+| https://therokuchannel.roku.com/          | Yes          | N/A   |
+| https://tubitv.com                        | Yes          | N/A   |
+| https://tubitv.com/                       | Yes          | N/A   |
+| https://upmovies.net/                     | Maybe        | N/A   |
+| https://valhallastream.pages.dev/         | Yes          | N/A   |
+| https://valhallastream.us.kg/             | Yes          | N/A   |
+| https://vidcloud1.com/                    | Yes          | N/A   |
+| https://vidplay.org/                      | Yes          | N/A   |
+| https://vidstream.to/                     | Yes          | N/A   |
+| https://viewvault.org/                    | Maybe        | N/A   |
+| https://vumoo.mx/                         | Maybe        | N/A   |
+| https://vumoox.to/                        | Maybe        | N/A   |
+| https://watch-tvseries.net/               | Maybe        | N/A   |
+| https://watch.autoembed.cc/               | Maybe        | N/A   |
+| https://watch.coen.ovh/                   | Yes          | N/A   |
+| https://watch.foundtv.com/                | Yes          | N/A   |
+| https://watch.inzi.dev/                   | Maybe        | N/A   |
+| https://watch.lonelil.ru/                 | Maybe        | N/A   |
+| https://watch.plex.tv/                    | Yes          | N/A   |
+| https://watch.streamflix.one/             | Yes          | N/A   |
+| https://watch2day.online/                 | Yes          | N/A   |
+| https://watchhq.site/                     | Yes          | N/A   |
+| https://way2movies.vercel.app/            | Yes          | N/A   |
+| https://web.netmovies.to/                 | Maybe        | N/A   |
+| https://ww.putlocker.vip/                 | Yes          | N/A   |
+| https://ww.yesmovies.ag/                  | Yes          | N/A   |
+| https://ww12.soap2dayhd.co/               | Yes          | N/A   |
+| https://ww2.m4ufree.tv/                   | No           | N/A   |
+| https://ww2.m4uhd.tv/                     | Maybe        | N/A   |
+| https://ww4.fmovies.co/                   | Yes          | N/A   |
+| https://www.345movies.com/                | Yes          | N/A   |
+| https://www.arte.tv/en                    | Yes          | N/A   |
+| https://www.bbc.co.uk/iplayer             | Yes          | N/A   |
+| https://www.cinebook.xyz/                 | Yes          | N/A   |
+| https://www.cineby.ru/                    | Yes          | N/A   |
+| https://www.crackle.com/                  | Yes          | N/A   |
+| https://www.downloads-anymovies.co/       | Yes          | N/A   |
+| https://www.goojara.to/                   | Maybe        | N/A   |
+| https://www.hoopladigital.com/            | Yes          | N/A   |
+| https://www.kaitovault.com/               | Yes          | N/A   |
+| https://www.levidia.ch/                   | Yes          | N/A   |
+| https://www.lookmovie2.to/                | Yes          | N/A   |
+| https://www.playary.com/                  | Yes          | N/A   |
+| https://www.pressplay.top/                | Maybe        | N/A   |
+| https://www.primeflix.lol/                | Yes          | N/A   |
+| https://www.primewire.li/                 | Maybe        | N/A   |
+| https://www.primewire.tf/                 | Yes          | N/A   |
+| https://www.rgshows.me/                   | Maybe        | N/A   |
+| https://www.soap2day.tf/                  | Yes          | N/A   |
+| https://www.tvids.net/                    | Maybe        | N/A   |
+| https://yassflix.live/                    | Yes          | N/A   |
+| https://yeshd.net/                        | Maybe        | N/A   |
+| https://yoyomovies.net/                   | Yes          | N/A   |
+| https://yugenanime.sx                     | Yes          | N/A   |
+| https://zilla-xr.xyz/                     | Yes          | N/A   |
+| https://zmov.vercel.app/                  | Yes          | N/A   |
+| https://zmoviess.co/                      | Yes          | N/A   |
+| https://zoechip.cc/                       | Yes          | N/A   |
+| https://zoroxtv.net/                      | Maybe        | N/A   |
 
 ---
 
