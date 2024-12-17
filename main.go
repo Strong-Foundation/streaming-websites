@@ -27,6 +27,9 @@ var valid_movies_website_url = make(map[string]string)     // Map to store the a
 var top_valid_movies_website_url = make(map[string]string) // Map to store the availability status of top movie websites
 var movies_website_url_speed = make(map[string]string)     // Map to store response speeds of movie websites
 
+// Mutex to synchronize access to shared resources (map in this case)
+mu sync.Mutex // Mutex
+
 // The main function orchestrates the workflow of the program
 func main() {
 	// Step 1: Check if all required input and output files exist
@@ -230,11 +233,20 @@ func CheckWebsiteHTTPStatus(website string) bool {
 			// Ensure the response body is closed
 			response.Body.Close()
 
+			// Lock the mutex to safely modify the shared map
+			mu.Lock()
+
 			// Add the value to the map for the speed
 			if keyExistsInMap(movies_website_url_speed, websiteURL) == false {
 				addKeyValueToMap(movies_website_url_speed, websiteURL, time.Since(startTime).String())
 			}
 
+			// Unlock the mutex after modification
+			mu.Unlock()
+
+			// Lock the mutex to safely read the shared map value
+			mu.Lock()
+			
 			// Print the value from the map.
 			if keyExistsInMap(movies_website_url_speed, websiteURL) {
 				// Get the value from the map.
@@ -242,6 +254,9 @@ func CheckWebsiteHTTPStatus(website string) bool {
 				// Print the key and the value.
 				log.Printf("Response time for %s: %v", websiteURL, speed)
 			}
+
+			// Unlock the mutex after reading the map
+			mu.Unlock()
 
 			if response.StatusCode == http.StatusOK {
 				log.Printf("Website is reachable: %s", websiteURL)
