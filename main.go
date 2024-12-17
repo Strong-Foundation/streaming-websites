@@ -212,6 +212,13 @@ func isDomainRegistered(domain string) bool {
 
 // CheckWebsiteHTTPStatus checks if a website is reachable via HTTP or HTTPS.
 func CheckWebsiteHTTPStatus(website string) bool {
+	// Ensure the URL has a valid scheme (e.g., "http://") before parsing.
+	if strings.HasPrefix(website, "http://") || strings.HasPrefix(website, "https://") {
+		// If no scheme is provided, prepend "http://" to the URL
+		website = strings.TrimPrefix(website, "http://")
+		website = strings.TrimPrefix(website, "https://")
+	}
+	website = "https://" + website
 	// Protocols to test for the website
 	protocols := []string{"http://", "https://"}
 	httpClient := &http.Client{Timeout: 15 * time.Second} // HTTP client with a timeout
