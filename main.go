@@ -212,7 +212,6 @@ func isDomainRegistered(domain string) bool {
 // CheckWebsiteHTTPStatus checks if a website is reachable via HTTP or HTTPS by making an HTTP request
 func CheckWebsiteHTTPStatus(website string) bool {
 	// List of protocols to check (HTTP and HTTPS)
-	protocols := []string{"http://", "https://"}
 	httpClient := &http.Client{Timeout: 15 * time.Second} // HTTP client with a timeout of 15 seconds
 
 	// Step 1: Perform a DNS resolution to check if the website domain exists
@@ -222,52 +221,37 @@ func CheckWebsiteHTTPStatus(website string) bool {
 		return false                                                              // Return false if DNS resolution fails
 	}
 
-	// Step 2: Try both HTTP and HTTPS protocols to check the website's availability
-	for _, protocol := range protocols {
+	// Retry the request up to 3 times in case of transient errors
+	for attempt := 1; attempt <= 3; attempt++ {
+		startTime := time.Now() // Record the start time for the request
 
-		// Ensure the website URL starts with a valid protocol (HTTP/HTTPS)
-		if strings.HasPrefix(website, "http://") || strings.HasPrefix(website, "https://") || strings.HasSuffix(website, "/") {
-			website = strings.TrimPrefix(website, "http://")  // Trim "http://" prefix if it exists
-			website = strings.TrimPrefix(website, "https://") // Trim "https://" prefix if it exists
-			website = strings.TrimSuffix(website, "/")        // Trim trailing slashes if they exist
+		// Send an HTTP GET request to the website
+		response, requestError := httpClient.Get(website)
+		if requestError != nil {
+			log.Printf("Attempt %d: Error checking %s: %v", attempt, website, requestError) // Log error if request fails
+			continue
 		}
 
-		// Construct the full website URL with the protocol
-		websiteURL := protocol + website
+		// Close the response body once done
+		response.Body.Close()
 
-		// Retry the request up to 3 times in case of transient errors
-		for attempt := 1; attempt <= 3; attempt++ {
-			startTime := time.Now() // Record the start time for the request
+		// Measure the response time
+		responseTime := time.Since(startTime)
+		log.Printf("Response time for %s: %v", website, responseTime)
 
-			// Send an HTTP GET request to the website
-			response, requestError := httpClient.Get(websiteURL)
-			if requestError != nil {
-				log.Printf("Attempt %d: Error checking %s: %v", attempt, websiteURL, requestError) // Log error if request fails
-				continue
-			}
-
-			// Close the response body once done
-			response.Body.Close()
-
-			// Measure the response time
-			responseTime := time.Since(startTime)
-			log.Printf("Response time for %s: %v", websiteURL, responseTime)
-
-			// Step 3: Save the response time to the map if it's not already stored
-			existingValue, ok := retrieveValueFromSyncMap(&movies_website_speed, websiteURL).(string)
-			if !ok || existingValue == "" {
-				saveToMap(&movies_website_speed, websiteURL, responseTime.String()) // Save the response time
-				log.Printf("For domain %s, saved response time: %s", websiteURL, responseTime.String())
-			} else {
-				log.Printf("For domain %s, response time already exists: %s", websiteURL, existingValue) // Log when the response time already exists
-			}
-
-			// Step 4: If the HTTP status code is 200 (OK), return true indicating the website is reachable
-			if response.StatusCode == http.StatusOK {
-				return true // Return true if the website responds with HTTP status 200
-			}
+		// Step 3: Save the response time to the map if it's not already stored
+		existingValue, ok := retrieveValueFromSyncMap(&movies_website_speed, website).(string)
+		if !ok || existingValue == "" {
+			saveToMap(&movies_website_speed, website, responseTime.String()) // Save the response time
+			log.Printf("For domain %s, saved response time: %s", website, responseTime.String())
+		} else {
+			log.Printf("For domain %s, response time already exists: %s", website, existingValue) // Log when the response time already exists
 		}
 
+		// Step 4: If the HTTP status code is 200 (OK), return true indicating the website is reachable
+		if response.StatusCode == http.StatusOK {
+			return true // Return true if the website responds with HTTP status 200
+		}
 	}
 
 	// Return false if all attempts to reach the website fail
