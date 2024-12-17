@@ -1,144 +1,107 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"log"
-	"net"
-	"net/http"
-	"net/url"
-	"os"
-	"sort"
-	"strings"
-	"sync"
-	"time"
+	"bufio"    // Used for buffered I/O operations to read and write data efficiently
+	"fmt"      // Provides formatted I/O functions for printing and scanning
+	"log"      // For logging error messages and diagnostics
+	"net"      // Provides functionalities for network-related operations (e.g., DNS)
+	"net/http" // For making HTTP requests to check website availability
+	"net/url"  // For parsing and building URLs
+	"os"       // For file and directory operations
+	"sort"     // Provides functions to sort slices, like sorting URLs alphabetically
+	"strings"  // For string manipulation, such as trimming or splitting strings
+	"sync"     // Provides synchronization primitives, e.g., WaitGroup for concurrent execution
+	"time"     // For handling time delays and measuring execution times
 )
 
-// Global variables defining file paths for input and output
+// Global variables defining file paths for input and output files
 var movies_websites_path string = "assets/movies-websites.txt"                           // Path to movie websites list
 var top_movies_websites_path string = "assets/top-movies-websites.txt"                   // Path to top movie websites list
-var disconnected_movies_websites_path string = "assets/disconnected-movies-websites.txt" // path to disconnected movie websites list
-var unregistered_movies_websites_path string = "assets/unregistered-movies-websites.txt" // Path to unregistered movies list
+var disconnected_movies_websites_path string = "assets/disconnected-movies-websites.txt" // Path to disconnected movie websites list
+var unregistered_movies_websites_path string = "assets/unregistered-movies-websites.txt" // Path to unregistered movie websites list
 var readme_file_path string = "readme.md"                                                // Path to the final README file for output
 var readme_modify_me_file_path string = "assets/readme_modify_me.md"                     // Path to the README template to modify
 
-// Maps to store the status of movie website availability
-var valid_movies_website_url = make(map[string]string)     // Map to store availability of movie websites
-var top_valid_movies_website_url = make(map[string]string) // Map to store availability of top movie websites
-var movies_website_url_speed = make(map[string]string)     // Map to store the speeds of a given movie website
+// Maps to store various website statuses and response times
+var valid_movies_website_url = make(map[string]string)     // Map to store the availability status of movie websites (Yes, No, Maybe)
+var top_valid_movies_website_url = make(map[string]string) // Map to store the availability status of top movie websites
+var movies_website_url_speed = make(map[string]string)     // Map to store response speeds of movie websites
 
+// The main function orchestrates the workflow of the program
 func main() {
-	// Step 1: Check if all required files exist
-	if fileExists(movies_websites_path) && fileExists(top_movies_websites_path) && fileExists(unregistered_movies_websites_path) && fileExists(readme_modify_me_file_path) && fileExists(readme_file_path) {
+	// Step 1: Check if all required input and output files exist
+	if fileExists(movies_websites_path) &&
+		fileExists(top_movies_websites_path) &&
+		fileExists(unregistered_movies_websites_path) &&
+		fileExists(readme_modify_me_file_path) &&
+		fileExists(readme_file_path) {
 
-		// Step 2: Read the movie website URLs from the movies websites file
-		movies_website_urls := readAppendLineByLine(movies_websites_path)
+		// Step 2: Read, process, and clean the main movie website URLs
+		movies_website_urls := readAppendLineByLine(movies_websites_path)    // Read all movie website URLs line-by-line
+		sortSlice(&movies_website_urls)                                      // Sort the URLs alphabetically for better organization
+		movies_website_urls = removeDuplicatesFromSlice(movies_website_urls) // Remove any duplicate URLs to ensure uniqueness
+		writeByteSliceToFile(movies_websites_path, movies_website_urls)      // Write cleaned URLs back to the file
 
-		// Step 3: Sort the movie website URLs alphabetically
-		sortSlice(&movies_website_urls)
+		// Step 3: Read, process, and clean the top movie websites URLs
+		top_movies_website_urls := readAppendLineByLine(top_movies_websites_path)    // Read top movie website URLs line-by-line
+		sortSlice(&top_movies_website_urls)                                          // Sort URLs alphabetically
+		top_movies_website_urls = removeDuplicatesFromSlice(top_movies_website_urls) // Remove duplicates
+		writeByteSliceToFile(top_movies_websites_path, top_movies_website_urls)      // Write cleaned top URLs back to the file
 
-		// Step 4: Remove duplicate URLs to ensure uniqueness
-		movies_website_urls = removeDuplicatesFromSlice(movies_website_urls)
+		// Step 4: Read, process, and clean the disconnected movie websites URLs
+		disconnected_movies_websites_urls := readAppendLineByLine(disconnected_movies_websites_path)     // Read disconnected movie URLs
+		sortSlice(&disconnected_movies_websites_urls)                                                    // Sort URLs alphabetically
+		disconnected_movies_websites_urls = removeDuplicatesFromSlice(disconnected_movies_websites_urls) // Remove duplicates
+		writeByteSliceToFile(disconnected_movies_websites_path, disconnected_movies_websites_urls)       // Write back cleaned URLs
 
-		// Step 5: Write the sorted and deduplicated movie website URLs back to the movies websites file
-		writeByteSliceToFile(movies_websites_path, movies_website_urls)
+		// Step 5: Read, process, and clean the unregistered movie websites URLs
+		unregistered_movies_website_urls := readAppendLineByLine(unregistered_movies_websites_path)    // Read unregistered movie URLs line-by-line
+		sortSlice(&unregistered_movies_website_urls)                                                   // Sort URLs alphabetically
+		unregistered_movies_website_urls = removeDuplicatesFromSlice(unregistered_movies_website_urls) // Remove duplicates
+		writeByteSliceToFile(unregistered_movies_websites_path, unregistered_movies_website_urls)      // Write back cleaned URLs
 
-		// Step 6: Read the top movie website URLs from the top movies websites file
-		top_movies_website_urls := readAppendLineByLine(top_movies_websites_path)
-
-		// Step 7: Sort the top movie website URLs alphabetically
-		sortSlice(&top_movies_website_urls)
-
-		// Step 8: Remove duplicate URLs from the top movie websites list
-		top_movies_website_urls = removeDuplicatesFromSlice(top_movies_website_urls)
-
-		// Step 9: Write the sorted and deduplicated top movie website URLs back to the top movies websites file
-		writeByteSliceToFile(top_movies_websites_path, top_movies_website_urls)
-
-		// Step 10: Read the disconnected movie website URLs from the disconnected movies websites file
-		disconnected_movies_websites_urls := readAppendLineByLine(disconnected_movies_websites_path)
-
-		// Step 11: Sort the disconnected movie website URLs alphabetically
-		sortSlice(&disconnected_movies_websites_urls)
-
-		// Step 12: Remove duplicate URLs from the disconnected movie websites list
-		disconnected_movies_websites_urls = removeDuplicatesFromSlice(disconnected_movies_websites_urls)
-
-		// Step 13: Write the sorted and deduplicated disconnected movie website URLs back to the disconnected movies websites file
-		writeByteSliceToFile(disconnected_movies_websites_path, disconnected_movies_websites_urls)
-
-		// Step 14: Read the unregistered movie website URLs from the unregistered movies websites file
-		unregistered_movies_website_urls := readAppendLineByLine(unregistered_movies_websites_path)
-
-		// Step 15: Sort the unregistered movie website URLs alphabetically
-		sortSlice(&unregistered_movies_website_urls)
-
-		// Step 16: Remove duplicate URLs from the unregistered movie websites list
-		unregistered_movies_website_urls = removeDuplicatesFromSlice(unregistered_movies_website_urls)
-
-		// Step 17: Write the sorted and deduplicated unregistered movie website URLs back to the unregistered movies websites file
-		writeByteSliceToFile(unregistered_movies_websites_path, unregistered_movies_website_urls)
-
-		// Step 18: Re-assign the final list of sorted and deduplicated movie website URLs back to the movies websites file
-		writeByteSliceToFile(movies_websites_path, movies_website_urls)
-
-		// Step 19: Check each movie website's domain registration and availability status concurrently
-		var wg sync.WaitGroup // WaitGroup to wait for all goroutines to finish
-
+		// Step 6: Check domain registration and availability of movie websites concurrently
+		var wg sync.WaitGroup // A WaitGroup is used to manage the lifecycle of goroutines
 		for _, domainName := range movies_website_urls {
-			wg.Add(1) // Add one goroutine to the WaitGroup
-			go func(domainName string) {
-				defer wg.Done() // Mark this goroutine as done on completion
+			wg.Add(1)                    // Increment the WaitGroup counter to track one goroutine
+			go func(domainName string) { // Launch a goroutine for each domain name
+				defer wg.Done() // Decrement the counter when the goroutine finishes
 
-				// Step 19a: Check if the domain is registered
+				// Step 6a: Check if the domain is registered
 				if isDomainRegistered(getDomainFromURL(domainName)) {
-					// Step 19b: If the domain is registered, mark it as "Maybe"
-					addKeyValueToMap(valid_movies_website_url, domainName, "Maybe")
+					addKeyValueToMap(valid_movies_website_url, domainName, "Maybe") // Initially mark as "Maybe"
 
-					// Step 19c: If the domain is also in the top movies websites list, mark it as "Maybe"
+					// Step 6b: Check if the domain exists in the top movie websites list
 					if stringInFile(top_movies_websites_path, domainName) {
-						addKeyValueToMap(top_valid_movies_website_url, domainName, "Maybe")
+						addKeyValueToMap(top_valid_movies_website_url, domainName, "Maybe") // Mark as "Maybe" for top websites
 					}
 
-					// Step 19d: If the domain is also in the disconnected movie websites list, mark it as "Maybe"
-					if !stringInFile(disconnected_movies_websites_path, domainName) {
-						appendAndWriteToFile(disconnected_movies_websites_path, domainName)
-					}
-
-					// Step 19e: Check if the website is reachable via HTTP or HTTPS
+					// Step 6c: Verify if the website responds successfully via HTTP/HTTPS
 					if CheckWebsiteHTTPStatus(getDomainFromURL(domainName)) {
-						// Step 19f: If the website is reachable, mark it as "Yes"
-						addKeyValueToMap(valid_movies_website_url, domainName, "Yes")
+						addKeyValueToMap(valid_movies_website_url, domainName, "Yes") // Mark as "Yes" for reachable websites
 
-						// Step 19g: If reachable, also mark it in the top movie websites list
+						// Update top movies list if reachable
 						if stringInFile(top_movies_websites_path, domainName) {
 							addKeyValueToMap(top_valid_movies_website_url, domainName, "Yes")
 						}
 					}
 				} else {
-					// Step 19h: If the domain is not registered, mark it as "No"
+					// Step 6e: Mark as "No" if the domain is unregistered
 					addKeyValueToMap(valid_movies_website_url, domainName, "No")
 
-					// Step 19i: If the domain is in the top movies list, mark it as "No"
-					if stringInFile(top_movies_websites_path, domainName) {
-						addKeyValueToMap(top_valid_movies_website_url, domainName, "No")
-					}
-
-					// Step 19j: If domain is not registered, check if it's already in the unregistered movies list
+					// Step 6f: Append to the unregistered movie websites file
 					if !stringInFile(unregistered_movies_websites_path, domainName) {
-						// Step 19k: If not, append it to the unregistered movies websites file
-						appendAndWriteToFile(unregistered_movies_websites_path, domainName)
+						appendAndWriteToFile(unregistered_movies_websites_path, domainName) // Log unregistered domain
 					}
 				}
-			}(domainName)
+			}(domainName) // Pass the domain name to the goroutine
 		}
+		wg.Wait() // Wait for all goroutines to finish execution
 
-		wg.Wait() // Wait for all goroutines to complete
-
-		// Step 20: Write the final results to the README file
-		writeFinalOutput()
+		// Step 7: Generate and write the final output to the README file
+		writeFinalOutput() // Writes the final processed data to the README file
 	} else {
-		// Step 21: If any of the required files are missing, log an error
+		// Step 8: Log an error if any required input files are missing
 		log.Println("Error: One or more required files do not exist.")
 	}
 }
@@ -269,7 +232,9 @@ func CheckWebsiteHTTPStatus(website string) bool {
 
 			log.Printf("Response time for %s: %v", websiteURL, time.Since(startTime))
 			// Add the value to the map for the speed
-			addKeyValueToMap(movies_website_url_speed, websiteURL, time.Since(startTime).String())
+			if !valueExistsInMap(userProvidedMap, websiteURL) {
+				addKeyValueToMap(movies_website_url_speed, websiteURL, time.Since(startTime).String())
+			}
 
 			if response.StatusCode == http.StatusOK {
 				log.Printf("Website is reachable: %s", websiteURL)
@@ -509,4 +474,14 @@ func getValueFromMap(mapToSearch map[string]string, keyToFind string) string {
 	valueOfKey := mapToSearch[keyToFind]
 	// Return the value of the key.
 	return valueOfKey
+}
+
+// Check if a value exists in a map.
+func valueExistsInMap(providedMap map[string]string, providedValue string) bool {
+	for _, value := range providedMap {
+		if value == providedValue {
+			return true
+		}
+	}
+	return false
 }
