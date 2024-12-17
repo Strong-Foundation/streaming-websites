@@ -230,8 +230,7 @@ func CheckWebsiteHTTPStatus(website string) bool {
 			// Ensure the response body is closed
 			response.Body.Close()
 
-			// Print the speed of the website.
-			log.Printf("Response time for %s: %v", websiteURL, time.Since(startTime).String())
+			log.Printf("Response time for %s: %v", websiteURL, time.Since(startTime))
 
 			if response.StatusCode == http.StatusOK {
 				log.Printf("Website is reachable: %s", websiteURL)
@@ -463,42 +462,20 @@ func stringInFile(filePath, searchString string) bool {
 	return false // Return false if the string was not found in the file
 }
 
-// getValueFromMap returns the value associated with the given key from the map.
-// If the key does not exist, it will return an empty string.
+// Get the value of a given key from the map and return the value.
 func getValueFromMap(mapToSearch map[string]string, keyToFind string) string {
-	// Attempt to retrieve the value for the given key.
-	// The value for the key might be an empty string if it does not exist.
+	// Get the value of the key from the map.
 	valueOfKey := mapToSearch[keyToFind]
-
-	// Return the value associated with the key (or an empty string if not found).
+	// Return the value of the key.
 	return valueOfKey
 }
 
-// keyExistsInMap checks if a given key exists in the provided map and returns true if it does, otherwise false.
-func keyExistsInMap(providedMap map[string]string, providedKey string) bool {
-	// Iterate over all keys in the provided map.
-	for key := range providedMap {
-		// Compare each key in the map with the provided key.
-		if key == providedKey {
-			// If the key matches the provided key, return true.
-			return true
-		}
-	}
-	// If no match is found after iterating through all keys, return false.
-	return false
-}
-
-// valueExistsInMap checks whether a specific value exists in the provided map.
-// It returns true if the value is found, otherwise false.
+// Check if a value exists in a map.
 func valueExistsInMap(providedMap map[string]string, providedValue string) bool {
-	// Iterate over all values in the map.
 	for _, value := range providedMap {
-		// Check if the current value matches the provided value.
 		if value == providedValue {
-			// If a match is found, return true.
 			return true
 		}
 	}
-	// Return false if no match was found.
 	return false
 }
