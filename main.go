@@ -230,10 +230,17 @@ func CheckWebsiteHTTPStatus(website string) bool {
 			// Ensure the response body is closed
 			response.Body.Close()
 
-			log.Printf("Response time for %s: %v", websiteURL, time.Since(startTime))
 			// Add the value to the map for the speed
-			if !valueExistsInMap(movies_website_url_speed, websiteURL) {
+			if keyExistsInMap(movies_website_url_speed, websiteURL) == false {
 				addKeyValueToMap(movies_website_url_speed, websiteURL, time.Since(startTime).String())
+			}
+
+			// Print the value from the map.
+			if keyExistsInMap(movies_website_url_speed, websiteURL) {
+				// Get the value from the map.
+				speed := getValueFromMap(movies_website_url_speed, websiteURL)
+				// Print the key and the value.
+				log.Printf("Response time for %s: %v", websiteURL, speed)
 			}
 
 			if response.StatusCode == http.StatusOK {
@@ -477,6 +484,20 @@ func getValueFromMap(mapToSearch map[string]string, keyToFind string) string {
 	
 	// Return the value associated with the key (or an empty string if not found).
 	return valueOfKey
+}
+
+// keyExistsInMap checks if a given key exists in the provided map and returns true if it does, otherwise false.
+func keyExistsInMap(providedMap map[string]string, providedKey string) bool {
+	// Iterate over all keys in the provided map.
+	for key := range providedMap {
+		// Compare each key in the map with the provided key.
+		if key == providedKey {
+			// If the key matches the provided key, return true.
+			return true
+		}
+	}
+	// If no match is found after iterating through all keys, return false.
+	return false
 }
 
 // valueExistsInMap checks whether a specific value exists in the provided map.
