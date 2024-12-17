@@ -269,7 +269,7 @@ func CheckWebsiteHTTPStatus(website string) bool {
 
 			log.Printf("Response time for %s: %v", websiteURL, time.Since(startTime))
 			// Add the value to the map for the speed
-			addKeyValueToMap(movies_website_url_speed, websiteURL, time.Since(startTime).Truncate(time.Second).String())
+			addKeyValueToMap(movies_website_url_speed, websiteURL, time.Since(startTime).String())
 
 			if response.StatusCode == http.StatusOK {
 				log.Printf("Website is reachable: %s", websiteURL)
