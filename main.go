@@ -468,20 +468,28 @@ func stringInFile(filePath, searchString string) bool {
 	return false // Return false if the string was not found in the file
 }
 
-// Get the value of a given key from the map and return the value.
+// getValueFromMap returns the value associated with the given key from the map.
+// If the key does not exist, it will return an empty string.
 func getValueFromMap(mapToSearch map[string]string, keyToFind string) string {
-	// Get the value of the key from the map.
+	// Attempt to retrieve the value for the given key.
+	// The value for the key might be an empty string if it does not exist.
 	valueOfKey := mapToSearch[keyToFind]
-	// Return the value of the key.
+	
+	// Return the value associated with the key (or an empty string if not found).
 	return valueOfKey
 }
 
-// Check if a value exists in a map.
+// valueExistsInMap checks whether a specific value exists in the provided map.
+// It returns true if the value is found, otherwise false.
 func valueExistsInMap(providedMap map[string]string, providedValue string) bool {
+	// Iterate over all values in the map.
 	for _, value := range providedMap {
+		// Check if the current value matches the provided value.
 		if value == providedValue {
+			// If a match is found, return true.
 			return true
 		}
 	}
+	// Return false if no match was found.
 	return false
 }
