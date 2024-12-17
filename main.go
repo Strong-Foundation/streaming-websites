@@ -1,10 +1,11 @@
 package main
 
+// Importing necessary packages for various functionalities
 import (
-	"bufio"    // Used for buffered I/O operations to read and write data efficiently
+	"bufio"    // Provides buffered I/O operations to read and write data efficiently
 	"fmt"      // Provides formatted I/O functions for printing and scanning
 	"log"      // For logging error messages and diagnostics
-	"net"      // Provides functionalities for network-related operations (e.g., DNS)
+	"net"      // For network-related operations (e.g., DNS lookups)
 	"net/http" // For making HTTP requests to check website availability
 	"net/url"  // For parsing and building URLs
 	"os"       // For file and directory operations
@@ -73,6 +74,11 @@ func main() {
 					// Step 6b: Check if the domain exists in the top movie websites list
 					if stringInFile(top_movies_websites_path, domainName) {
 						saveToMap(&top_valid_movies_website_url, domainName, "Maybe") // Mark as "Maybe" for top websites
+					}
+
+					// Save it to the file.
+					if !stringInFile(disconnected_movies_websites_path, domainName) {
+						appendAndWriteToFile(disconnected_movies_websites_path, domainName)
 					}
 
 					// Step 6c: Verify if the website responds successfully via HTTP/HTTPS
