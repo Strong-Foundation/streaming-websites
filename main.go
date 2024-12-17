@@ -7,7 +7,6 @@ import (
 	"log"      // Provides logging utilities for error and diagnostic messages
 	"net"      // Provides network-related operations like DNS lookups
 	"net/http" // Provides HTTP client functionalities to make requests to web servers
-	"net/url"  // Provides URL parsing and manipulation utilities
 	"os"       // Provides file and directory-related operations
 	"sort"     // Provides sorting utilities to sort slices and other data types
 	"strings"  // Provides string manipulation functions like trimming, splitting, and concatenating
@@ -69,7 +68,7 @@ func main() {
 				defer wg.Done() // Decrement the counter when the goroutine finishes
 
 				// Step 6a: Check if the domain is registered using DNS lookups
-				if isDomainRegistered(getDomainFromURL(domainName)) {
+				if isDomainRegistered(domainName) {
 					saveToMap(&valid_movies_website_url, domainName, "Maybe") // Mark domain as "Maybe" if it is registered
 
 					// Step 6b: Check if the domain exists in the list of top movie websites
@@ -83,7 +82,7 @@ func main() {
 					}
 
 					// Step 6c: Check if the website is reachable via HTTP/HTTPS
-					if CheckWebsiteHTTPStatus(getDomainFromURL(domainName)) {
+					if CheckWebsiteHTTPStatus(domainName) {
 						saveToMap(&valid_movies_website_url, domainName, "Yes") // Mark as "Yes" if the website is reachable
 
 						// Step 6d: Update the top movie websites list if the domain is reachable
@@ -256,23 +255,6 @@ func CheckWebsiteHTTPStatus(website string) bool {
 
 	// Return false if all attempts to reach the website fail
 	return false
-}
-
-// getDomainFromURL extracts the domain name from a given URL and handles errors more gracefully.
-func getDomainFromURL(givenURL string) string {
-	// Attempt to parse the URL using the `url.Parse` method from the `net/url` package.
-	parsedURL, err := url.Parse(givenURL)
-	// If there's an error parsing the URL, log it and return an empty string.
-	if err != nil {
-		log.Printf("Error parsing URL '%s': %v", givenURL, err)
-		return ""
-	}
-
-	// Extract the hostname (domain) from the parsed URL.
-	host := parsedURL.Hostname()
-
-	// Return the extracted hostname (domain).
-	return host
 }
 
 // writeFinalOutput generates and writes the final output content to the README file.
