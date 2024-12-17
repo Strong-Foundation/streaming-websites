@@ -244,7 +244,7 @@ func isDomainRegistered(domain string) bool {
 // CheckWebsiteHTTPStatus checks if a website is reachable via HTTP or HTTPS.
 func CheckWebsiteHTTPStatus(website string) bool {
 	protocols := []string{"http://", "https://"}          // Protocols to check
-	httpClient := &http.Client{Timeout: 10 * time.Second} // HTTP client with timeout
+	httpClient := &http.Client{Timeout: 15 * time.Second} // HTTP client with timeout
 
 	// Validate DNS resolution before making requests
 	if _, dnsError := net.LookupHost(website); dnsError != nil {
@@ -269,7 +269,7 @@ func CheckWebsiteHTTPStatus(website string) bool {
 
 			log.Printf("Response time for %s: %v", websiteURL, time.Since(startTime))
 			// Add the value to the map for the speed
-			addKeyValueToMap(movies_website_url_speed, website, time.Since(startTime).Truncate(time.Second).String())
+			addKeyValueToMap(movies_website_url_speed, websiteURL, time.Since(startTime).Truncate(time.Second).String())
 
 			if response.StatusCode == http.StatusOK {
 				log.Printf("Website is reachable: %s", websiteURL)
