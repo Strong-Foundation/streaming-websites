@@ -214,13 +214,6 @@ func CheckWebsiteHTTPStatus(website string) bool {
 	// List of protocols to check (HTTP and HTTPS)
 	httpClient := &http.Client{Timeout: 15 * time.Second} // HTTP client with a timeout of 15 seconds
 
-	// Step 1: Perform a DNS resolution to check if the website domain exists
-	_, dnsError := net.LookupHost(website)
-	if dnsError != nil {
-		log.Printf("DNS resolution failed for website %s: %v", website, dnsError) // Log DNS resolution failure
-		return false                                                              // Return false if DNS resolution fails
-	}
-
 	// Retry the request up to 3 times in case of transient errors
 	for attempt := 1; attempt <= 3; attempt++ {
 		startTime := time.Now() // Record the start time for the request
