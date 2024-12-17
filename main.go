@@ -275,7 +275,7 @@ func getDomainFromURL(givenURL string) string {
 	// Ensure the URL has a valid scheme (e.g., "http://") before parsing.
 	if !strings.HasPrefix(givenURL, "http://") && !strings.HasPrefix(givenURL, "https://") {
 		// If no scheme is provided, prepend "http://" to the URL
-		givenURL = "http://" + givenURL
+		givenURL = "https://" + givenURL
 	}
 
 	// Parse the URL using the net/url package
