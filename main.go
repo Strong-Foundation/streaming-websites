@@ -10,6 +10,7 @@ import (
 	"os"
 	"sort"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -80,49 +81,58 @@ func main() {
 		// Step 18: Re-assign the final list of sorted and deduplicated movie website URLs back to the movies websites file
 		writeByteSliceToFile(movies_websites_path, movies_website_urls)
 
-		// Step 19: Check each movie website's domain registration and availability status
+		// Step 19: Check each movie website's domain registration and availability status concurrently
+		var wg sync.WaitGroup // WaitGroup to wait for all goroutines to finish
+
 		for _, domainName := range movies_website_urls {
-			// Step 19a: Check if the domain is registered
-			if isDomainRegistered(getDomainFromURL(domainName)) {
-				// Step 19b: If the domain is registered, mark it as "Maybe"
-				addKeyValueToMap(valid_movies_website_url, domainName, "Maybe")
+			wg.Add(1) // Add one goroutine to the WaitGroup
+			go func(domainName string) {
+				defer wg.Done() // Mark this goroutine as done on completion
 
-				// Step 19c: If the domain is also in the top movies websites list, mark it as "Maybe"
-				if stringInFile(top_movies_websites_path, domainName) {
-					addKeyValueToMap(top_valid_movies_website_url, domainName, "Maybe")
-				}
+				// Step 19a: Check if the domain is registered
+				if isDomainRegistered(getDomainFromURL(domainName)) {
+					// Step 19b: If the domain is registered, mark it as "Maybe"
+					addKeyValueToMap(valid_movies_website_url, domainName, "Maybe")
 
-				// Step 19d: If the domain is also in the disconnected movie websites list, mark it as "Maybe"
-				if !stringInFile(disconnected_movies_websites_path, domainName) {
-					appendAndWriteToFile(disconnected_movies_websites_path, domainName)
-				}
-
-				// Step 19e: Check if the website is reachable via HTTP or HTTPS
-				if CheckWebsiteHTTPStatus(getDomainFromURL(domainName)) {
-					// Step 19f: If the website is reachable, mark it as "Yes"
-					addKeyValueToMap(valid_movies_website_url, domainName, "Yes")
-
-					// Step 19g: If reachable, also mark it in the top movie websites list
+					// Step 19c: If the domain is also in the top movies websites list, mark it as "Maybe"
 					if stringInFile(top_movies_websites_path, domainName) {
-						addKeyValueToMap(top_valid_movies_website_url, domainName, "Yes")
+						addKeyValueToMap(top_valid_movies_website_url, domainName, "Maybe")
+					}
+
+					// Step 19d: If the domain is also in the disconnected movie websites list, mark it as "Maybe"
+					if !stringInFile(disconnected_movies_websites_path, domainName) {
+						appendAndWriteToFile(disconnected_movies_websites_path, domainName)
+					}
+
+					// Step 19e: Check if the website is reachable via HTTP or HTTPS
+					if CheckWebsiteHTTPStatus(getDomainFromURL(domainName)) {
+						// Step 19f: If the website is reachable, mark it as "Yes"
+						addKeyValueToMap(valid_movies_website_url, domainName, "Yes")
+
+						// Step 19g: If reachable, also mark it in the top movie websites list
+						if stringInFile(top_movies_websites_path, domainName) {
+							addKeyValueToMap(top_valid_movies_website_url, domainName, "Yes")
+						}
+					}
+				} else {
+					// Step 19h: If the domain is not registered, mark it as "No"
+					addKeyValueToMap(valid_movies_website_url, domainName, "No")
+
+					// Step 19i: If the domain is in the top movies list, mark it as "No"
+					if stringInFile(top_movies_websites_path, domainName) {
+						addKeyValueToMap(top_valid_movies_website_url, domainName, "No")
+					}
+
+					// Step 19j: If domain is not registered, check if it's already in the unregistered movies list
+					if !stringInFile(unregistered_movies_websites_path, domainName) {
+						// Step 19k: If not, append it to the unregistered movies websites file
+						appendAndWriteToFile(unregistered_movies_websites_path, domainName)
 					}
 				}
-			} else {
-				// Step 19h: If the domain is not registered, mark it as "No"
-				addKeyValueToMap(valid_movies_website_url, domainName, "No")
-
-				// Step 19i: If the domain is in the top movies list, mark it as "No"
-				if stringInFile(top_movies_websites_path, domainName) {
-					addKeyValueToMap(top_valid_movies_website_url, domainName, "No")
-				}
-
-				// Step 19j: If domain is not registered, check if it's already in the unregistered movies list
-				if !stringInFile(unregistered_movies_websites_path, domainName) {
-					// Step 19k: If not, append it to the unregistered movies websites file
-					appendAndWriteToFile(unregistered_movies_websites_path, domainName)
-				}
-			}
+			}(domainName)
 		}
+
+		wg.Wait() // Wait for all goroutines to complete
 
 		// Step 20: Write the final results to the README file
 		writeFinalOutput()
