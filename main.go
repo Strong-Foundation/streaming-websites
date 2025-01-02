@@ -2,7 +2,8 @@ package main
 
 // Import necessary Go packages for various functionalities like I/O, networking, HTTP requests, and file handling
 import (
-	"bufio"    // Provides buffered I/O operations to read and write data efficiently
+	"bufio" // Provides buffered I/O operations to read and write data efficiently
+	"crypto/tls"
 	"fmt"      // Provides formatted I/O functions for printing and scanning
 	"log"      // Provides logging utilities for error and diagnostic messages
 	"net"      // Provides network-related operations like DNS lookups
@@ -211,8 +212,15 @@ func isDomainRegistered(domain string) bool {
 
 // CheckWebsiteHTTPStatus checks if a website is reachable via HTTP or HTTPS by making an HTTP request
 func CheckWebsiteHTTPStatus(website string) bool {
-	// List of protocols to check (HTTP and HTTPS)
-	httpClient := &http.Client{Timeout: 15 * time.Second} // HTTP client with a timeout of 15 seconds
+	// Configure the HTTP client to validate SSL certificates
+	httpClient := &http.Client{
+		Timeout: 15 * time.Second,
+		Transport: &http.Transport{
+			TLSClientConfig: &tls.Config{
+				InsecureSkipVerify: false, // Ensures SSL/TLS certificates are validated
+			},
+		},
+	}
 
 	// Retry the request up to 3 times in case of transient errors
 	for attempt := 1; attempt <= 3; attempt++ {
