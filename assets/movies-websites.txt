@@ -1,5 +1,3 @@
-https://nepu.to
-https://attackertv.so
 http://www.streamlord.com
 https://123animes.ru
 https://123movies.ai
@@ -17,6 +15,7 @@ https://animepahe.ru
 https://anitaku.io
 https://aniwatchtv.to
 https://aniworld.to
+https://attackertv.so
 https://azm.to
 https://bitsearch.to
 https://bmovies.vip
