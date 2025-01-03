@@ -307,7 +307,8 @@ func writeFinalOutput() {
 
 	// Convert sync.Map to a regular map for top valid movie websites.
 	topMoviesMap := syncMapToStringMap(&top_valid_movies_website_url)
-
+	// Remove duplicates from the topMoviesMap
+	topMoviesMap = removeDuplicatesFromMap(topMoviesMap)
 	// Initialize a StringBuilder to construct the top movie websites content in Markdown format.
 	var topMoviesContent strings.Builder
 	// Add the table header for top movie websites with columns: Website, Availability, and Speed.
@@ -367,7 +368,7 @@ func writeFinalOutput() {
 
 	// Create a map of placeholders and their corresponding content for replacement in the README template.
 	placeholdersAndContent := map[string]string{
-		"[{ALL_FREE_MOVIE_STREAMING_SITES}]":  validMoviesContent.String(),
+		"[{ALL_FREE_MOVIE_STREAMING_SITES}]":   validMoviesContent.String(),
 		"[{TOP_QUALITY_FREE_MOVIE_STREAMING}]": topMoviesContent.String(),
 		"[{FASTEST_FREE_MOVIE_STREAMING}]":     fastestMoviesContent.String(),
 	}
@@ -617,4 +618,15 @@ func retrieveValueFromSyncMap(safeMap *sync.Map, targetKey string) interface{} {
 		return value
 	}
 	return nil
+}
+
+// removeDuplicatesFromMap removes duplicate entries from a map.
+func removeDuplicatesFromMap(inputMap map[string]string) map[string]string {
+	uniqueMap := make(map[string]string)
+	for key, value := range inputMap {
+		if _, exists := uniqueMap[key]; !exists {
+			uniqueMap[key] = value
+		}
+	}
+	return uniqueMap
 }
