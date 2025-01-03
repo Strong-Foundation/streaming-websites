@@ -55,220 +55,220 @@
 
 | Website                 | Availability | Speed        |
 | ----------------------- | ------------ | ------------ |
-| https://123movies.ai    | Yes          | 649.69689ms  |
-| https://1hd.to          | Yes          | 1.214251998s |
-| https://321movies.co.uk | Yes          | 679.05926ms  |
-| https://456movie.com    | Yes          | 225.599935ms |
-| https://braflix.top     | Maybe        | 258.901066ms |
-| https://broflix.cc      | Yes          | 970.458723ms |
+| https://123movies.ai    | Yes          | 545.612615ms |
+| https://1hd.to          | Yes          | 1.053259596s |
+| https://321movies.co.uk | Yes          | 506.669391ms |
+| https://456movie.com    | Yes          | 266.69323ms  |
+| https://braflix.top     | Maybe        | 104.42813ms  |
+| https://broflix.cc      | Yes          | 652.910947ms |
 
 ---
 
 ## **Comprehensive List of Free Movie Streaming Websites**
 
-| Website                                  | Availability | Speed        |
-| ---------------------------------------- | ------------ | ------------ |
-| https://123animes.ru                     | Yes          | 1.995029637s |
-| https://123movies.ai                     | Yes          | 649.69689ms  |
-| https://1hd.to                           | Yes          | 1.214251998s |
-| https://321movies.co.uk                  | Yes          | 679.05926ms  |
-| https://456movie.com                     | Yes          | 225.599935ms |
-| https://6movies.stream                   | Yes          | 810.233106ms |
-| https://7plus.com.au                     | Yes          | 70.272129ms  |
-| https://9animetv.to                      | Yes          | 298.890184ms |
-| https://afdah2.cyou                      | Yes          | 1.462307188s |
-| https://allmanga.to                      | Yes          | 318.678604ms |
-| https://anime.nexus                      | Yes          | 909.517473ms |
-| https://animegg.org                      | Yes          | 359.831359ms |
-| https://animepahe.ru                     | Maybe        | 660.102145ms |
-| https://anitaku.io                       | Yes          | 1.056972504s |
-| https://aniwatchtv.to                    | Yes          | 332.598128ms |
-| https://aniworld.to                      | Yes          | 735.033286ms |
-| https://attackertv.so                    | Yes          | 1.930300069s |
-| https://azm.to                           | Yes          | 1.207750763s |
-| https://bitsearch.to                     | Maybe        | 281.593227ms |
-| https://bmovies.vip                      | Yes          | 687.378555ms |
-| https://braflix.top                      | Maybe        | 258.901066ms |
-| https://broflix.cc                       | Yes          | 970.458723ms |
-| https://c.hopmarks.com                   | Yes          | 142.49972ms  |
-| https://cataz.ru                         | Yes          | 614.878468ms |
-| https://catflix.su                       | Yes          | 838.310555ms |
-| https://cinemadeck.com                   | Yes          | 686.750696ms |
-| https://cinemaos-v2.vercel.app           | Yes          | 47.64697ms   |
-| https://cinemaunlocked.com               | Yes          | 822.606718ms |
-| https://cinezone.to                      | Maybe        | N/A          |
-| https://corsflix.us.kg                   | Yes          | 203.210149ms |
-| https://crackstreams.io                  | Yes          | 1.139130156s |
-| https://daiflix.daitign.com              | Yes          | 267.18568ms  |
-| https://donkey.to                        | Yes          | 780.278059ms |
-| https://enjoytown.netlify.app            | Yes          | 319.257248ms |
-| https://fawesome.tv                      | Yes          | 377.682961ms |
-| https://film-haven.vercel.app            | Yes          | 41.579571ms  |
-| https://filmex.to                        | Maybe        | 184.288819ms |
-| https://fireflixhd1.netlify.app          | Yes          | 84.831536ms  |
-| https://flix.smashystream.xyz            | Yes          | 202.559706ms |
-| https://flixhq.click                     | Maybe        | 173.38071ms  |
-| https://flixrave.to                      | Maybe        | N/A          |
-| https://flixtor.to                       | Maybe        | 259.743958ms |
-| https://flixwave.me                      | Maybe        | N/A          |
-| https://fmovies-hd.to                    | Yes          | 740.255183ms |
-| https://fmovies.ps                       | Yes          | 384.069961ms |
-| https://fmovies247.net                   | Maybe        | N/A          |
-| https://freecinema.live                  | Yes          | 724.753653ms |
-| https://freek.to                         | Yes          | 564.445338ms |
-| https://fsharetv.co                      | Yes          | 627.660998ms |
-| https://gogoanime3.co                    | Yes          | 1.069625433s |
-| https://gomovies-online.link             | Yes          | 728.349721ms |
-| https://gomovies.sx                      | Yes          | 513.592068ms |
-| https://gomoviestv.to                    | Yes          | 478.486885ms |
-| https://gostream.to                      | Yes          | 536.661311ms |
-| https://gotytv.com                       | Maybe        | N/A          |
-| https://hdtodayz.to                      | Yes          | 622.085133ms |
-| https://heartive.pages.dev               | Yes          | 226.399318ms |
-| https://hexa.watch                       | Yes          | 563.698349ms |
-| https://hollymoviehd.cc                  | Yes          | 388.236763ms |
-| https://hydrahd.cc                       | Yes          | 981.045669ms |
-| https://kanopy.com                       | Maybe        | 238.719964ms |
-| https://kickassanime.mx                  | Yes          | 1.192803579s |
-| https://kipflix.xyz                      | Yes          | 235.848374ms |
-| https://kipstream.lol                    | Yes          | 246.930156ms |
-| https://livetv.ru                        | Yes          | 496.400988ms |
-| https://livetv.sx                        | Yes          | 1.397759169s |
-| https://lookmovie.ag                     | Yes          | 1.017918433s |
-| https://lookmovie.buzz                   | Yes          | 2.659908121s |
-| https://lookmovie.click                  | No           | N/A          |
-| https://lookmovie.clinic                 | Yes          | 2.903866444s |
-| https://lookmovie.com                    | Yes          | 6.930654236s |
-| https://lookmovie.digital                | Yes          | 2.652213057s |
-| https://lookmovie.download               | Yes          | 2.948116366s |
-| https://lookmovie.foundation             | Yes          | 2.831926871s |
-| https://lookmovie.fun                    | Yes          | 2.648897799s |
-| https://lookmovie.fyi                    | Yes          | 2.664180122s |
-| https://lookmovie.guru                   | Yes          | 3.161662069s |
-| https://lookmovie.media                  | Yes          | 2.907009667s |
-| https://lookmovie.mobi                   | Yes          | 2.415437829s |
-| https://lookmovie.site                   | No           | N/A          |
-| https://lookmovie2.la                    | Yes          | 854.27566ms  |
-| https://lookmovie2.to                    | Yes          | 6.035782832s |
-| https://m4ufree.se                       | Maybe        | 239.880801ms |
-| https://mapple.tv                        | Yes          | 1.074067199s |
-| https://mokmobi.site                     | Yes          | 239.974696ms |
-| https://moviee.tv                        | Maybe        | N/A          |
-| https://movierr.online                   | Yes          | 914.022792ms |
-| https://moviesjoy.plus                   | Yes          | 669.646222ms |
-| https://movietly.com                     | Yes          | 633.424328ms |
-| https://movieuwutv.top                   | Yes          | 765.087773ms |
-| https://moviexfilm.com                   | Maybe        | 83.537655ms  |
-| https://mp4hydra.org                     | Yes          | 1.105129609s |
-| https://mp4hydra.top                     | Yes          | 1.183039305s |
-| https://myflixerz.vip                    | Yes          | 1.395833798s |
-| https://nepu.to                          | Maybe        | 225.466798ms |
-| https://netplayz.ru                      | Maybe        | 245.822202ms |
-| https://nkiri.cc                         | Yes          | 818.971901ms |
-| https://novafork.com                     | Maybe        | 260.681ms    |
-| https://novamovie.net                    | Yes          | 403.236819ms |
-| https://novastream.top                   | Yes          | 396.414775ms |
-| https://noxe.live                        | Maybe        | 146.487076ms |
-| https://nunflix-ey9.pages.dev            | Yes          | 235.838838ms |
-| https://nunflix-firebase.firebaseapp.com | Yes          | 112.766419ms |
-| https://nunflix-firebase.web.app         | Yes          | 113.098049ms |
-| https://nunflix.org                      | Yes          | 252.059903ms |
-| https://nyaa.land                        | Maybe        | 219.661506ms |
-| https://onhockey.tv                      | Maybe        | N/A          |
-| https://onionplay.asia                   | Maybe        | 174.032856ms |
-| https://onionplay.network                | Maybe        | 267.615632ms |
-| https://p.hopmarks.com                   | Yes          | 75.282356ms  |
-| https://plexmovies.online                | Yes          | 631.687632ms |
-| https://pluto.tv                         | Yes          | 400.58925ms  |
-| https://popcornflix.com                  | Maybe        | N/A          |
-| https://popcornmovies.to                 | Yes          | 724.451266ms |
-| https://popcorntimeonline.cc             | Yes          | 710.695101ms |
-| https://pressplay.top                    | Maybe        | 315.527984ms |
-| https://primeflix-web.vercel.app         | Yes          | 76.541643ms  |
-| https://projectfreetv.biz                | Maybe        | 683.014273ms |
-| https://projectfreetv.sx                 | Yes          | 606.427969ms |
-| https://putlocker.pe                     | Yes          | 544.770696ms |
-| https://r123movie.com                    | Yes          | 568.925679ms |
-| https://rentry.org                       | Yes          | 759.313388ms |
-| https://ridomovies.tv                    | Yes          | 519.419352ms |
-| https://rips.cc                          | Yes          | 960.799565ms |
-| https://rivestream.live                  | Yes          | 91.901087ms  |
-| https://rivestream.xyz                   | Yes          | 636.01217ms  |
-| https://sflix.to                         | Yes          | 1.007911907s |
-| https://shout-tv.com                     | Yes          | 378.399477ms |
-| https://smashy.stream                    | Maybe        | 1.194646702s |
-| https://smashystream.com                 | Maybe        | 61.188413ms  |
-| https://smashystream.xyz                 | Yes          | 259.973056ms |
-| https://soaper.live                      | Yes          | 1.11985603s  |
-| https://soaper.tv                        | No           | N/A          |
-| https://soapertv.cc                      | Yes          | 846.425527ms |
-| https://solarmovie.vip                   | Yes          | 546.169909ms |
-| https://sport365.stream                  | Yes          | 593.819092ms |
-| https://sportplus.live                   | Maybe        | 738.777446ms |
-| https://sportshub.stream                 | Maybe        | 30.425187ms  |
-| https://sportsurge.net                   | Maybe        | 305.119705ms |
-| https://streamed.su                      | Yes          | 1.215184841s |
-| https://streamflix.space                 | Yes          | 422.788329ms |
-| https://streamfr.onrender.com            | Maybe        | 340.011752ms |
-| https://supernova.to                     | Maybe        | 171.243773ms |
-| https://therokuchannel.roku.com          | Yes          | 396.620549ms |
-| https://tubitv.com                       | Yes          | 1.982442391s |
-| https://upmovies.net                     | Maybe        | N/A          |
-| https://valhallastream.pages.dev         | Yes          | 319.523129ms |
-| https://valhallastream.us.kg             | Yes          | 206.703414ms |
-| https://vidcloud1.com                    | Yes          | 797.062ms    |
-| https://vidplay.org                      | Yes          | 1.151444186s |
-| https://vidstream.to                     | Yes          | 307.112922ms |
-| https://viewvault.org                    | Maybe        | 188.887023ms |
-| https://vumoo.mx                         | Maybe        | N/A          |
-| https://vumoox.to                        | Maybe        | N/A          |
-| https://watch-tvseries.net               | Maybe        | 288.427656ms |
-| https://watch.autoembed.cc               | Maybe        | 156.354478ms |
-| https://watch.coen.ovh                   | Yes          | 146.970834ms |
-| https://watch.foundtv.com                | Yes          | 331.006234ms |
-| https://watch.inzi.dev                   | Maybe        | 117.406281ms |
-| https://watch.lonelil.ru                 | Maybe        | 18.914651ms  |
-| https://watch.plex.tv                    | Yes          | 1.062272021s |
-| https://watch.streamflix.one             | Yes          | 212.280284ms |
-| https://watch2day.online                 | Yes          | 241.801103ms |
-| https://watchhq.site                     | Yes          | 254.019557ms |
-| https://way2movies.vercel.app            | Yes          | 65.373225ms  |
-| https://web.netmovies.to                 | Maybe        | 25.089841ms  |
-| https://ww.putlocker.vip                 | Yes          | 949.186432ms |
-| https://ww.yesmovies.ag                  | Yes          | 225.235531ms |
-| https://ww12.soap2dayhd.co               | Yes          | 494.350126ms |
-| https://ww2.m4ufree.tv                   | No           | N/A          |
-| https://ww2.m4uhd.tv                     | Maybe        | 190.766799ms |
-| https://ww4.fmovies.co                   | Yes          | 224.96666ms  |
-| https://www.345movies.com                | Yes          | 804.303353ms |
-| https://www.arte.tv/en                   | Yes          | 1.617369637s |
-| https://www.bbc.co.uk/iplayer            | Yes          | 433.035672ms |
-| https://www.cinebook.xyz                 | Yes          | 873.097954ms |
-| https://www.cineby.ru                    | Yes          | 309.209332ms |
-| https://www.crackle.com                  | Yes          | 19.596959ms  |
-| https://www.downloads-anymovies.co       | Yes          | 304.579211ms |
-| https://www.goojara.to                   | Maybe        | 330.075578ms |
-| https://www.hoopladigital.com            | Yes          | 339.50493ms  |
-| https://www.kaitovault.com               | Yes          | 546.493185ms |
-| https://www.levidia.ch                   | Yes          | 709.552908ms |
-| https://www.lookmovie2.to                | Yes          | 860.575499ms |
-| https://www.playary.com                  | Yes          | 536.686081ms |
-| https://www.pressplay.top                | Maybe        | 54.117597ms  |
-| https://www.primeflix.lol                | Yes          | 92.884215ms  |
-| https://www.primewire.li                 | No           | N/A          |
-| https://www.primewire.tf                 | Yes          | 436.860966ms |
-| https://www.rgshows.me                   | Yes          | 164.558904ms |
-| https://www.soap2day.tf                  | Yes          | 691.505144ms |
-| https://www.tvids.net                    | Maybe        | 239.638985ms |
-| https://yassflix.live                    | Yes          | 456.576684ms |
-| https://yeshd.net                        | Maybe        | 191.727847ms |
-| https://yoyomovies.net                   | Yes          | 694.774358ms |
-| https://yugenanime.sx                    | Yes          | 178.835479ms |
-| https://zilla-xr.xyz                     | Yes          | 222.247137ms |
-| https://zmov.vercel.app                  | Yes          | 65.785426ms  |
-| https://zmoviess.co                      | Yes          | 1.214142293s |
-| https://zoechip.cc                       | Yes          | 789.230279ms |
-| https://zoroxtv.net                      | Maybe        | N/A          |
+| Website                                  | Availability | Speed         |
+| ---------------------------------------- | ------------ | ------------- |
+| https://123animes.ru                     | Yes          | 1.546131398s  |
+| https://123movies.ai                     | Yes          | 545.612615ms  |
+| https://1hd.to                           | Yes          | 1.053259596s  |
+| https://321movies.co.uk                  | Yes          | 506.669391ms  |
+| https://456movie.com                     | Yes          | 266.69323ms   |
+| https://6movies.stream                   | Yes          | 766.117886ms  |
+| https://7plus.com.au                     | Yes          | 203.415037ms  |
+| https://9animetv.to                      | Yes          | 394.01923ms   |
+| https://afdah2.cyou                      | Yes          | 1.085929933s  |
+| https://allmanga.to                      | Yes          | 545.760932ms  |
+| https://anime.nexus                      | Yes          | 748.173672ms  |
+| https://animegg.org                      | Yes          | 708.988029ms  |
+| https://animepahe.ru                     | Maybe        | 404.581668ms  |
+| https://anitaku.io                       | Yes          | 591.712192ms  |
+| https://aniwatchtv.to                    | Yes          | 325.295904ms  |
+| https://aniworld.to                      | Yes          | 452.17586ms   |
+| https://attackertv.so                    | Yes          | 527.652194ms  |
+| https://azm.to                           | Yes          | 843.103083ms  |
+| https://bitsearch.to                     | Maybe        | 371.883954ms  |
+| https://bmovies.vip                      | Yes          | 475.606525ms  |
+| https://braflix.top                      | Maybe        | 104.42813ms   |
+| https://broflix.cc                       | Yes          | 652.910947ms  |
+| https://c.hopmarks.com                   | Yes          | 327.372564ms  |
+| https://cataz.ru                         | Yes          | 483.280454ms  |
+| https://catflix.su                       | Yes          | 551.348902ms  |
+| https://cinemadeck.com                   | Yes          | 497.105958ms  |
+| https://cinemaos-v2.vercel.app           | Yes          | 182.351982ms  |
+| https://cinemaunlocked.com               | Yes          | 544.797655ms  |
+| https://cinezone.to                      | Maybe        | N/A           |
+| https://corsflix.us.kg                   | Yes          | 345.562379ms  |
+| https://crackstreams.io                  | Yes          | 656.741787ms  |
+| https://daiflix.daitign.com              | Yes          | 178.878643ms  |
+| https://donkey.to                        | Yes          | 477.70776ms   |
+| https://enjoytown.netlify.app            | Yes          | 164.253377ms  |
+| https://fawesome.tv                      | Yes          | 298.798135ms  |
+| https://film-haven.vercel.app            | Yes          | 184.813669ms  |
+| https://filmex.to                        | Maybe        | 159.750827ms  |
+| https://fireflixhd1.netlify.app          | Yes          | 273.248792ms  |
+| https://flix.smashystream.xyz            | Yes          | 174.633354ms  |
+| https://flixhq.click                     | Maybe        | 206.301257ms  |
+| https://flixrave.to                      | Maybe        | N/A           |
+| https://flixtor.to                       | Maybe        | 295.712001ms  |
+| https://flixwave.me                      | Maybe        | N/A           |
+| https://fmovies-hd.to                    | Yes          | 660.571229ms  |
+| https://fmovies.ps                       | Yes          | 767.031185ms  |
+| https://fmovies247.net                   | Maybe        | N/A           |
+| https://freecinema.live                  | Yes          | 432.004789ms  |
+| https://freek.to                         | Yes          | 601.764292ms  |
+| https://fsharetv.co                      | Yes          | 506.344541ms  |
+| https://gogoanime3.co                    | Yes          | 693.518624ms  |
+| https://gomovies-online.link             | Yes          | 488.101992ms  |
+| https://gomovies.sx                      | Yes          | 334.791029ms  |
+| https://gomoviestv.to                    | Yes          | 364.21369ms   |
+| https://gostream.to                      | Yes          | 887.61524ms   |
+| https://gotytv.com                       | Yes          | 11.373293276s |
+| https://hdtodayz.to                      | Yes          | 440.964163ms  |
+| https://heartive.pages.dev               | Yes          | 211.099209ms  |
+| https://hexa.watch                       | Yes          | 186.077038ms  |
+| https://hollymoviehd.cc                  | Yes          | 309.034835ms  |
+| https://hydrahd.cc                       | Yes          | 880.175828ms  |
+| https://kanopy.com                       | Maybe        | 241.077615ms  |
+| https://kickassanime.mx                  | Yes          | 3.23747907s   |
+| https://kipflix.xyz                      | Yes          | 354.658515ms  |
+| https://kipstream.lol                    | Yes          | 290.317163ms  |
+| https://livetv.ru                        | Yes          | 602.829287ms  |
+| https://livetv.sx                        | Yes          | 992.801011ms  |
+| https://lookmovie.ag                     | Yes          | 553.592031ms  |
+| https://lookmovie.buzz                   | Yes          | 2.167527128s  |
+| https://lookmovie.click                  | No           | N/A           |
+| https://lookmovie.clinic                 | Yes          | 2.157974655s  |
+| https://lookmovie.com                    | Yes          | 1.622880149s  |
+| https://lookmovie.digital                | Yes          | 2.44618787s   |
+| https://lookmovie.download               | Yes          | 2.159627025s  |
+| https://lookmovie.foundation             | Yes          | 2.140791649s  |
+| https://lookmovie.fun                    | Yes          | 2.17897058s   |
+| https://lookmovie.fyi                    | Yes          | 2.492861132s  |
+| https://lookmovie.guru                   | Yes          | 2.19758307s   |
+| https://lookmovie.media                  | Yes          | 2.085240628s  |
+| https://lookmovie.mobi                   | Yes          | 1.869032278s  |
+| https://lookmovie.site                   | No           | N/A           |
+| https://lookmovie2.la                    | Yes          | 857.029191ms  |
+| https://lookmovie2.to                    | Yes          | 1.00563166s   |
+| https://m4ufree.se                       | Maybe        | 354.902481ms  |
+| https://mapple.tv                        | Yes          | 1.313690706s  |
+| https://mokmobi.site                     | Yes          | 188.205388ms  |
+| https://moviee.tv                        | Maybe        | N/A           |
+| https://movierr.online                   | Yes          | 470.401065ms  |
+| https://moviesjoy.plus                   | Yes          | 862.025378ms  |
+| https://movietly.com                     | Yes          | 513.52574ms   |
+| https://movieuwutv.top                   | Yes          | 506.197379ms  |
+| https://moviexfilm.com                   | Maybe        | 185.464289ms  |
+| https://mp4hydra.org                     | Yes          | 728.893892ms  |
+| https://mp4hydra.top                     | Yes          | 804.105899ms  |
+| https://myflixerz.vip                    | Yes          | 1.215752474s  |
+| https://nepu.to                          | Maybe        | 157.263213ms  |
+| https://netplayz.ru                      | Maybe        | 182.089338ms  |
+| https://nkiri.cc                         | Yes          | 495.456581ms  |
+| https://novafork.com                     | Maybe        | 155.795608ms  |
+| https://novamovie.net                    | Yes          | 250.904853ms  |
+| https://novastream.top                   | Yes          | 364.005838ms  |
+| https://noxe.live                        | Maybe        | 396.371027ms  |
+| https://nunflix-ey9.pages.dev            | Yes          | 183.295036ms  |
+| https://nunflix-firebase.firebaseapp.com | Yes          | 84.675172ms   |
+| https://nunflix-firebase.web.app         | Yes          | 136.236973ms  |
+| https://nunflix.org                      | Yes          | 268.196554ms  |
+| https://nyaa.land                        | Maybe        | 116.049236ms  |
+| https://onhockey.tv                      | Maybe        | N/A           |
+| https://onionplay.asia                   | Maybe        | 386.727454ms  |
+| https://onionplay.network                | Maybe        | 212.217928ms  |
+| https://p.hopmarks.com                   | Yes          | 102.103905ms  |
+| https://plexmovies.online                | Yes          | 463.308734ms  |
+| https://pluto.tv                         | Yes          | 303.359368ms  |
+| https://popcornflix.com                  | Maybe        | N/A           |
+| https://popcornmovies.to                 | Yes          | 430.206423ms  |
+| https://popcorntimeonline.cc             | Yes          | 513.398689ms  |
+| https://pressplay.top                    | Maybe        | 316.213575ms  |
+| https://primeflix-web.vercel.app         | Yes          | 174.133319ms  |
+| https://projectfreetv.biz                | Maybe        | 453.895325ms  |
+| https://projectfreetv.sx                 | Yes          | 412.130939ms  |
+| https://putlocker.pe                     | Yes          | 627.277363ms  |
+| https://r123movie.com                    | Yes          | 526.140243ms  |
+| https://rentry.org                       | Yes          | 531.418783ms  |
+| https://ridomovies.tv                    | Yes          | 564.507459ms  |
+| https://rips.cc                          | Yes          | 476.780577ms  |
+| https://rivestream.live                  | Yes          | 113.054441ms  |
+| https://rivestream.xyz                   | Yes          | 448.401782ms  |
+| https://sflix.to                         | Yes          | 627.083726ms  |
+| https://shout-tv.com                     | Yes          | 322.901019ms  |
+| https://smashy.stream                    | Maybe        | 1.101732691s  |
+| https://smashystream.com                 | Maybe        | 371.372136ms  |
+| https://smashystream.xyz                 | Yes          | 333.478496ms  |
+| https://soaper.live                      | Yes          | 1.003617546s  |
+| https://soaper.tv                        | No           | N/A           |
+| https://soapertv.cc                      | Yes          | 591.046046ms  |
+| https://solarmovie.vip                   | Yes          | 463.981652ms  |
+| https://sport365.stream                  | Yes          | 553.345482ms  |
+| https://sportplus.live                   | Maybe        | 611.763137ms  |
+| https://sportshub.stream                 | Maybe        | 100.092063ms  |
+| https://sportsurge.net                   | Maybe        | 303.293927ms  |
+| https://streamed.su                      | Yes          | 842.441175ms  |
+| https://streamflix.space                 | Yes          | 373.78432ms   |
+| https://streamfr.onrender.com            | Maybe        | 356.760272ms  |
+| https://supernova.to                     | Maybe        | 255.363369ms  |
+| https://therokuchannel.roku.com          | Yes          | 223.252276ms  |
+| https://tubitv.com                       | Yes          | 2.398203127s  |
+| https://upmovies.net                     | Maybe        | N/A           |
+| https://valhallastream.pages.dev         | Yes          | 261.623817ms  |
+| https://valhallastream.us.kg             | Yes          | 223.253454ms  |
+| https://vidcloud1.com                    | Yes          | 548.521305ms  |
+| https://vidplay.org                      | Yes          | 691.281681ms  |
+| https://vidstream.to                     | Yes          | 887.63587ms   |
+| https://viewvault.org                    | Maybe        | 175.807697ms  |
+| https://vumoo.mx                         | Maybe        | N/A           |
+| https://vumoox.to                        | Maybe        | N/A           |
+| https://watch-tvseries.net               | Maybe        | 259.085851ms  |
+| https://watch.autoembed.cc               | Maybe        | 180.08541ms   |
+| https://watch.coen.ovh                   | Yes          | 161.926283ms  |
+| https://watch.foundtv.com                | Yes          | 259.763708ms  |
+| https://watch.inzi.dev                   | Maybe        | 92.4437ms     |
+| https://watch.lonelil.ru                 | Maybe        | 67.432599ms   |
+| https://watch.plex.tv                    | Yes          | 585.572965ms  |
+| https://watch.streamflix.one             | Yes          | 216.419985ms  |
+| https://watch2day.online                 | Yes          | 212.627571ms  |
+| https://watchhq.site                     | Yes          | 265.385631ms  |
+| https://way2movies.vercel.app            | Yes          | 328.320799ms  |
+| https://web.netmovies.to                 | Maybe        | 117.826506ms  |
+| https://ww.putlocker.vip                 | Yes          | 684.894843ms  |
+| https://ww.yesmovies.ag                  | Yes          | 68.817288ms   |
+| https://ww12.soap2dayhd.co               | Yes          | 232.795898ms  |
+| https://ww2.m4ufree.tv                   | No           | N/A           |
+| https://ww2.m4uhd.tv                     | Maybe        | 191.103312ms  |
+| https://ww4.fmovies.co                   | Yes          | 156.637491ms  |
+| https://www.345movies.com                | Yes          | 829.454477ms  |
+| https://www.arte.tv/en                   | Yes          | 382.717999ms  |
+| https://www.bbc.co.uk/iplayer            | Yes          | 313.67345ms   |
+| https://www.cinebook.xyz                 | Yes          | 653.814396ms  |
+| https://www.cineby.ru                    | Yes          | 414.519646ms  |
+| https://www.crackle.com                  | Yes          | 102.306337ms  |
+| https://www.downloads-anymovies.co       | Yes          | 373.679721ms  |
+| https://www.goojara.to                   | Maybe        | 209.849766ms  |
+| https://www.hoopladigital.com            | Yes          | 276.784788ms  |
+| https://www.kaitovault.com               | Yes          | 378.513554ms  |
+| https://www.levidia.ch                   | Yes          | 410.634136ms  |
+| https://www.lookmovie2.to                | Yes          | 644.792018ms  |
+| https://www.playary.com                  | Yes          | 229.466833ms  |
+| https://www.pressplay.top                | Maybe        | 74.939353ms   |
+| https://www.primeflix.lol                | Yes          | 124.019557ms  |
+| https://www.primewire.li                 | No           | N/A           |
+| https://www.primewire.tf                 | Yes          | 412.132257ms  |
+| https://www.rgshows.me                   | Yes          | 222.760298ms  |
+| https://www.soap2day.tf                  | Yes          | 595.875931ms  |
+| https://www.tvids.net                    | Maybe        | 126.176089ms  |
+| https://yassflix.live                    | Yes          | 499.523016ms  |
+| https://yeshd.net                        | Maybe        | 245.750514ms  |
+| https://yoyomovies.net                   | Yes          | 657.610412ms  |
+| https://yugenanime.sx                    | Yes          | 348.235133ms  |
+| https://zilla-xr.xyz                     | Yes          | 120.369919ms  |
+| https://zmov.vercel.app                  | Yes          | 133.564071ms  |
+| https://zmoviess.co                      | Yes          | 1.105655622s  |
+| https://zoechip.cc                       | Yes          | 640.606107ms  |
+| https://zoroxtv.net                      | Maybe        | N/A           |
 
 ---
 
@@ -276,25 +276,25 @@
 
 | Website                 | Speed        |
 | ----------------------- | ------------ |
-| https://123animes.ru    | 1.995029637s |
-| https://123animes.ru    | 1.995029637s |
-| https://123movies.ai    | 649.69689ms  |
-| https://123movies.ai    | 649.69689ms  |
-| https://1hd.to          | 1.214251998s |
-| https://1hd.to          | 1.214251998s |
-| https://321movies.co.uk | 679.05926ms  |
-| https://321movies.co.uk | 679.05926ms  |
-| https://456movie.com    | 225.599935ms |
-| https://456movie.com    | 225.599935ms |
-| https://6movies.stream  | 810.233106ms |
-| https://6movies.stream  | 810.233106ms |
-| https://7plus.com.au    | 70.272129ms  |
-| https://7plus.com.au    | 70.272129ms  |
-| https://9animetv.to     | 298.890184ms |
-| https://9animetv.to     | 298.890184ms |
-| https://afdah2.cyou     | 1.462307188s |
-| https://afdah2.cyou     | 1.462307188s |
-| https://allmanga.to     | 318.678604ms |
+| https://123animes.ru    | 1.546131398s |
+| https://123animes.ru    | 1.546131398s |
+| https://123movies.ai    | 545.612615ms |
+| https://123movies.ai    | 545.612615ms |
+| https://1hd.to          | 1.053259596s |
+| https://1hd.to          | 1.053259596s |
+| https://321movies.co.uk | 506.669391ms |
+| https://321movies.co.uk | 506.669391ms |
+| https://456movie.com    | 266.69323ms  |
+| https://456movie.com    | 266.69323ms  |
+| https://6movies.stream  | 766.117886ms |
+| https://6movies.stream  | 766.117886ms |
+| https://7plus.com.au    | 203.415037ms |
+| https://7plus.com.au    | 203.415037ms |
+| https://9animetv.to     | 394.01923ms  |
+| https://9animetv.to     | 394.01923ms  |
+| https://afdah2.cyou     | 1.085929933s |
+| https://afdah2.cyou     | 1.085929933s |
+| https://allmanga.to     | 545.760932ms |
 
 ---
 
