@@ -57,15 +57,15 @@
 
 ---
 
-## **Comprehensive List of Free Movie Streaming Websites**
-
-[{ALL_FREE_MOVIE_STREAMING_SITES}]
-
----
-
 ## **Top 10 Fastest Free Movie Streaming Websites**
 
 [{FASTEST_FREE_MOVIE_STREAMING}]
+
+---
+
+## **Comprehensive List of Free Movie Streaming Websites**
+
+[{ALL_FREE_MOVIE_STREAMING_SITES}]
 
 ---
 
