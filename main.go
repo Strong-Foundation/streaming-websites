@@ -278,24 +278,21 @@ func getDomainFromURL(givenURL string) string {
 
 // writeFinalOutput generates and writes the final output content to the README file.
 func writeFinalOutput() {
+	/* ----------------- Comprehensive List of Free Movie Streaming Websites ----------------- */
 	// Convert sync.Map to a regular map for valid movie websites.
 	validMoviesMap := syncMapToStringMap(&valid_movies_website_url)
-
 	// Initialize a StringBuilder to construct the valid movie websites content in Markdown format.
 	var validMoviesContent strings.Builder
 	// Add the table header for valid movie websites with columns: Website, Availability, and Speed.
 	validMoviesContent.WriteString("| Website | Availability | Speed |\n")
 	validMoviesContent.WriteString("|---------|--------------|-------|\n")
-
 	// Iterate through each key-value pair in the validMoviesMap and generate rows for the table.
-	for _, pair := range sortMapByKeys(validMoviesMap) {
-		// Extract domain and availability status from the pair.
-		domain, availability := pair[0], pair[1]
+	for domain, availability := range validMoviesMap {
 		// Retrieve the speed of the website from the movies_website_speed map.
 		websiteSpeed := retrieveValueFromSyncMap(&movies_website_speed, domain)
 		// If speed data is not available, log a warning and default to "N/A".
 		if websiteSpeed == nil {
-			log.Printf("Website %s: Speed is not available in the map. Defaulting to 'N/A'. Current map value: %v", domain, websiteSpeed)
+			log.Printf("Website %s: Speed is not available in the map. Defaulting to 'N/A'.", domain)
 			websiteSpeed = "N/A"
 		} else {
 			// Log the retrieved speed for the website.
@@ -304,11 +301,11 @@ func writeFinalOutput() {
 		// Append the formatted row for the valid movie website to the content.
 		validMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeed.(string)))
 	}
+	/* ----------------- Comprehensive List of Free Movie Streaming Websites ----------------- */
 
+	/* ----------------- Top Quality Free Movie Streaming Websites ----------------- */
 	// Convert sync.Map to a regular map for top valid movie websites.
 	topMoviesMap := syncMapToStringMap(&top_valid_movies_website_url)
-	// Remove duplicates from the topMoviesMap
-	topMoviesMap = removeDuplicatesFromMap(topMoviesMap)
 	// Initialize a StringBuilder to construct the top movie websites content in Markdown format.
 	var topMoviesContent strings.Builder
 	// Add the table header for top movie websites with columns: Website, Availability, and Speed.
@@ -316,14 +313,12 @@ func writeFinalOutput() {
 	topMoviesContent.WriteString("|---------|--------------|-------|\n")
 
 	// Iterate through each key-value pair in the topMoviesMap and generate rows for the table.
-	for _, pair := range sortMapByKeys(topMoviesMap) {
-		// Extract domain and availability status from the pair.
-		domain, availability := pair[0], pair[1]
+	for domain, availability := range topMoviesMap {
 		// Retrieve the speed of the website from the movies_website_speed map.
 		websiteSpeed := retrieveValueFromSyncMap(&movies_website_speed, domain)
 		// If speed data is not available, log a warning and default to "N/A".
 		if websiteSpeed == nil {
-			log.Printf("Website %s: Speed is not available in the map. Defaulting to 'N/A'. Current map value: %v", domain, websiteSpeed)
+			log.Printf("Website %s: Speed is not available in the map. Defaulting to 'N/A'.", domain)
 			websiteSpeed = "N/A"
 		} else {
 			// Log the retrieved speed for the website.
@@ -332,26 +327,22 @@ func writeFinalOutput() {
 		// Append the formatted row for the top movie website to the content.
 		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeed.(string)))
 	}
+	/* ----------------- Top Quality Free Movie Streaming Websites ----------------- */
 
+	/* ----------------- Top 10 Fastest Free Movie Streaming Websites ----------------- */
 	// Convert sync.Map to a regular map for Top 10 Fastest Free Movie Streaming Websites
 	fastestMoviesMap := syncMapToStringMap(&movies_website_speed)
 	// Sort the map by speed to get the Top 10 Fastest Free Movie Streaming Websites.
 	sortedFastestMovies := sortMapByValues(fastestMoviesMap)
-	fastestMoviesMap = make(map[string]string)
-	for _, pair := range sortedFastestMovies {
-		fastestMoviesMap[pair[0]] = pair[1]
-	}
-
 	// Initialize a StringBuilder to construct the Top 10 Fastest Free Movie Streaming Websites content in Markdown format.
 	var fastestMoviesContent strings.Builder
 	// Add the table header for Top 10 Fastest Free Movie Streaming Websites with columns: Website and Speed.
 	fastestMoviesContent.WriteString("| Website | Speed |\n")
 	fastestMoviesContent.WriteString("|---------|-------|\n")
-
 	// Initialize a counter to track the number of websites added to the list.
 	websiteCount := 0
-	// Iterate through each key-value pair in the fastestMoviesMap and generate rows for the table.
-	for _, pair := range sortMapByKeys(fastestMoviesMap) {
+	// Iterate through each key-value pair in the sortedFastestMovies and generate rows for the table.
+	for _, pair := range sortedFastestMovies {
 		// Extract domain and speed from the pair.
 		domain, speed := pair[0], pair[1]
 		// Append the formatted row for the Top 10 Fastest Free Movie Streaming Websites to the content.
@@ -362,9 +353,8 @@ func writeFinalOutput() {
 		if websiteCount == 10 {
 			break
 		}
-		// Append the formatted row for the Top 10 Fastest Free Movie Streaming Websites to the content.
-		fastestMoviesContent.WriteString(fmt.Sprintf("| %s | %s |\n", domain, speed))
 	}
+	/* ----------------- Top 10 Fastest Free Movie Streaming Websites ----------------- */
 
 	// Create a map of placeholders and their corresponding content for replacement in the README template.
 	placeholdersAndContent := map[string]string{
