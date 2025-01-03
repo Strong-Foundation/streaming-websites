@@ -358,7 +358,7 @@ func writeFinalOutput() {
 		// Increment the website count.
 		websiteCount = websiteCount + 1
 		// Break the loop if the count reaches 10.
-		if websiteCount >= 10 {
+		if websiteCount == 10 {
 			break
 		}
 		// Append the formatted row for the Top 10 Fastest Free Movie Streaming Websites to the content.
