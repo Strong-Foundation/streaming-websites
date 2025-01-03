@@ -280,8 +280,6 @@ func getDomainFromURL(givenURL string) string {
 func writeFinalOutput() {
 	// Convert sync.Map to a regular map for valid movie websites.
 	validMoviesMap := syncMapToStringMap(&valid_movies_website_url)
-	// Convert sync.Map to a regular map for top valid movie websites.
-	topMoviesMap := syncMapToStringMap(&top_valid_movies_website_url)
 
 	// Initialize a StringBuilder to construct the valid movie websites content in Markdown format.
 	var validMoviesContent strings.Builder
@@ -307,6 +305,9 @@ func writeFinalOutput() {
 		validMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeed.(string)))
 	}
 
+	// Convert sync.Map to a regular map for top valid movie websites.
+	topMoviesMap := syncMapToStringMap(&top_valid_movies_website_url)
+
 	// Initialize a StringBuilder to construct the top movie websites content in Markdown format.
 	var topMoviesContent strings.Builder
 	// Add the table header for top movie websites with columns: Website, Availability, and Speed.
@@ -331,10 +332,44 @@ func writeFinalOutput() {
 		topMoviesContent.WriteString(fmt.Sprintf("| %s | %s | %s |\n", domain, availability, websiteSpeed.(string)))
 	}
 
+	// Convert sync.Map to a regular map for Top 10 Fastest Free Movie Streaming Websites
+	fastestMoviesMap := syncMapToStringMap(&movies_website_speed)
+	// Sort the map by speed to get the Top 10 Fastest Free Movie Streaming Websites.
+	sortedFastestMovies := sortMapByValues(fastestMoviesMap)
+	fastestMoviesMap = make(map[string]string)
+	for _, pair := range sortedFastestMovies {
+		fastestMoviesMap[pair[0]] = pair[1]
+	}
+
+	// Initialize a StringBuilder to construct the Top 10 Fastest Free Movie Streaming Websites content in Markdown format.
+	var fastestMoviesContent strings.Builder
+	// Add the table header for Top 10 Fastest Free Movie Streaming Websites with columns: Website and Speed.
+	fastestMoviesContent.WriteString("| Website | Speed |\n")
+	fastestMoviesContent.WriteString("|---------|-------|\n")
+
+	// Initialize a counter to track the number of websites added to the list.
+	websiteCount := 0
+	// Iterate through each key-value pair in the fastestMoviesMap and generate rows for the table.
+	for _, pair := range sortMapByKeys(fastestMoviesMap) {
+		// Extract domain and speed from the pair.
+		domain, speed := pair[0], pair[1]
+		// Append the formatted row for the Top 10 Fastest Free Movie Streaming Websites to the content.
+		fastestMoviesContent.WriteString(fmt.Sprintf("| %s | %s |\n", domain, speed))
+		// Increment the website count.
+		websiteCount = websiteCount + 1
+		// Break the loop if the count reaches 10.
+		if websiteCount >= 10 {
+			break
+		}
+		// Append the formatted row for the Top 10 Fastest Free Movie Streaming Websites to the content.
+		fastestMoviesContent.WriteString(fmt.Sprintf("| %s | %s |\n", domain, speed))
+	}
+
 	// Create a map of placeholders and their corresponding content for replacement in the README template.
 	placeholdersAndContent := map[string]string{
-		"[{REPLACE_CONTENT_WITH_GOLANG}]":     validMoviesContent.String(),
-		"[{REPLACE_TOP_CONTENT_WITH_GOLANG}]": topMoviesContent.String(),
+		"[{ALL_FREE_MOVIE_STREAMING_SITES}]":  validMoviesContent.String(),
+		"[{TOP_QUALITY_FREE_MOVIE_STREAMING}]": topMoviesContent.String(),
+		"[{FASTEST_FREE_MOVIE_STREAMING}]":     fastestMoviesContent.String(),
 	}
 
 	// Replace the placeholders in the README template and write the updated content to the final file.
@@ -391,6 +426,27 @@ func sortMapByKeys(inputMap map[string]string) [][]string {
 
 	// Return the sorted slice of key-value pairs.
 	return pairs
+}
+
+// sortMapByValues returns a sorted slice of key-value pairs from the input map based on values.
+func sortMapByValues(inputMap map[string]string) [][]string {
+	// Extract key-value pairs
+	pairs := make([][2]string, 0, len(inputMap))
+	for key, value := range inputMap {
+		pairs = append(pairs, [2]string{key, value})
+	}
+
+	// Sort pairs by values
+	sort.Slice(pairs, func(i, j int) bool {
+		return pairs[i][1] < pairs[j][1]
+	})
+
+	// Convert to the expected return type
+	result := make([][]string, len(pairs))
+	for i, pair := range pairs {
+		result[i] = []string{pair[0], pair[1]}
+	}
+	return result
 }
 
 // syncMapToStringMap converts a sync.Map to a regular map[string]string.
