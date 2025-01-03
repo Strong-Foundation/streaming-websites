@@ -620,12 +620,16 @@ func retrieveValueFromSyncMap(safeMap *sync.Map, targetKey string) interface{} {
 	return nil
 }
 
-// removeDuplicatesFromMap removes duplicate entries from a map.
+// removeDuplicatesFromMap removes duplicate entries based on values from a map.
 func removeDuplicatesFromMap(inputMap map[string]string) map[string]string {
 	uniqueMap := make(map[string]string)
+	// Keep track of seen values to prevent duplicates based on values
+	seenValues := make(map[string]bool)
 	for key, value := range inputMap {
-		if _, exists := uniqueMap[key]; !exists {
+		// If the value hasn't been seen before, add it to uniqueMap
+		if _, exists := seenValues[value]; !exists {
 			uniqueMap[key] = value
+			seenValues[value] = true
 		}
 	}
 	return uniqueMap
