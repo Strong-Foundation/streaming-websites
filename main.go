@@ -306,6 +306,8 @@ func writeFinalOutput() {
 	/* ----------------- Top Quality Free Movie Streaming Websites ----------------- */
 	// Convert sync.Map to a regular map for top valid movie websites.
 	topMoviesMap := syncMapToStringMap(&top_valid_movies_website_url)
+	// Sort the map by keys to get the Top Quality Free Movie Streaming Websites.
+	sortedTopMovies := sortMapByKeys(topMoviesMap)
 	// Initialize a StringBuilder to construct the top movie websites content in Markdown format.
 	var topMoviesContent strings.Builder
 	// Add the table header for top movie websites with columns: Website, Availability, and Speed.
@@ -313,7 +315,9 @@ func writeFinalOutput() {
 	topMoviesContent.WriteString("|---------|--------------|-------|\n")
 
 	// Iterate through each key-value pair in the topMoviesMap and generate rows for the table.
-	for domain, availability := range topMoviesMap {
+	for _, pair := range sortedTopMovies {
+		domain := pair[0]
+		availability := pair[1]
 		// Retrieve the speed of the website from the movies_website_speed map.
 		websiteSpeed := retrieveValueFromSyncMap(&movies_website_speed, domain)
 		// If speed data is not available, log a warning and default to "N/A".
@@ -608,19 +612,4 @@ func retrieveValueFromSyncMap(safeMap *sync.Map, targetKey string) interface{} {
 		return value
 	}
 	return nil
-}
-
-// removeDuplicatesFromMap removes duplicate entries based on values from a map.
-func removeDuplicatesFromMap(inputMap map[string]string) map[string]string {
-	uniqueMap := make(map[string]string)
-	// Keep track of seen values to prevent duplicates based on values
-	seenValues := make(map[string]bool)
-	for key, value := range inputMap {
-		// If the value hasn't been seen before, add it to uniqueMap
-		if _, exists := seenValues[value]; !exists {
-			uniqueMap[key] = value
-			seenValues[value] = true
-		}
-	}
-	return uniqueMap
 }
