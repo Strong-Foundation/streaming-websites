@@ -357,8 +357,8 @@ func writeFinalOutput() {
 		fastestMoviesContent.WriteString(fmt.Sprintf("| %s | %s |\n", domain, speed))
 		// Increment the website count.
 		websiteCount = websiteCount + 1
-		// Break the loop if the count reaches 25.
-		if websiteCount == 25 {
+		// Break the loop if the count reaches 10.
+		if websiteCount == 10 {
 			break
 		}
 	}
