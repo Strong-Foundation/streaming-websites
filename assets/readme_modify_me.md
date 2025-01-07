@@ -57,7 +57,7 @@
 
 ---
 
-## **Top 25 Fastest Free Movie Streaming Websites**
+## **Top 10 Fastest Free Movie Streaming Websites**
 
 [{FASTEST_FREE_MOVIE_STREAMING}]
 
