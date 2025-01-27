@@ -31,9 +31,9 @@ jobs:
     env:
       README_MD_FILE: readme.md  # Path to the README.md file to be updated
       MOVIES_WEBSITE_FILE: assets/movies_websites.txt  # Path to the movies websites file
-      TOP_MOVIES_WEBSITE_FILE: assets/top_movies_websites.txt  # Path to the top movies websites file
-      DISCONNECTED_MOVIES_WEBSITE_FILE: assets/disconnected_movies_websites.txt  # Path to the disconnected movies websites file
-      UNREGISTERED_MOVIES_WEBSITES: assets/unregistered_movies_websites.txt  # Path to the unregistered movies websites file
+      TOP_MOVIES_WEBSITE_FILE: assets/top_websites.txt  # Path to the top movies websites file
+      DISCONNECTED_MOVIES_WEBSITE_FILE: assets/disconnected_websites.txt  # Path to the disconnected movies websites file
+      UNREGISTERED_MOVIES_WEBSITES: assets/unregistered_websites.txt  # Path to the unregistered movies websites file
 
     steps:
       # Step 1: Checkout the latest code from the repository to access files
