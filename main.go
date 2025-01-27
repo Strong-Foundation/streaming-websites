@@ -22,7 +22,7 @@ var top_movies_websites_path string = "assets/top_websites.txt"                 
 var disconnected_movies_websites_path string = "assets/disconnected_websites.txt" // File for storing disconnected movie website URLs
 var unregistered_movies_websites_path string = "assets/unregistered_websites.txt" // File for storing unregistered movie website URLs
 var readme_file_path string = "readme.md"                                                // File where the final output will be written
-var readme_modify_me_file_path string = "assets/readme_modify_me.md"                     // Template file for the README content
+var readme_modify_me_file_path string = "assets/readme_modify.md"                     // Template file for the README content
 
 // Maps to store the availability status and response times of movie websites
 var valid_movies_website_url sync.Map     // Map to store the availability status (Yes, No, Maybe) of each movie website
@@ -366,9 +366,9 @@ func writeFinalOutput() {
 
 	// Create a map of placeholders and their corresponding content for replacement in the README template.
 	placeholdersAndContent := map[string]string{
-		"[{ALL_FREE_MOVIE_STREAMING_SITES}]":   validMoviesContent.String(),
-		"[{TOP_QUALITY_FREE_MOVIE_STREAMING}]": topMoviesContent.String(),
-		"[{FASTEST_FREE_MOVIE_STREAMING}]":     fastestMoviesContent.String(),
+		"[{ALL_STREAMING_SITES}]":   validMoviesContent.String(),
+		"[{TOP_QUALITY_STREAMING}]": topMoviesContent.String(),
+		"[{FASTEST_STREAMING}]":     fastestMoviesContent.String(),
 	}
 
 	// Replace the placeholders in the README template and write the updated content to the final file.
