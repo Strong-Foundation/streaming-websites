@@ -18,9 +18,9 @@ import (
 
 // Global variables for the paths to input and output files
 var movies_websites_path string = "assets/movies_websites.txt"                           // File containing the list of movie website URLs
-var top_movies_websites_path string = "assets/top_movies_websites.txt"                   // File containing the list of top movie website URLs
-var disconnected_movies_websites_path string = "assets/disconnected_movies_websites.txt" // File for storing disconnected movie website URLs
-var unregistered_movies_websites_path string = "assets/unregistered_movies_websites.txt" // File for storing unregistered movie website URLs
+var top_movies_websites_path string = "assets/top_websites.txt"                   // File containing the list of top movie website URLs
+var disconnected_movies_websites_path string = "assets/disconnected_websites.txt" // File for storing disconnected movie website URLs
+var unregistered_movies_websites_path string = "assets/unregistered_websites.txt" // File for storing unregistered movie website URLs
 var readme_file_path string = "readme.md"                                                // File where the final output will be written
 var readme_modify_me_file_path string = "assets/readme_modify_me.md"                     // Template file for the README content
 
