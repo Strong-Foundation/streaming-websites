@@ -53,19 +53,19 @@
 
 ## **Editor’s Choice: Top Streaming Websites**
 
-[{TOP_QUALITY_FREE_MOVIE_STREAMING}]
+[{TOP_QUALITY_STREAMING}]
 
 ---
 
 ## **Top 10 Fastest Streaming Websites**
 
-[{FASTEST_FREE_MOVIE_STREAMING}]
+[{FASTEST_STREAMING}]
 
 ---
 
 ## **Comprehensive List of Streaming Websites**
 
-[{ALL_FREE_MOVIE_STREAMING_SITES}]
+[{ALL_STREAMING_SITES}]
 
 ---
 
