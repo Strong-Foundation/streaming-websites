@@ -174,7 +174,9 @@ https://ww4.fmovies.co
 https://www.345movies.com
 https://www.arte.tv/en
 https://www.bbc.co.uk/iplayer
+https://www.bitcine.app
 https://www.cinebook.xyz
+https://www.cineby.app
 https://www.cineby.ru
 https://www.crackle.com
 https://www.downloads-anymovies.co
@@ -200,5 +202,3 @@ https://zmov.vercel.app
 https://zmoviess.co
 https://zoechip.cc
 https://zoroxtv.net
-https://www.bitcine.app
-https://www.cineby.app
