@@ -75,18 +75,21 @@ This guide will show you how to enable the installation of **Manifest V2** exten
    - Copy the script below and paste it into the Console:
 
 ```js
-// Find the disabled button and enable it
-const buttons = Array.from(document.querySelectorAll("button"));
-const targetButton = buttons.find(
-  (btn) =>
-    btn.textContent.includes("Add to Chrome") && btn.hasAttribute("disabled")
+// Select all <button> elements in the document and convert the NodeList to an array
+const allButtons = Array.from(document.querySelectorAll("button"));
+// Search for the first button that has "Add to Chrome" in its text and is disabled
+const addToChromeButton = allButtons.find((button) =>
+  button.textContent.includes("Add to Chrome") && button.hasAttribute("disabled")
 );
-
-if (targetButton) {
-  targetButton.disabled = false; // Enable the button
-  console.log("Button enabled.");
+// Check if the target button was found
+if (!addToChromeButton) {
+  // Log a message if no matching disabled button is found
+  console.log("No disabled 'Add to Chrome' button found.");
 } else {
-  console.log("Button not found or not disabled.");
+  // Enable the button by removing the disabled attribute
+  addToChromeButton.disabled = false;
+  // Log a confirmation message indicating the button was enabled
+  console.log("'Add to Chrome' button has been enabled.");
 }
 ```
 
