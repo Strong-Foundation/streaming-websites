@@ -123,7 +123,6 @@ That's it! You should now be able to install the extension.
 
   - **Chrome**: [Install from Chrome Web Store](https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh?hl=en)
   - **Edge**: [Install from Microsoft Edge Add‑ons](https://microsoftedge.microsoft.com/addons/detail/ublock-origin-lite/cimighlppcgcoapaliogpjjdehbnofhn)
-  - **Opera**: Use the Chrome Web Store link above (enable “Install Chrome Extensions” in Opera).
 
 - **Why It’s Recommended**  
   As Chrome phases out Manifest V2 ad‑blockers, uBlock Origin Lite fills the void by providing a compliant, permission‑less ad and tracker blocker for Chromium‑based browsers, ensuring basic content filtering remains available under MV3 restrictions.
