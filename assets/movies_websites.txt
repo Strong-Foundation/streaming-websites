@@ -10,7 +10,7 @@ https://123moviestv.me
 https://123moviestv.net
 https://1flix.to
 https://1hd.to
-https://1movieshd.cc/home
+https://1movieshd.cc
 https://2kmovie.cc
 https://321movies.co.uk
 https://345movie.net
@@ -33,7 +33,7 @@ https://anime.uniquestream.net
 https://animegg.org
 https://animehub.ac
 https://animekai.bz
-https://animekai.to/home
+https://animekai.to
 https://animekhor.org
 https://animenosub.to
 https://animeonsen.xyz
@@ -47,7 +47,7 @@ https://anitaku.io
 https://aniwatchtv.to
 https://aniworld.to
 https://anizone.to
-https://arc018.to/home
+https://arc018.to
 https://archive.org
 https://asiaflix.net
 https://asianc.org.es
@@ -81,7 +81,7 @@ https://cinemadeck.st
 https://cinemaos-v2.vercel.app
 https://cinemaunlocked.com
 https://cinemull.space
-https://cinetimes.org/en
+https://cinetimes.org
 https://cinezone.to
 https://citysonic.tv
 https://cksub.org
@@ -171,7 +171,7 @@ https://hollymoviehd-official.com
 https://hollymoviehd.cc
 https://homestarrunner.com
 https://huramovies.to
-https://hurawatchz.to/home
+https://hurawatchz.to
 https://hydrahd.ac
 https://hydrahd.cc
 https://hydrahd.info
@@ -233,7 +233,7 @@ https://movies.7xtream.com
 https://movies2watch.cc
 https://movies2watch.tv
 https://moviesjoy.plus
-https://moviesjoytv.to/home
+https://moviesjoytv.to
 https://movietly.com
 https://movieuwutv.top
 https://moviexfilm.com
@@ -246,7 +246,7 @@ https://myanime.live
 https://myflixer.cx
 https://myflixerz.to
 https://myflixerz.vip
-https://myflixtor.tv/home
+https://myflixtor.tv
 https://myrunningman.com
 https://nepu.to
 https://net3lix.world
@@ -276,7 +276,6 @@ https://player.bfi.org.uk/free
 https://playeur.com
 https://plexmovies.online
 https://pluto.tv
-https://pluto.tv/live-tv/rifftrax
 https://popcornflix.com
 https://popcornmovies.to
 https://popcorntimeonline.cc
@@ -298,7 +297,7 @@ https://rips.cc
 https://rivestream.live
 https://rivestream.net
 https://rivestream.org
-https://rivestream.org/kdrama
+https://rivestream.org
 https://rivestream.pages.dev
 https://rivestream.xyz
 https://ronnyflix.xyz
