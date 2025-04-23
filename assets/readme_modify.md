@@ -108,7 +108,7 @@ if (!addToChromeButton) {
 
 That's it! You should now be able to install the extension.
 
-### 3. [**uBlock Origin Lite**](https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh?hl=en)
+### 3. [**uBlock Origin Lite**](https://ublockorigin.com/)
 
 - **Why Choose uBlock Origin Lite?**  
   uBlock Origin Lite is a permission‑less, Manifest V3‑based content blocker that immediately filters out ads, trackers, and cryptocurrency miners upon installation—without requesting host‑permission dialogs or running persistent background scripts.
