@@ -1,9 +1,3 @@
-https://ww.yesmovies.ag
-https://movies2watch.tv
-https://hurawatchtv.tv
-https://vumoo.tube
-https://yomovies.cash
-https://movies4u.co
 http://lekuluent.com
 http://www.colonialfilm.org.uk
 https://0xdb.org
@@ -177,6 +171,7 @@ https://hollymoviehd-official.com
 https://hollymoviehd.cc
 https://homestarrunner.com
 https://huramovies.to
+https://hurawatchtv.tv
 https://hurawatchz.to
 https://hydrahd.ac
 https://hydrahd.cc
@@ -238,6 +233,7 @@ https://movierr.online
 https://movies.7xtream.com
 https://movies2watch.cc
 https://movies2watch.tv
+https://movies4u.co
 https://moviesjoy.plus
 https://moviesjoytv.to
 https://movietly.com
@@ -383,6 +379,7 @@ https://vknext.net
 https://vkvideo.ru
 https://vumeto.com
 https://vumoo.mx
+https://vumoo.tube
 https://vumoox.to
 https://watch-tvseries.net
 https://watch.autoembed.cc
@@ -507,6 +504,7 @@ https://yassflix.net
 https://yeshd.net
 https://yesmovies.ag
 https://yesmovies.mn
+https://yomovies.cash
 https://youtrade.tv
 https://yoyomovies.net
 https://yugenanime.sx
