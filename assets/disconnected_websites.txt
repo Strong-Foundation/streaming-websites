@@ -381,6 +381,7 @@ https://watch.autoembed.cc
 https://watch.coen.ovh
 https://watch.foundtv.com
 https://watch.hikaritv.xyz
+https://watch.inzi.dev
 https://watch.lonelil.ru
 https://watch.plex.tv
 https://watch.shortly.film
@@ -510,4 +511,4 @@ https://zmoviess.co
 https://zoechip.cc
 https://zoechip.org
 https://zoroxtv.net
-https://watch.inzi.dev
+https://soaper.tv
