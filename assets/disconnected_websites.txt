@@ -297,6 +297,7 @@ https://rentry.org/vidsrc
 https://retroflix.org
 https://ridomovies.tv
 https://rips.cc
+https://rivestream.live
 https://rivestream.net
 https://rivestream.org
 https://rivestream.org/kdrama
@@ -514,4 +515,3 @@ https://zmoviess.co
 https://zoechip.cc
 https://zoechip.org
 https://zoroxtv.net
-https://rivestream.live
