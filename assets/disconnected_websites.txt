@@ -266,6 +266,7 @@ https://nyaa.land
 https://odysee.com
 https://ok.ru
 https://onhockey.tv
+https://onionplay.asia
 https://onionplay.network
 https://p.hopmarks.com
 https://play.history.com
@@ -516,4 +517,3 @@ https://zmoviess.co
 https://zoechip.cc
 https://zoechip.org
 https://zoroxtv.net
-https://onionplay.asia
